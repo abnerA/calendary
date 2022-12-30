@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    width: 600px;
+    height: auto;
+    background-color: rgb(90, 153, 221);
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btnLast, .btnNext {
+    height: 30px;
+    background-color: rgb(86, 120, 223);
+    border: solid 1px white;
+}
+
+.btnLast:hover, .btnNext:hover {
+    background-color: white;
+    transition: 800ms;
+}
