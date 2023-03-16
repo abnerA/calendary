@@ -27,19 +27,19 @@ let year = currentYear.toString();
 class Calendary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { month: `${mes}`, año: `${year}`, mes: `${monthNumber}`};
+    this.state = { month: `${mes}`, año: `${year}`, mes: `${monthNumber}` };
     this.lastMonth = this.lastMonth.bind(this);
     this.nextMonth = this.nextMonth.bind(this);
     this.startDay = this.startDay.bind(this);
   }
 
-// Function para saber cual es el primer día del mes
+  // Function para saber cual es el primer día del mes
   startDay() {
-  let start = new Date(this.state.año, this.state.mes, 1);
+    let start = new Date(this.state.año, this.state.mes, 1);
     return start.getDay();
   }
 
-// Button para pasar al mes anterior 
+  // Button para pasar al mes anterior
   lastMonth() {
     if (monthNumber !== 0) {
       monthNumber--;
@@ -55,7 +55,7 @@ class Calendary extends React.Component {
     this.startDay();
   }
 
-// Button para pasar al mes siguiente  
+  // Button para pasar al mes siguiente
   nextMonth() {
     if (monthNumber !== 11) {
       monthNumber++;
@@ -74,12 +74,22 @@ class Calendary extends React.Component {
   render() {
     return (
       <div className={style.container}>
-        <button onClick={this.lastMonth} className={style.btnLast}>&#9664;</button>
-        <h1>
-          {this.state.month} {this.state.año}
-        </h1>
-        <button onClick={this.nextMonth} className={style.btnNext}>&#9654;</button>
-        <Months name={this.state.mes} year={this.state.año} firstDay={this.startDay()}/>
+        <div className={style.navigation}>
+          <button onClick={this.lastMonth} className={style.btnLast}>
+            &#9664;
+          </button>
+          <h1>
+            {this.state.month} {this.state.año}
+          </h1>
+          <button onClick={this.nextMonth} className={style.btnNext}>
+            &#9654;
+          </button>
+        </div>
+        <Months
+          name={this.state.mes}
+          year={this.state.año}
+          firstDay={this.startDay()}
+        />
       </div>
     );
   }
