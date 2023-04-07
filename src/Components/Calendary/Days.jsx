@@ -1,5 +1,6 @@
 import React from "react";
-import style from "./Days.module.css";
+// import style from "./Days.module.css";
+import Day from './Day';
 
 class Days extends React.Component {
   constructor(props) {
@@ -7,11 +8,12 @@ class Days extends React.Component {
     this.state = {
       dia29: "block",
       dia30: "block",
-      dia31: "block"
+      dia31: "block",
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-// Para saber la cantidad total de días que tienes el mes, en el primer Render.
+  // Para saber la cantidad total de días que tienes el mes, en el primer Render.
   componentDidMount() {
     const days = this.props.dias;
     if (days === 28) {
@@ -40,7 +42,7 @@ class Days extends React.Component {
     }
   }
 
-// Para actualizar el Render una vez cambie el valor que tiene la Props
+  // Para actualizar el Render una vez cambie el valor que tiene la Props
   componentDidUpdate(prevProps) {
     if (this.props.dias !== prevProps.dias) {
       const days = this.props.dias;
@@ -70,42 +72,39 @@ class Days extends React.Component {
       }
     }
   }
+  
+  
+  handleClick(e) {
+    // Obtengo el día que ha sido clickeado exactamente
+    let getDia = parseInt(e.target.title);
+
+    // En este constructor de Class verifico el día de la semana
+    // Osea, si es martes o jueves. 
+    let daySelectDate = new Date(`Apr ${getDia} 2023`);
+
+    // Me devuelve el día de la semana
+    let dayWeek = daySelectDate.getDay();
+
+    // eslint-disable-next-line no-mixed-operators 
+    if(this.props.mesActual === this.props.month && dayWeek === 2 || dayWeek === 4) {
+      console.log('Este es el día ' + getDia);
+    } else if (this.props.numMes + 1 === this.props.nextMes && this.props.today > 25) {
+      console.log('Ya te puedes anotar :)');
+    } else if (this.props.numMes - 1 === this.props.nextMes) {
+      console.log('Ya este mes ha pasado');
+    } else {
+      console.log('no es día de predicación pública');
+    }
+  }
 
   render() {
     return (
-      <div className={style.containerDays}>
-        <li style={{ gridColumnStart: this.props.firstDay === 0 ? 7 : this.props.firstDay }}>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li>23</li>
-        <li>24</li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li style={{ display: this.state.dia29 }}>29</li>
-        <li style={{ display: this.state.dia30 }}>30</li>
-        <li style={{ display: this.state.dia31 }}>31</li>
-      </div>
+      <Day firstDay={this.props.firstDay} 
+      today={this.props.today}
+      days29={this.state.dia29}
+      days30={this.state.dia30}
+      days31={this.state.dia31} 
+      handle={this.handleClick} />
     );
   }
 }

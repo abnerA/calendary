@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Calendary.module.css";
-import Months from "./Components/Months";
+import Months from "./Months";
 
 let monthNames = [
   "Enero",
@@ -18,9 +18,11 @@ let monthNames = [
 ];
 
 let currentDate = new Date();
+let today = currentDate.getDate(); // Día del mes
 let monthNumber = currentDate.getMonth(); // Mes
 let currentYear = currentDate.getFullYear(); // Año
 
+let NumeroMes = currentDate.getMonth();
 let mes = monthNames[monthNumber];
 let year = currentYear.toString();
 
@@ -78,9 +80,9 @@ class Calendary extends React.Component {
           <button onClick={this.lastMonth} className={style.btnLast}>
             &#9664;
           </button>
-          <h1>
+          <h4>
             {this.state.month} {this.state.año}
-          </h1>
+          </h4>
           <button onClick={this.nextMonth} className={style.btnNext}>
             &#9654;
           </button>
@@ -89,6 +91,11 @@ class Calendary extends React.Component {
           name={this.state.mes}
           year={this.state.año}
           firstDay={this.startDay()}
+          today={today}
+          mesActual={mes}
+          month={this.state.month}
+          numMes={NumeroMes}
+          nextMes={monthNumber}
         />
       </div>
     );
