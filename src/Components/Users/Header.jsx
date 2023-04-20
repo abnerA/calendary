@@ -8,7 +8,6 @@ const name = ['Abner', 'Rosa', 'Alba', 'Violeta'];
 export function Header() {
     const start = useSelector((state) => state.inicio);
     const dispatch = useDispatch();
-    
         return(
             <header className={style.header}>
                 <h3>Arreglo de Predicación pública</h3>

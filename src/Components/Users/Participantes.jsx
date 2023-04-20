@@ -14,28 +14,31 @@ class Participantes extends React.Component {
 
   }
 
-  componentDidMount()  {
-    // const p = await getPersons();
-    // console.log(p.docs[0].data().name);
-    // this.setState({
-    //     anotados: p.docs[0].data().name
-    // });
-    onValue(tasksRef, (snapshot) => {
-      const data = snapshot.val().andreawu.username;
-      this.setState({
-        anotados: data
-      });
-    });
-  }
+  // componentDidMount()  {
+  // //   // const p = await getPersons();
+  // //   // console.log(p.docs[0].data().name);
+  // //   // this.setState({
+  // //   //     anotados: p.docs[0].data().name
+  // //   // });
+  //   onValue(tasksRef, (snapshot) => {
+  //     const data = snapshot.val().day1.name;
+  //     console.log(data);
+  //     this.setState({
+  //       anotados: data
+  //     });
+  //   });
+  // }
 
   // Add name
   sendPerson(e) {
     let nombre1 = e.target.value;
-
+    
     // savedPersonName(e.target.value);
-    writeUserData("andreawu", `${nombre1}`, "correo@corre.com", "myImageUrl");
+    console.log(nombre1);
+    // writeUserData("andreawu", `${nombre1}`, "nerpa.c@hotmail.com", "myImageUrl");
+
     onValue(tasksRef, (snapshot) => {
-      const data = snapshot.val().andreawu.username;
+      const data = snapshot.val().day1.name;
       this.setState({
         anotados: data
       });
@@ -56,13 +59,13 @@ class Participantes extends React.Component {
     return (
       <div>
         <h3>Participantes:</h3>
-        <button key='1' onClick={this.sendPerson} value='Abner'>Abner</button>
+        {/* <button key='1' onClick={this.sendPerson} value='Abner'>Abner</button>
         <button key='2' onClick={this.sendPerson} value='Juan'>Juan</button>
         <button key='3' onClick={this.sendPerson} value='Manuel'>Manuel</button>
         <button key='4' onClick={this.getPersonsData}>Get</button>
         <h3>{this.state.name}</h3>
         <h2>Anotados:</h2>
-        <h3>{this.state.anotados}</h3>
+        <h3>{this.state.anotados}</h3> */}
       </div>
     );
   }

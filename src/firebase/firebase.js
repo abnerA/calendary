@@ -35,4 +35,46 @@ export function writeUserData(userId, name, email, imageUrl) {
   });
 }
 
+export function addName(userId, name) {
+  const db = getDatabase();
+  const reference = ref(db, "abril/" + userId);
+
+  set(reference, {
+    name: name,
+  });
+}
+
+// addName("day1", ["", "", ""]);
+// addName("day2", ["", "", ""]);
+// addName("day3", ["", "", ""]);
+// addName("day4", ["", "", ""]);
+// addName("day5", ["", "", ""]);
+// addName("day6", ["", "", ""]);
+// addName("day7", ["", "", "",]);
+// addName("day8", ["", "", ""]);
+// addName("day9", ["", "", ""]);
+// addName("day10", ["", "", ""]);
+// addName("day11", ["", "", ""]);
+// addName("day12", ["", "", ""]);
+// addName("day13", ["", "", ""]);
+// addName("day14", ["", "", ""]);
+// addName("day15", ["", "", ""]);
+// addName("day16", ["", "", ""]);
+// addName("day17", ["", "", ""]);
+// addName("day18", ["", "", ""]);
+// addName("day19", ["", "", ""]);
+// addName("day20", ["", "", ""]);
+// addName("day21", ["", "", ""]);
+// addName("day22", ["", "", ""]);
+// addName("day23", ["", "", ""]);
+// addName("day24", ["", "", ""]);
+// addName("day25", ["", "", ""]);
+// addName("day26", ["", "", ""]);
+// addName("day27", ["", "", ""]);
+// addName("day28", ["", "", ""]);
+// addName("day29", ["", "", ""]);
+// addName("day30", ["", "", ""]);
+// addName("day31", ["", "", ""]);
+// addName("month4", 18, ["Violeta", "Rosa", "Carmen"]);
+// addName("month4", 25, ["Violeta", "Rosa", "Carmen"]);
 // writeUserData("andreawu", "pedro", "correo@corre.com", "myImageUrl");
