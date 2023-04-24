@@ -5,8 +5,6 @@ import { modal } from "../../App/features/IniciarSesion";
 import { addName, dataB } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
 
-const tasksRef = ref(dataB, "abril");
-
 function Modal() {
   const start = useSelector((state) => state.inicio);
   const diaSelect = 'day' + start.diaSelect.toString();
@@ -15,26 +13,27 @@ function Modal() {
 
   
   useEffect(() => {
+    const tasksRef = ref(dataB, start.month);
     onValue(tasksRef, (snapshot)  => {
       const data = snapshot.val()[diaSelect].name;
       setName({
         name: data
       })
     });
-  }, [diaSelect]);
+  }, [diaSelect, start.month]);
   
-  
+  //Mañana
   function addName1() {
     let nombres = name.name;
     if (nombres[0] === "" && nombres[1] !==start.name && nombres[2] !==start.name) {
       nombres[0] = start.name;
-      return addName(diaSelect, nombres);
+      return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[1] === "" && nombres[0] !==start.name && nombres[2] !==start.name) {
       nombres[1] = start.name;
-      return addName(diaSelect, nombres);
+      return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[2] === "" && nombres[0] !==start.name && nombres[1] !==start.name) {
       nombres[2] = start.name;
-      return addName(diaSelect, nombres);
+      return addName(diaSelect, nombres, start.month + "/");
     }
   }
 
@@ -42,13 +41,42 @@ function Modal() {
     let nombres = name.name;
     if (nombres[0] === start.name) {
       nombres[0] = "";
-      return addName(diaSelect, nombres);
+      return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[1] === start.name) {
       nombres[1] = "";
-      return addName(diaSelect, nombres);
+      return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[2] === start.name) {
       nombres[2] = "";
-      return addName(diaSelect, nombres);
+      return addName(diaSelect, nombres, start.month + "/");
+    }
+  }
+
+  //Terde
+  function addNameTarde() {
+    let nombres = name.name;
+    if (nombres[3] === "" && nombres[4] !==start.name && nombres[5] !==start.name) {
+      nombres[3] = start.name;
+      return addName(diaSelect, nombres, start.month + "/");
+    } else if (nombres[4] === "" && nombres[3] !==start.name && nombres[5] !==start.name) {
+      nombres[4] = start.name;
+      return addName(diaSelect, nombres, start.month + "/");
+    } else if (nombres[5] === "" && nombres[3] !==start.name && nombres[4] !==start.name) {
+      nombres[5] = start.name;
+      return addName(diaSelect, nombres, start.month + "/");
+    }
+  }
+
+  function deleteNameTarde() {
+    let nombres = name.name;
+    if (nombres[3] === start.name) {
+      nombres[3] = "";
+      return addName(diaSelect, nombres, start.month + "/");
+    } else if (nombres[4] === start.name) {
+      nombres[4] = "";
+      return addName(diaSelect, nombres, start.month + "/");
+    } else if (nombres[5] === start.name) {
+      nombres[5] = "";
+      return addName(diaSelect, nombres, start.month + "/");
     }
   }
 
@@ -74,13 +102,13 @@ function Modal() {
         <div className={style.tarde}>
           <h3>Tarde</h3>
           <div>
-            <p className={style.nombres}>...</p>
-            <p className={style.nombres}>...</p>
-            <p className={style.nombres}>...</p>
+            <p className={style.nombres}>{!name ? '...' : name.name[3]}</p>
+            <p className={style.nombres}>{!name ? '...' : name.name[4]}</p>
+            <p className={style.nombres}>{!name ? '...' : name.name[5]}</p>
           </div>
           <div className={style.btnModal}>
-            <button>Quitarme</button>
-            <button>Anotarme</button>
+            <button onClick={deleteNameTarde}>Quitarme</button>
+            <button onClick={addNameTarde}>Anotarme</button>
           </div>
         </div>
       </div>

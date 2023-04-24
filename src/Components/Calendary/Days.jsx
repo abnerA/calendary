@@ -3,10 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import Day from "./Day";
 import { openModal } from "../../App/features/IniciarSesion";
 
+// let months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
 function Days(props) {
   const [dia29, setDia29] = useState("block");
   const [dia30, setDia30] = useState("block");
   const [dia31, setDia31] = useState("block");
+  // console.log(months[props.numMes + 1]);
 
   const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
@@ -68,12 +71,13 @@ function Days(props) {
     // eslint-disable-next-line no-mixed-operators
     // En este primer if comprobamos si el usuario ya inicio sesión
     if (start.estado) {
-      if ((props.mesActual === props.month && dayWeek === 2) || dayWeek === 4) {
+      if ((props.mesActual === props.month && dayWeek === 2) || dayWeek === 4 || dayWeek === 1) {
         // console.log("Este es el día " + getDia);
-        dispatch(openModal(getDia));
+        dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today > 25) {
+      } else if (props.numMes + 1 === props.nextMes && props.today > 20) {
         console.log("Ya te puedes anotar :)");
+        dispatch(openModal([getDia, props.month]));
       } else if (props.numMes - 1 === props.nextMes) {
         console.log("Ya este mes ha pasado");
       } else {
@@ -91,6 +95,8 @@ function Days(props) {
       days30={dia30}
       days31={dia31}
       handle={handleClick}
+      monthCurrent={props.month}
+      year={props.year}
     />
   );
 }

@@ -4,6 +4,9 @@
 }
 
 .containerDays div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: auto;
     background-color: white;
     margin: 1px;
@@ -22,6 +25,14 @@ h2 {
     text-align: center;
     font-size: 12px;
     margin: 0px;
+}
+
+.dayNone {
+    display: none;
+}
+
+.dayActive {
+    display: block;
 }
 
 p {
@@ -60,6 +71,7 @@ h5 {
 
 hr {
     color: red;
+    width: 100%;
 }
 
 
