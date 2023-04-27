@@ -3,26 +3,6 @@ import style from "./Day.module.css";
 import { dataB } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
 
-// let monthNames = [
-//   "Enero",
-//   "Febrero",
-//   "Marzo",
-//   "Abril",
-//   "Mayo",
-//   "Junio",
-//   "Julio",
-//   "Agosto",
-//   "Septiembre",
-//   "Octubre",
-//   "Noviembre",
-//   "Diciembre",
-// ];
-
-// let currentDate = new Date();
-// let monthNumber = currentDate.getMonth(); // Mes
-// let months = monthNames[monthNumber];
-
-
 
 function month(value) {
   if (value === "Enero") {
@@ -56,6 +36,7 @@ class Day extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      matches: window.matchMedia("(max-width: 700px)").matches,
       day1: [""],
       day2: [""],
       day3: [""],
@@ -91,28 +72,12 @@ class Day extends React.Component {
     this.dayAvailable = this.dayAvailable.bind(this);
   }
   
-  dayAvailable(value) {
-    let mes = month(this.props.monthCurrent);
-    let daySelectDate = new Date(`${mes} ${value} ${this.props.year}`);
-    let dayWeek = daySelectDate.getDay();
-    if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 ) {
-      return style.dayActive;
-    } else {
-      return style.dayNone;
-    }
-  }
-
   componentDidMount() {
-    // //   // const p = await getPersons();
-    // //   // console.log(p.docs[0].data().name);
-    // //   // this.setState({
-    // //   //     anotados: p.docs[0].data().name
-    // //   // });
     const tasksRef = ref(dataB, this.props.monthCurrent);
     onValue(tasksRef, (snapshot) => {
       const data = snapshot.val();
       this.setState({
-        day1: data.day1.name,
+        day1: data.day1.name, 
         day2: data.day2.name,
         day3: data.day3.name,
         day4: data.day4.name,
@@ -142,10 +107,47 @@ class Day extends React.Component {
         day28: data.day28.name,
         day29: data.day29.name,
         day30: data.day30.name,
-        day31: data.day31.name,
+        day31: data.day31.name
       });
     });
+
+    const handler = (e) => this.setState({ matches: e.matches });
+    window.matchMedia("(max-width: 700px)").addEventListener("change", handler);
+
   }
+
+  dayAvailable(value) {
+    let mes = month(this.props.monthCurrent);
+    let daySelectDate = new Date(`${mes} ${value} ${this.props.year}`);
+    let dayWeek = daySelectDate.getDay();
+    if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 ) {
+      return style.dayActive;
+    } else {
+      return style.dayNone;
+    }
+  }
+
+    circleAvalaible(value) {
+    let mq = this.state.matches;
+    let mes = month(this.props.monthCurrent);
+    let daySelectDate = new Date(`${mes} ${value} ${this.props.year}`);
+    let dayWeek = daySelectDate.getDay();
+    if (mq === false) {
+      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4) {
+        return 'none';
+      } else {
+        return 'none';
+      }
+    } else if (mq === true) {
+      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4) {
+        return 'block';
+      } else {
+        return 'none';
+      }
+    }
+  }
+
+
 
   componentDidUpdate(prevProps) {
     if(this.props.monthCurrent !== prevProps.monthCurrent && this.props.year === 2023) {
@@ -203,9 +205,10 @@ class Day extends React.Component {
           <h2 title="1">1</h2>
           <h5 title="1" className={this.dayAvailable(1)}>Mañana</h5>
 
-          {/* <p title="1" className={style.circle}>•</p>
-              <p title="1" className={style.circle}>•</p>
-              <p title="1" className={style.circle}>•</p> */}
+            <p title="1" style={{color: this.state.day1[6], display: this.circleAvalaible(1)}} className={style.circle}>•</p>
+            <p title="1" style={{color: this.state.day1[7], display: this.circleAvalaible(1)}} className={style.circle}>•</p>
+            <p title="1" style={{color: this.state.day1[8], display: this.circleAvalaible(1)}} className={style.circle}>•</p>
+
 
           <p className={style.name} title="1">
             {this.state.day1[0]}
@@ -221,23 +224,23 @@ class Day extends React.Component {
 
           <h5 title="1" className={this.dayAvailable(1)} >Tarde</h5>
 
-          {/* <p title="1" className={style.circle1}>•</p>
-              <p title="1" className={style.circle1}>•</p>
-              <p title="1" className={style.circle1}>•</p> */}
+            <p title="1" style={{color: this.state.day1[9], display: this.circleAvalaible(1)}} className={style.circle}>•</p>
+            <p title="1" style={{color: this.state.day1[10], display: this.circleAvalaible(1)}} className={style.circle}>•</p>
+            <p title="1" style={{color: this.state.day1[11], display: this.circleAvalaible(1)}} className={style.circle}>•</p>
+
+
 
           <p className={style.name} title="1">{this.state.day1[3]}</p>
           <p className={style.name} title="1">{this.state.day1[4]}</p>
           <p className={style.name} title="1">{this.state.day1[5]}</p>
         </div>
-        <div title="2" onClick={this.props.handle}>{this.state.day4[3]}
+        <div title="2" onClick={this.props.handle}>
           <h2 title="2">2</h2>
-          <h5 title="2" className={this.dayAvailable(2)}>
-            Mañana
-          </h5>
+          <h5 title="2" className={this.dayAvailable(2)}>Mañana</h5>
 
-          {/* <p title="2" className={style.circle}>•</p>
-              <p title="2" className={style.circle}>•</p>
-              <p title="2" className={style.circle}>•</p> */}
+              <p title="2" style={{color: this.state.day2[6], display: this.circleAvalaible(2)}} className={style.circle}>•</p>
+              <p title="2" style={{color: this.state.day2[7], display: this.circleAvalaible(2)}} className={style.circle}>•</p>
+              <p title="2" style={{color: this.state.day2[8], display: this.circleAvalaible(2)}} className={style.circle}>•</p>
 
           <p className={style.name} title="2">
             {this.state.day2[0]}
@@ -254,9 +257,9 @@ class Day extends React.Component {
             Tarde
           </h5>
 
-          {/* <p title="1" className={style.circle1}>•</p>
-              <p title="1" className={style.circle1}>•</p>
-              <p title="1" className={style.circle1}>•</p> */}
+              <p title="1" style={{color: this.state.day2[9], display: this.circleAvalaible(2)}} className={style.circle}>•</p>
+              <p title="1" style={{color: this.state.day2[10], display: this.circleAvalaible(2)}} className={style.circle}>•</p>
+              <p title="1" style={{color: this.state.day2[11], display: this.circleAvalaible(2)}} className={style.circle}>•</p>
 
           <p className={style.name} title="2">{this.state.day2[3]}</p>
           <p className={style.name} title="2">{this.state.day2[4]}</p>
@@ -266,9 +269,9 @@ class Day extends React.Component {
           <h2 title="3">3</h2>
           <h5 title="3" className={this.dayAvailable(3)} >Mañana</h5>
 
-          {/* <p title="3" className={style.circle}>•</p>
-              <p title="3" className={style.circle}>•</p>
-              <p title="3" className={style.circle}>•</p> */}
+              <p title="3" style={{color: this.state.day3[6], display: this.circleAvalaible(3)}} className={style.circle}>•</p>
+              <p title="3" style={{color: this.state.day3[7], display: this.circleAvalaible(3)}} className={style.circle}>•</p>
+              <p title="3" style={{color: this.state.day3[8], display: this.circleAvalaible(3)}} className={style.circle}>•</p>
 
           <p className={style.name} title="3">
             {this.state.day3[0]}
@@ -284,9 +287,9 @@ class Day extends React.Component {
 
           <h5 title="3" className={this.dayAvailable(3)} >Tarde</h5>
 
-          {/* <p title="3" className={style.circle1}>•</p>
-              <p title="3" className={style.circle1}>•</p>
-              <p title="3" className={style.circle1}>•</p> */}
+              <p title="3" style={{color: this.state.day3[9], display: this.circleAvalaible(3)}} className={style.circle}>•</p>
+              <p title="3" style={{color: this.state.day3[10], display: this.circleAvalaible(3)}} className={style.circle}>•</p>
+              <p title="3" style={{color: this.state.day3[11], display: this.circleAvalaible(3)}} className={style.circle}>•</p>
 
           <p className={style.name} title="3">{this.state.day3[3]}</p>
           <p className={style.name} title="3">{this.state.day3[4]}</p>
@@ -297,10 +300,11 @@ class Day extends React.Component {
           <h5 title="4" className={this.dayAvailable(4)}>
             Mañana
           </h5>
-{/* 
-          <p title="4" className={style.circle}>•</p>
-          <p title="4" className={style.circle}>•</p>
-          <p title="4" className={style.circle}>•</p> */}
+
+            <p title="4" style={{color: this.state.day4[6], display: this.circleAvalaible(4)}} className={style.circle}>•</p>
+            <p title="4" style={{color: this.state.day4[7], display: this.circleAvalaible(4)}} className={style.circle}>•</p>
+            <p title="4" style={{color: this.state.day4[8], display: this.circleAvalaible(4)}} className={style.circle}>•</p>
+
 
           <p className={style.name} title="4">
             {this.state.day4[0]}
@@ -318,9 +322,9 @@ class Day extends React.Component {
             Tarde
           </h5>
 
-          {/* <p title="4" className={style.circle1}>•</p>
-          <p title="4" className={style.circle1}>•</p>
-          <p title="4" className={style.circle1}>•</p> */}
+            <p title="4" style={{color: this.state.day4[9], display: this.circleAvalaible(4)}} className={style.circle}>•</p>
+            <p title="4" style={{color: this.state.day4[10], display: this.circleAvalaible(4)}} className={style.circle}>•</p>
+            <p title="4" style={{color: this.state.day4[11], display: this.circleAvalaible(4)}} className={style.circle}>•</p>
 
           <p className={style.name} title="4">{this.state.day4[3]}</p>
           <p className={style.name} title="4">{this.state.day4[4]}</p>
@@ -330,9 +334,9 @@ class Day extends React.Component {
           <h2 title="5">5</h2>
           <h5 title="5" className={this.dayAvailable(5)} >Mañana</h5>
 
-          {/* <p title="5" className={style.circle}>•</p>
-              <p title="5" className={style.circle}>•</p>
-              <p title="5" className={style.circle}>•</p> */}
+              <p title="5" style={{color: this.state.day5[6], display: this.circleAvalaible(5)}} className={style.circle}>•</p>
+              <p title="5" style={{color: this.state.day5[7], display: this.circleAvalaible(5)}} className={style.circle}>•</p>
+              <p title="5" style={{color: this.state.day5[8], display: this.circleAvalaible(5)}} className={style.circle}>•</p>
 
           <p className={style.name} title="5">
             {this.state.day5[0]}
@@ -347,9 +351,10 @@ class Day extends React.Component {
           <hr title="5" className={this.dayAvailable(5)} />
 
           <h5 title="5" className={this.dayAvailable(5)} >Tarde</h5>
-          {/* <p title="5" className={style.circle1}>•</p>
-              <p title="5" className={style.circle1}>•</p>
-              <p title="5" className={style.circle1}>•</p> */}
+
+              <p title="5" style={{color: this.state.day5[9], display: this.circleAvalaible(5)}} className={style.circle}>•</p>
+              <p title="5" style={{color: this.state.day5[10], display: this.circleAvalaible(5)}} className={style.circle}>•</p>
+              <p title="5" style={{color: this.state.day5[11], display: this.circleAvalaible(5)}} className={style.circle}>•</p>
 
           <p className={style.name} title="5">{this.state.day5[3]}</p>
           <p className={style.name} title="5">{this.state.day5[4]}</p>
@@ -359,9 +364,9 @@ class Day extends React.Component {
           <h2 title="6">6</h2>
           <h5 title="6" className={this.dayAvailable(6)} >Mañana</h5>
 
-          {/* <p title="6" className={style.circle}>•</p>
-              <p title="6" className={style.circle}>•</p>
-              <p title="6" className={style.circle}>•</p> */}
+              <p title="6" style={{color: this.state.day6[6], display: this.circleAvalaible(6)}} className={style.circle}>•</p>
+              <p title="6" style={{color: this.state.day6[7], display: this.circleAvalaible(6)}} className={style.circle}>•</p>
+              <p title="6" style={{color: this.state.day6[8], display: this.circleAvalaible(6)}} className={style.circle}>•</p>
 
           <p className={style.name} title="6">
             {this.state.day6[0]}
@@ -377,9 +382,9 @@ class Day extends React.Component {
 
           <h5 title="6" className={this.dayAvailable(6)}>Tarde</h5>
 
-          {/* <p title="6" className={style.circle1}>•</p>
-              <p title="6" className={style.circle1}>•</p>
-              <p title="6" className={style.circle1}>•</p> */}
+              <p title="6" style={{color: this.state.day6[9], display: this.circleAvalaible(6)}} className={style.circle}>•</p>
+              <p title="6" style={{color: this.state.day6[10], display: this.circleAvalaible(6)}} className={style.circle}>•</p>
+              <p title="6" style={{color: this.state.day6[11], display: this.circleAvalaible(6)}} className={style.circle}>•</p>
 
           <p className={style.name} title="6">{this.state.day6[3]}</p>
           <p className={style.name} title="6">{this.state.day6[4]}</p>
@@ -389,9 +394,9 @@ class Day extends React.Component {
           <h2 title="7">7</h2>
           <h5 title="7" className={this.dayAvailable(7)} >Mañana</h5>
 
-          {/* <p title="7" className={style.circle}>•</p>
-              <p title="7" className={style.circle}>•</p>
-              <p title="7" className={style.circle}>•</p> */}
+              <p title="7" style={{color: this.state.day7[6], display: this.circleAvalaible(7)}} className={style.circle}>•</p>
+              <p title="7" style={{color: this.state.day7[7], display: this.circleAvalaible(7)}} className={style.circle}>•</p>
+              <p title="7" style={{color: this.state.day7[8], display: this.circleAvalaible(7)}} className={style.circle}>•</p>
 
           <p className={style.name} title="7">
             {this.state.day7[0]}
@@ -407,9 +412,9 @@ class Day extends React.Component {
 
           <h5 title="7" className={this.dayAvailable(7)}>Tarde</h5>
 
-          {/* <p title="7" className={style.circle1}>•</p>
-              <p title="7" className={style.circle1}>•</p>
-              <p title="7" className={style.circle1}>•</p> */}
+              <p title="7" style={{color: this.state.day7[9], display: this.circleAvalaible(7)}} className={style.circle}>•</p>
+              <p title="7" style={{color: this.state.day7[10], display: this.circleAvalaible(7)}} className={style.circle}>•</p>
+              <p title="7" style={{color: this.state.day7[11], display: this.circleAvalaible(7)}} className={style.circle}>•</p>
 
           <p className={style.name} title="7">{this.state.day7[3]}</p>
           <p className={style.name} title="7">{this.state.day7[4]}</p>
@@ -419,9 +424,9 @@ class Day extends React.Component {
           <h2 title="8">8</h2>
           <h5 title="8" className={this.dayAvailable(8)} >Mañana</h5>
 
-          {/* <p title="8" className={style.circle}>•</p>
-              <p title="8" className={style.circle}>•</p>
-              <p title="8" className={style.circle}>•</p> */}
+              <p title="8" style={{color: this.state.day8[6], display: this.circleAvalaible(8)}} className={style.circle}>•</p>
+              <p title="8" style={{color: this.state.day8[7], display: this.circleAvalaible(8)}} className={style.circle}>•</p>
+              <p title="8" style={{color: this.state.day8[8], display: this.circleAvalaible(8)}} className={style.circle}>•</p>
 
           <p className={style.name} title="8">
             {this.state.day8[0]}
@@ -437,9 +442,9 @@ class Day extends React.Component {
 
           <h5 title="8" className={this.dayAvailable(8)} >Tarde</h5>
 
-          {/* <p title="8" className={style.circle1}>•</p>
-              <p title="8" className={style.circle1}>•</p>
-              <p title="8" className={style.circle1}>•</p> */}
+              <p title="8" style={{color: this.state.day8[9], display: this.circleAvalaible(8)}} className={style.circle}>•</p>
+              <p title="8" style={{color: this.state.day8[10], display: this.circleAvalaible(8)}} className={style.circle}>•</p>
+              <p title="8" style={{color: this.state.day8[11], display: this.circleAvalaible(8)}} className={style.circle}>•</p>
 
           <p className={style.name} title="8">{this.state.day8[3]}</p>
           <p className={style.name} title="8">{this.state.day8[4]}</p>
@@ -449,9 +454,9 @@ class Day extends React.Component {
           <h2 title="9">9</h2>
           <h5 title="9" className={this.dayAvailable(9)} >Mañana</h5>
 
-          {/* <p title="9" className={style.circle}>•</p>
-              <p title="9" className={style.circle}>•</p>
-              <p title="9" className={style.circle}>•</p> */}
+              <p title="9" style={{color: this.state.day9[6], display: this.circleAvalaible(9)}} className={style.circle}>•</p>
+              <p title="9" style={{color: this.state.day9[7], display: this.circleAvalaible(9)}} className={style.circle}>•</p>
+              <p title="9" style={{color: this.state.day9[8], display: this.circleAvalaible(9)}} className={style.circle}>•</p>
 
           <p className={style.name} title="9">
             {this.state.day9[0]}
@@ -467,9 +472,9 @@ class Day extends React.Component {
 
           <h5 title="9" className={this.dayAvailable(9)} >Tarde</h5>
 
-          {/* <p title="9" className={style.circle1}>•</p>
-              <p title="9" className={style.circle1}>•</p>
-              <p title="9" className={style.circle1}>•</p> */}
+              <p title="9" style={{color: this.state.day9[9], display: this.circleAvalaible(9)}} className={style.circle}>•</p>
+              <p title="9" style={{color: this.state.day9[10], display: this.circleAvalaible(9)}} className={style.circle}>•</p>
+              <p title="9" style={{color: this.state.day9[11], display: this.circleAvalaible(9)}} className={style.circle}>•</p>
 
           <p className={style.name} title="9">{this.state.day9[3]}</p>
           <p className={style.name} title="9">{this.state.day9[4]}</p>
@@ -479,9 +484,9 @@ class Day extends React.Component {
           <h2 title="10">10</h2>
           <h5 title="10" className={this.dayAvailable(10)} >Mañana</h5>
 
-          {/* <p title="10" className={style.circle}>•</p>
-              <p title="10" className={style.circle}>•</p>
-              <p title="10" className={style.circle}>•</p> */}
+              <p title="10" style={{color: this.state.day10[6], display: this.circleAvalaible(10)}} className={style.circle}>•</p>
+              <p title="10" style={{color: this.state.day10[7], display: this.circleAvalaible(10)}} className={style.circle}>•</p>
+              <p title="10" style={{color: this.state.day10[8], display: this.circleAvalaible(10)}} className={style.circle}>•</p>
 
           <p className={style.name} title="10">
             {this.state.day10[0]}
@@ -497,9 +502,9 @@ class Day extends React.Component {
 
           <h5 title="10" className={this.dayAvailable(10)} >Tarde</h5>
 
-          {/* <p title="10" className={style.circle1}>•</p>
-              <p title="10" className={style.circle1}>•</p>
-              <p title="10" className={style.circle1}>•</p> */}
+              <p title="10" style={{color: this.state.day10[9], display: this.circleAvalaible(10)}} className={style.circle}>•</p>
+              <p title="10" style={{color: this.state.day10[10], display: this.circleAvalaible(10)}} className={style.circle}>•</p>
+              <p title="10" style={{color: this.state.day10[11], display: this.circleAvalaible(10)}} className={style.circle}>•</p>
 
           <p className={style.name} title="10">{this.state.day10[3]}</p>
           <p className={style.name} title="10">{this.state.day10[4]}</p>
@@ -509,9 +514,9 @@ class Day extends React.Component {
           <h2 title="11">11</h2>
           <h5 title="11" className={this.dayAvailable(11)} >Mañana</h5>
 
-          {/* <p title="11" className={style.circle}>•</p>
-              <p title="11" className={style.circle}>•</p>
-              <p title="11" className={style.circle}>•</p> */}
+              <p title="11" style={{color: this.state.day11[6], display: this.circleAvalaible(11)}} className={style.circle}>•</p>
+              <p title="11" style={{color: this.state.day11[7], display: this.circleAvalaible(11)}} className={style.circle}>•</p>
+              <p title="11" style={{color: this.state.day11[8], display: this.circleAvalaible(11)}} className={style.circle}>•</p>
 
           <p className={style.name} title="11">
             {this.state.day11[0]}
@@ -527,9 +532,9 @@ class Day extends React.Component {
 
           <h5 title="11" className={this.dayAvailable(11)} >Tarde</h5>
 
-          {/* <p title="11" className={style.circle1}>•</p>
-              <p title="11" className={style.circle1}>•</p>
-              <p title="11" className={style.circle1}>•</p> */}
+              <p title="11" style={{color: this.state.day11[9], display: this.circleAvalaible(11)}} className={style.circle}>•</p>
+              <p title="11" style={{color: this.state.day11[10], display: this.circleAvalaible(11)}} className={style.circle}>•</p>
+              <p title="11" style={{color: this.state.day11[11], display: this.circleAvalaible(11)}} className={style.circle}>•</p>
 
           <p className={style.name} title="11">{this.state.day11[3]}</p>
           <p className={style.name} title="11">{this.state.day11[4]}</p>
@@ -539,9 +544,9 @@ class Day extends React.Component {
           <h2 title="12">12</h2>
           <h5 title="12" className={this.dayAvailable(12)} >Mañana</h5>
 
-          {/* <p title="12" className={style.circle}>•</p>
-              <p title="12" className={style.circle}>•</p>
-              <p title="12" className={style.circle}>•</p> */}
+              <p title="12" style={{color: this.state.day12[6], display: this.circleAvalaible(12)}} className={style.circle}>•</p>
+              <p title="12" style={{color: this.state.day12[7], display: this.circleAvalaible(12)}} className={style.circle}>•</p>
+              <p title="12" style={{color: this.state.day12[8], display: this.circleAvalaible(12)}} className={style.circle}>•</p>
 
           <p className={style.name} title="12">
             {this.state.day12[0]}
@@ -557,9 +562,9 @@ class Day extends React.Component {
 
           <h5 title="12" className={this.dayAvailable(12)}>Tarde</h5>
 
-          {/* <p title="12" className={style.circle1}>•</p>
-              <p title="12" className={style.circle1}>•</p>
-              <p title="12" className={style.circle1}>•</p> */}
+              <p title="12" style={{color: this.state.day12[9], display: this.circleAvalaible(12)}} className={style.circle}>•</p>
+              <p title="12" style={{color: this.state.day12[10], display: this.circleAvalaible(12)}} className={style.circle}>•</p>
+              <p title="12" style={{color: this.state.day12[11], display: this.circleAvalaible(12)}} className={style.circle}>•</p>
 
           <p className={style.name} title="12">{this.state.day12[3]}</p>
           <p className={style.name} title="12">{this.state.day12[4]}</p>
@@ -569,9 +574,9 @@ class Day extends React.Component {
           <h2 title="13">13</h2>
           <h5 title="13" className={this.dayAvailable(13)}>Mañana</h5>
 
-          {/* <p title="13" className={style.circle}>•</p>
-              <p title="13" className={style.circle}>•</p>
-              <p title="13" className={style.circle}>•</p> */}
+              <p title="13" style={{color: this.state.day13[6], display: this.circleAvalaible(13)}} className={style.circle}>•</p>
+              <p title="13" style={{color: this.state.day13[7], display: this.circleAvalaible(13)}} className={style.circle}>•</p>
+              <p title="13" style={{color: this.state.day13[8], display: this.circleAvalaible(13)}} className={style.circle}>•</p>
 
           <p className={style.name} title="13">
             {this.state.day13[0]}
@@ -587,9 +592,9 @@ class Day extends React.Component {
 
           <h5 title="13" className={this.dayAvailable(13)}>Tarde</h5>
 
-          {/* <p title="13" className={style.circle1}>•</p>
-              <p title="13" className={style.circle1}>•</p>
-              <p title="13" className={style.circle1}>•</p> */}
+              <p title="13" style={{color: this.state.day13[9], display: this.circleAvalaible(13)}} className={style.circle}>•</p>
+              <p title="13" style={{color: this.state.day13[10], display: this.circleAvalaible(13)}} className={style.circle}>•</p>
+              <p title="13" style={{color: this.state.day13[11], display: this.circleAvalaible(13)}} className={style.circle}>•</p>
 
           <p className={style.name} title="13">{this.state.day13[3]}</p>
           <p className={style.name} title="13">{this.state.day13[4]}</p>
@@ -599,9 +604,9 @@ class Day extends React.Component {
           <h2 title="14">14</h2>
           <h5 title="14" className={this.dayAvailable(14)}>Mañana</h5>
 
-          {/* <p title="14" className={style.circle}>•</p>
-              <p title="14" className={style.circle}>•</p>
-              <p title="14" className={style.circle}>•</p> */}
+              <p title="14" style={{color: this.state.day14[6], display: this.circleAvalaible(14)}} className={style.circle}>•</p>
+              <p title="14" style={{color: this.state.day14[7], display: this.circleAvalaible(14)}} className={style.circle}>•</p>
+              <p title="14" style={{color: this.state.day14[8], display: this.circleAvalaible(14)}} className={style.circle}>•</p>
 
           <p className={style.name} title="14">
             {this.state.day14[0]}
@@ -617,9 +622,9 @@ class Day extends React.Component {
 
           <h5 title="14" className={this.dayAvailable(14)}>Tarde</h5>
 
-          {/* <p title="14" className={style.circle1}>•</p>
-              <p title="14" className={style.circle1}>•</p>
-              <p title="14" className={style.circle1}>•</p> */}
+              <p title="14" style={{color: this.state.day14[9], display: this.circleAvalaible(14)}} className={style.circle}>•</p>
+              <p title="14" style={{color: this.state.day14[10], display: this.circleAvalaible(14)}} className={style.circle}>•</p>
+              <p title="14" style={{color: this.state.day14[11], display: this.circleAvalaible(14)}} className={style.circle}>•</p>
 
           <p className={style.name} title="14">{this.state.day14[3]}</p>
           <p className={style.name} title="14">{this.state.day14[4]}</p>
@@ -629,9 +634,9 @@ class Day extends React.Component {
           <h2 title="15">15</h2>
           <h5 title="15" className={this.dayAvailable(15)}>Mañana</h5>
 
-          {/* <p title="15" className={style.circle}>•</p>
-              <p title="15" className={style.circle}>•</p>
-              <p title="15" className={style.circle}>•</p> */}
+              <p title="15" style={{color: this.state.day15[6], display: this.circleAvalaible(15)}} className={style.circle}>•</p>
+              <p title="15" style={{color: this.state.day15[7], display: this.circleAvalaible(15)}} className={style.circle}>•</p>
+              <p title="15" style={{color: this.state.day15[8], display: this.circleAvalaible(15)}} className={style.circle}>•</p>
 
           <p className={style.name} title="15">
             {this.state.day15[0]}
@@ -647,9 +652,9 @@ class Day extends React.Component {
 
           <h5 title="15" className={this.dayAvailable(15)}>Tarde</h5>
 
-          {/* <p title="15" className={style.circle1}>•</p>
-              <p title="15" className={style.circle1}>•</p>
-              <p title="15" className={style.circle1}>•</p> */}
+              <p title="15" style={{color: this.state.day15[9], display: this.circleAvalaible(15)}} className={style.circle}>•</p>
+              <p title="15" style={{color: this.state.day15[10], display: this.circleAvalaible(15)}} className={style.circle}>•</p>
+              <p title="15" style={{color: this.state.day15[11], display: this.circleAvalaible(15)}} className={style.circle}>•</p>
 
           <p className={style.name} title="15">{this.state.day15[3]}</p>
           <p className={style.name} title="15">{this.state.day15[4]}</p>
@@ -659,9 +664,9 @@ class Day extends React.Component {
           <h2 title="16">16</h2>
           <h5 title="16" className={this.dayAvailable(16)}>Mañana</h5>
 
-          {/* <p title="16" className={style.circle}>•</p>
-              <p title="16" className={style.circle}>•</p>
-              <p title="16" className={style.circle}>•</p> */}
+              <p title="16" style={{color: this.state.day16[6], display: this.circleAvalaible(16)}} className={style.circle}>•</p>
+              <p title="16" style={{color: this.state.day16[7], display: this.circleAvalaible(16)}} className={style.circle}>•</p>
+              <p title="16" style={{color: this.state.day16[8], display: this.circleAvalaible(16)}} className={style.circle}>•</p>
 
           <p className={style.name} title="16">
             {this.state.day16[0]}
@@ -677,9 +682,9 @@ class Day extends React.Component {
 
           <h5 title="16" className={this.dayAvailable(16)}>Tarde</h5>
 
-          {/* <p title="16" className={style.circle1}>•</p>
-              <p title="16" className={style.circle1}>•</p>
-              <p title="16" className={style.circle1}>•</p> */}
+              <p title="16" style={{color: this.state.day16[9], display: this.circleAvalaible(16)}} className={style.circle}>•</p>
+              <p title="16" style={{color: this.state.day16[10], display: this.circleAvalaible(16)}} className={style.circle}>•</p>
+              <p title="16" style={{color: this.state.day16[11], display: this.circleAvalaible(16)}} className={style.circle}>•</p>
 
           <p className={style.name} title="16">{this.state.day16[3]}</p>
           <p className={style.name} title="16">{this.state.day16[4]}</p>
@@ -689,9 +694,9 @@ class Day extends React.Component {
           <h2 title="17">17</h2>
           <h5 title="17" className={this.dayAvailable(17)}>Mañana</h5>
 
-          {/* <p title="17" className={style.circle}>•</p>
-              <p title="17" className={style.circle}>•</p>
-              <p title="17" className={style.circle}>•</p> */}
+              <p title="17" style={{color: this.state.day17[6], display: this.circleAvalaible(17)}} className={style.circle}>•</p>
+              <p title="17" style={{color: this.state.day17[7], display: this.circleAvalaible(17)}} className={style.circle}>•</p>
+              <p title="17" style={{color: this.state.day17[8], display: this.circleAvalaible(17)}} className={style.circle}>•</p>
 
           <p className={style.name} title="17">
             {this.state.day17[0]}
@@ -707,9 +712,9 @@ class Day extends React.Component {
 
           <h5 title="17" className={this.dayAvailable(17)} >Tarde</h5>
 
-          {/* <p title="17" className={style.circle1}>•</p>
-              <p title="17" className={style.circle1}>•</p>
-              <p title="17" className={style.circle1}>•</p> */}
+              <p title="17" style={{color: this.state.day17[9], display: this.circleAvalaible(17)}} className={style.circle}>•</p>
+              <p title="17" style={{color: this.state.day17[10], display: this.circleAvalaible(17)}} className={style.circle}>•</p>
+              <p title="17" style={{color: this.state.day17[11], display: this.circleAvalaible(17)}} className={style.circle}>•</p>
 
           <p className={style.name} title="17">{this.state.day17[3]}</p>
           <p className={style.name} title="17">{this.state.day17[4]}</p>
@@ -719,9 +724,9 @@ class Day extends React.Component {
           <h2 title="18">18</h2>
           <h5 title="18" className={this.dayAvailable(18)}>Mañana</h5>
 
-          {/* <p title="18" className={style.circle}>•</p>
-              <p title="18" className={style.circle}>•</p>
-              <p title="18" className={style.circle}>•</p> */}
+              <p title="18" style={{color: this.state.day18[6], display: this.circleAvalaible(18)}} className={style.circle}>•</p>
+              <p title="18" style={{color: this.state.day18[7], display: this.circleAvalaible(18)}} className={style.circle}>•</p>
+              <p title="18" style={{color: this.state.day18[8], display: this.circleAvalaible(18)}} className={style.circle}>•</p>
 
           <p className={style.name} title="18">
             {this.state.day18[0]}
@@ -737,9 +742,9 @@ class Day extends React.Component {
 
           <h5 title="18" className={this.dayAvailable(18)}>Tarde</h5>
 
-          {/* <p title="18" className={style.circle1}>•</p>
-              <p title="18" className={style.circle1}>•</p>
-              <p title="18" className={style.circle1}>•</p> */}
+              <p title="18" style={{color: this.state.day18[9], display: this.circleAvalaible(18)}} className={style.circle}>•</p>
+              <p title="18" style={{color: this.state.day18[10], display: this.circleAvalaible(18)}} className={style.circle}>•</p>
+              <p title="18" style={{color: this.state.day18[11], display: this.circleAvalaible(18)}} className={style.circle}>•</p>
 
           <p className={style.name} title="18">{this.state.day18[3]}</p>
           <p className={style.name} title="18">{this.state.day18[4]}</p>
@@ -749,9 +754,9 @@ class Day extends React.Component {
           <h2 title="19">19</h2>
           <h5 title="19" className={this.dayAvailable(19)}>Mañana</h5>
 
-          {/* <p title="19" className={style.circle}>•</p>
-              <p title="19" className={style.circle}>•</p>
-              <p title="19" className={style.circle}>•</p> */}
+              <p title="19" style={{color: this.state.day19[6], display: this.circleAvalaible(19)}} className={style.circle}>•</p>
+              <p title="19" style={{color: this.state.day19[7], display: this.circleAvalaible(19)}} className={style.circle}>•</p>
+              <p title="19" style={{color: this.state.day19[8], display: this.circleAvalaible(19)}} className={style.circle}>•</p>
 
           <p className={style.name} title="19">
             {this.state.day19[0]}
@@ -767,9 +772,9 @@ class Day extends React.Component {
 
           <h5 title="19" className={this.dayAvailable(19)}>Tarde</h5>
 
-          {/* <p title="19" className={style.circle1}>•</p>
-              <p title="19" className={style.circle1}>•</p>
-              <p title="19" className={style.circle1}>•</p> */}
+              <p title="19" style={{color: this.state.day19[9], display: this.circleAvalaible(19)}} className={style.circle}>•</p>
+              <p title="19" style={{color: this.state.day19[10], display: this.circleAvalaible(19)}} className={style.circle}>•</p>
+              <p title="19" style={{color: this.state.day19[11], display: this.circleAvalaible(19)}} className={style.circle}>•</p>
 
           <p className={style.name} title="19">{this.state.day19[3]}</p>
           <p className={style.name} title="19">{this.state.day19[4]}</p>
@@ -779,9 +784,9 @@ class Day extends React.Component {
           <h2 title="20">20</h2>
           <h5 title="20" className={this.dayAvailable(20)}>Mañana</h5>
 
-          {/* <p title="20" className={style.circle}>•</p>
-              <p title="20" className={style.circle}>•</p>
-              <p title="20" className={style.circle}>•</p> */}
+              <p title="20" style={{color: this.state.day20[6], display: this.circleAvalaible(20)}} className={style.circle}>•</p>
+              <p title="20" style={{color: this.state.day20[7], display: this.circleAvalaible(20)}} className={style.circle}>•</p>
+              <p title="20" style={{color: this.state.day20[8], display: this.circleAvalaible(20)}} className={style.circle}>•</p>
 
           <p className={style.name} title="20">
             {this.state.day20[0]}
@@ -797,9 +802,9 @@ class Day extends React.Component {
 
           <h5 title="20" className={this.dayAvailable(20)} >Tarde</h5>
 
-          {/* <p title="20" className={style.circle1}>•</p>
-              <p title="20" className={style.circle1}>•</p>
-              <p title="20" className={style.circle1}>•</p> */}
+              <p title="20" style={{color: this.state.day20[9], display: this.circleAvalaible(20)}} className={style.circle}>•</p>
+              <p title="20" style={{color: this.state.day20[10], display: this.circleAvalaible(20)}} className={style.circle}>•</p>
+              <p title="20" style={{color: this.state.day20[11], display: this.circleAvalaible(20)}} className={style.circle}>•</p>
 
           <p className={style.name} title="20">{this.state.day20[3]}</p>
           <p className={style.name} title="20">{this.state.day20[4]}</p>
@@ -809,9 +814,9 @@ class Day extends React.Component {
           <h2 title="21">21</h2>
           <h5 title="21" className={this.dayAvailable(21)}>Mañana</h5>
 
-          {/* <p title="21" className={style.circle}>•</p>
-              <p title="21" className={style.circle}>•</p>
-              <p title="21" className={style.circle}>•</p> */}
+              <p title="21" style={{color: this.state.day21[6], display: this.circleAvalaible(21)}} className={style.circle}>•</p>
+              <p title="21" style={{color: this.state.day21[7], display: this.circleAvalaible(21)}} className={style.circle}>•</p>
+              <p title="21" style={{color: this.state.day21[8], display: this.circleAvalaible(21)}} className={style.circle}>•</p>
 
           <p className={style.name} title="21">
             {this.state.day21[0]}
@@ -827,9 +832,9 @@ class Day extends React.Component {
 
           <h5 title="21" className={this.dayAvailable(21)}>Tarde</h5>
 
-          {/* <p title="21" className={style.circle1}>•</p>
-              <p title="21" className={style.circle1}>•</p>
-              <p title="21" className={style.circle1}>•</p> */}
+              <p title="21" style={{color: this.state.day21[9], display: this.circleAvalaible(21)}} className={style.circle}>•</p>
+              <p title="21" style={{color: this.state.day21[10], display: this.circleAvalaible(21)}} className={style.circle}>•</p>
+              <p title="21" style={{color: this.state.day21[11], display: this.circleAvalaible(21)}} className={style.circle}>•</p>
 
           <p className={style.name} title="21">{this.state.day21[3]}</p>
           <p className={style.name} title="21">{this.state.day21[4]}</p>
@@ -839,9 +844,9 @@ class Day extends React.Component {
           <h2 title="22">22</h2>
           <h5 title="22" className={this.dayAvailable(22)}>Mañana</h5>
 
-          {/* <p title="22" className={style.circle}>•</p>
-              <p title="22" className={style.circle}>•</p>
-              <p title="22" className={style.circle}>•</p> */}
+              <p title="22" style={{color: this.state.day22[6], display: this.circleAvalaible(22)}} className={style.circle}>•</p>
+              <p title="22" style={{color: this.state.day22[7], display: this.circleAvalaible(22)}} className={style.circle}>•</p>
+              <p title="22" style={{color: this.state.day22[8], display: this.circleAvalaible(22)}} className={style.circle}>•</p>
 
           <p className={style.name} title="22">
             {this.state.day22[0]}
@@ -857,9 +862,9 @@ class Day extends React.Component {
 
           <h5 title="22" className={this.dayAvailable(22)}>Tarde</h5>
 
-          {/* <p title="22" className={style.circle1}>•</p>
-              <p title="22" className={style.circle1}>•</p>
-              <p title="22" className={style.circle1}>•</p> */}
+              <p title="22" style={{color: this.state.day22[9], display: this.circleAvalaible(22)}} className={style.circle}>•</p>
+              <p title="22" style={{color: this.state.day22[10], display: this.circleAvalaible(22)}} className={style.circle}>•</p>
+              <p title="22" style={{color: this.state.day22[11], display: this.circleAvalaible(22)}} className={style.circle}>•</p>
 
           <p className={style.name} title="22">{this.state.day22[3]}</p>
           <p className={style.name} title="22">{this.state.day22[4]}</p>
@@ -869,9 +874,9 @@ class Day extends React.Component {
           <h2 title="23">23</h2>
           <h5 title="23" className={this.dayAvailable(23)}>Mañana</h5>
 
-          {/* <p title="23" className={style.circle}>•</p>
-              <p title="23" className={style.circle}>•</p>
-              <p title="23" className={style.circle}>•</p> */}
+              <p title="23" style={{color: this.state.day23[6], display: this.circleAvalaible(23)}} className={style.circle}>•</p>
+              <p title="23" style={{color: this.state.day23[7], display: this.circleAvalaible(23)}} className={style.circle}>•</p>
+              <p title="23" style={{color: this.state.day23[8], display: this.circleAvalaible(23)}} className={style.circle}>•</p>
 
           <p className={style.name} title="23">
             {this.state.day23[0]}
@@ -887,9 +892,9 @@ class Day extends React.Component {
 
           <h5 title="23" className={this.dayAvailable(23)}>Tarde</h5>
 
-          {/* <p title="23" className={style.circle1}>•</p>
-              <p title="23" className={style.circle1}>•</p>
-              <p title="23" className={style.circle1}>•</p> */}
+              <p title="23" style={{color: this.state.day23[9], display: this.circleAvalaible(23)}} className={style.circle}>•</p>
+              <p title="23" style={{color: this.state.day23[10], display: this.circleAvalaible(23)}} className={style.circle}>•</p>
+              <p title="23" style={{color: this.state.day23[11], display: this.circleAvalaible(23)}} className={style.circle}>•</p>
 
           <p className={style.name} title="23">{this.state.day23[3]}</p>
           <p className={style.name} title="23">{this.state.day23[4]}</p>
@@ -899,9 +904,9 @@ class Day extends React.Component {
           <h2 title="24">24</h2>
           <h5 title="24" className={this.dayAvailable(24)}>Mañana</h5>
 
-          {/* <p title="24" className={style.circle}>•</p>
-              <p title="24" className={style.circle}>•</p>
-              <p title="24" className={style.circle}>•</p> */}
+              <p title="24" style={{color: this.state.day24[6], display: this.circleAvalaible(24)}} className={style.circle}>•</p>
+              <p title="24" style={{color: this.state.day24[7], display: this.circleAvalaible(24)}} className={style.circle}>•</p>
+              <p title="24" style={{color: this.state.day24[8], display: this.circleAvalaible(24)}} className={style.circle}>•</p>
 
           <p className={style.name} title="24">
             {this.state.day24[0]}
@@ -917,9 +922,9 @@ class Day extends React.Component {
 
           <h5 title="24" className={this.dayAvailable(24)}>Tarde</h5>
 
-          {/* <p title="24" className={style.circle1}>•</p>
-              <p title="24" className={style.circle1}>•</p>
-              <p title="24" className={style.circle1}>•</p> */}
+              <p title="24" style={{color: this.state.day24[9], display: this.circleAvalaible(24)}} className={style.circle}>•</p>
+              <p title="24" style={{color: this.state.day24[10], display: this.circleAvalaible(24)}} className={style.circle}>•</p>
+              <p title="24" style={{color: this.state.day24[11], display: this.circleAvalaible(24)}} className={style.circle}>•</p>
 
           <p className={style.name} title="24">{this.state.day24[3]}</p>
           <p className={style.name} title="24">{this.state.day24[4]}</p>
@@ -929,9 +934,9 @@ class Day extends React.Component {
           <h2 title="25">25</h2>
           <h5 title="25" className={this.dayAvailable(25)}>Mañana</h5>
 
-          {/* <p title="25" className={style.circle}>•</p>
-              <p title="25" className={style.circle}>•</p>
-              <p title="25" className={style.circle}>•</p> */}
+              <p title="25" style={{color: this.state.day25[6], display: this.circleAvalaible(25)}} className={style.circle}>•</p>
+              <p title="25" style={{color: this.state.day25[7], display: this.circleAvalaible(25)}} className={style.circle}>•</p>
+              <p title="25" style={{color: this.state.day25[8], display: this.circleAvalaible(25)}} className={style.circle}>•</p>
 
           <p className={style.name} title="25">
             {this.state.day25[0]}
@@ -947,9 +952,9 @@ class Day extends React.Component {
 
           <h5 title="25" className={this.dayAvailable(25)}>Tarde</h5>
 
-          {/* <p title="25" className={style.circle1}>•</p>
-              <p title="25" className={style.circle1}>•</p>
-              <p title="25" className={style.circle1}>•</p> */}
+              <p title="25" style={{color: this.state.day25[9], display: this.circleAvalaible(25)}} className={style.circle}>•</p>
+              <p title="25" style={{color: this.state.day25[10], display: this.circleAvalaible(25)}} className={style.circle}>•</p>
+              <p title="25" style={{color: this.state.day25[11], display: this.circleAvalaible(25)}} className={style.circle}>•</p>
 
           <p className={style.name} title="25">{this.state.day25[3]}</p>
           <p className={style.name} title="25">{this.state.day25[4]}</p>
@@ -959,9 +964,9 @@ class Day extends React.Component {
           <h2 title="26">26</h2>
           <h5 title="26" className={this.dayAvailable(26)}>Mañana</h5>
 
-          {/* <p title="26" className={style.circle}>•</p>
-              <p title="26" className={style.circle}>•</p>
-              <p title="26" className={style.circle}>•</p> */}
+              <p title="26" style={{color: this.state.day26[6], display: this.circleAvalaible(26)}} className={style.circle}>•</p>
+              <p title="26" style={{color: this.state.day26[7], display: this.circleAvalaible(26)}} className={style.circle}>•</p>
+              <p title="26" style={{color: this.state.day26[8], display: this.circleAvalaible(26)}} className={style.circle}>•</p>
 
           <p className={style.name} title="26">
             {this.state.day26[0]}
@@ -977,9 +982,9 @@ class Day extends React.Component {
 
           <h5 title="26" className={this.dayAvailable(26)}>Tarde</h5>
 
-          {/* <p title="26" className={style.circle1}>•</p>
-              <p title="26" className={style.circle1}>•</p>
-              <p title="26" className={style.circle1}>•</p> */}
+              <p title="26" style={{color: this.state.day26[9], display: this.circleAvalaible(26)}} className={style.circle}>•</p>
+              <p title="26" style={{color: this.state.day26[10], display: this.circleAvalaible(26)}} className={style.circle}>•</p>
+              <p title="26" style={{color: this.state.day26[11], display: this.circleAvalaible(26)}} className={style.circle}>•</p>
 
           <p className={style.name} title="26">{this.state.day26[3]}</p>
           <p className={style.name} title="26">{this.state.day26[4]}</p>
@@ -989,9 +994,9 @@ class Day extends React.Component {
           <h2 title="27">27</h2>
           <h5 title="27" className={this.dayAvailable(27)}>Mañana</h5>
 
-          {/* <p title="27" className={style.circle}>•</p>
-              <p title="27" className={style.circle}>•</p>
-              <p title="27" className={style.circle}>•</p> */}
+              <p title="27" style={{color: this.state.day27[6], display: this.circleAvalaible(27)}} className={style.circle}>•</p>
+              <p title="27" style={{color: this.state.day27[7], display: this.circleAvalaible(27)}} className={style.circle}>•</p>
+              <p title="27" style={{color: this.state.day27[8], display: this.circleAvalaible(27)}} className={style.circle}>•</p>
 
           <p className={style.name} title="27">
             {this.state.day27[0]}
@@ -1007,9 +1012,9 @@ class Day extends React.Component {
 
           <h5 title="27" className={this.dayAvailable(27)}>Tarde</h5>
 
-          {/* <p title="27" className={style.circle1}>•</p>
-              <p title="27" className={style.circle1}>•</p>
-              <p title="27" className={style.circle1}>•</p> */}
+              <p title="27" style={{color: this.state.day27[9], display: this.circleAvalaible(27)}} className={style.circle}>•</p>
+              <p title="27" style={{color: this.state.day27[10], display: this.circleAvalaible(27)}} className={style.circle}>•</p>
+              <p title="27" style={{color: this.state.day27[11], display: this.circleAvalaible(27)}} className={style.circle}>•</p>
 
           <p className={style.name} title="27">{this.state.day27[3]}</p>
           <p className={style.name} title="27">{this.state.day27[4]}</p>
@@ -1019,9 +1024,9 @@ class Day extends React.Component {
           <h2 title="28">28</h2>
           <h5 title="28" className={this.dayAvailable(28)}>Mañana</h5>
 
-          {/* <p title="28" className={style.circle}>•</p>
-              <p title="28" className={style.circle}>•</p>
-              <p title="28" className={style.circle}>•</p> */}
+              <p title="28" style={{color: this.state.day28[6], display: this.circleAvalaible(28)}} className={style.circle}>•</p>
+              <p title="28" style={{color: this.state.day28[7], display: this.circleAvalaible(28)}} className={style.circle}>•</p>
+              <p title="28" style={{color: this.state.day28[8], display: this.circleAvalaible(28)}} className={style.circle}>•</p>
 
           <p className={style.name} title="28">
             {this.state.day28[0]}
@@ -1037,9 +1042,9 @@ class Day extends React.Component {
 
           <h5 title="28" className={this.dayAvailable(28)}>Tarde</h5>
 
-          {/* <p title="28" className={style.circle1}>•</p>
-              <p title="28" className={style.circle1}>•</p>
-              <p title="28" className={style.circle1}>•</p> */}
+              <p title="28" style={{color: this.state.day28[9], display: this.circleAvalaible(28)}} className={style.circle}>•</p>
+              <p title="28" style={{color: this.state.day28[10], display: this.circleAvalaible(28)}} className={style.circle}>•</p>
+              <p title="28" style={{color: this.state.day28[11], display: this.circleAvalaible(28)}} className={style.circle}>•</p>
 
           <p className={style.name} title="28">{this.state.day28[3]}</p>
           <p className={style.name} title="28">{this.state.day28[4]}</p>
@@ -1055,9 +1060,9 @@ class Day extends React.Component {
           </h2>
           <h5 title="29" className={this.dayAvailable(29)}>Mañana</h5>
 
-          {/* <p title="29" className={style.circle}>•</p>
-              <p title="29" className={style.circle}>•</p>
-              <p title="29" className={style.circle}>•</p> */}
+              <p title="29" style={{color: this.state.day29[6], display: this.circleAvalaible(29)}} className={style.circle}>•</p>
+              <p title="29" style={{color: this.state.day29[7], display: this.circleAvalaible(29)}} className={style.circle}>•</p>
+              <p title="29" style={{color: this.state.day29[8], display: this.circleAvalaible(29)}} className={style.circle}>•</p>
 
           <p className={style.name} title="29">
             {this.state.day29[0]}
@@ -1073,9 +1078,9 @@ class Day extends React.Component {
 
           <h5 title="29" className={this.dayAvailable(29)}>Tarde</h5>
 
-          {/* <p title="29" className={style.circle1}>•</p>
-              <p title="29" className={style.circle1}>•</p>
-              <p title="29" className={style.circle1}>•</p> */}
+              <p title="29" style={{color: this.state.day29[9], display: this.circleAvalaible(29)}} className={style.circle}>•</p>
+              <p title="29" style={{color: this.state.day29[10], display: this.circleAvalaible(29)}} className={style.circle}>•</p>
+              <p title="29" style={{color: this.state.day29[11], display: this.circleAvalaible(29)}} className={style.circle}>•</p>
 
           <p className={style.name} title="29">{this.state.day29[3]}</p>
           <p className={style.name} title="29">{this.state.day29[4]}</p>
@@ -1091,9 +1096,9 @@ class Day extends React.Component {
           </h2>
           <h5 title="30" className={this.dayAvailable(30)}>Mañana</h5>
 
-          {/* <p title="30" className={style.circle}>•</p>
-              <p title="30" className={style.circle}>•</p>
-              <p title="30" className={style.circle}>•</p> */}
+              <p title="30" style={{color: this.state.day30[6], display: this.circleAvalaible(30)}} className={style.circle}>•</p>
+              <p title="30" style={{color: this.state.day30[7], display: this.circleAvalaible(30)}} className={style.circle}>•</p>
+              <p title="30" style={{color: this.state.day30[8], display: this.circleAvalaible(30)}} className={style.circle}>•</p>
 
           <p className={style.name} title="30">
             {this.state.day30[0]}
@@ -1109,9 +1114,9 @@ class Day extends React.Component {
 
           <h5 title="30" className={this.dayAvailable(30)}>Tarde</h5>
 
-          {/* <p title="30" className={style.circle1}>•</p>
-              <p title="30" className={style.circle1}>•</p>
-              <p title="30" className={style.circle1}>•</p> */}
+              <p title="30" style={{color: this.state.day30[9], display: this.circleAvalaible(30)}} className={style.circle}>•</p>
+              <p title="30" style={{color: this.state.day30[10], display: this.circleAvalaible(30)}} className={style.circle}>•</p>
+              <p title="30" style={{color: this.state.day30[11], display: this.circleAvalaible(30)}} className={style.circle}>•</p>
 
           <p className={style.name} title="30">{this.state.day30[3]}</p>
           <p className={style.name} title="30">{this.state.day30[4]}</p>
@@ -1127,9 +1132,9 @@ class Day extends React.Component {
           </h2>
           <h5 title="31" className={this.dayAvailable(31)}>Mañana</h5>
 
-          {/* <p title="31" className={style.circle}>•</p>
-              <p title="31" className={style.circle}>•</p>
-              <p title="31" className={style.circle}>•</p> */}
+              <p title="31" style={{color: this.state.day31[6], display: this.circleAvalaible(31)}} className={style.circle}>•</p>
+              <p title="31" style={{color: this.state.day31[7], display: this.circleAvalaible(31)}} className={style.circle}>•</p>
+              <p title="31" style={{color: this.state.day31[8], display: this.circleAvalaible(31)}} className={style.circle}>•</p>
 
           <p className={style.name} title="31">
             {this.state.day31[0]}
@@ -1145,9 +1150,9 @@ class Day extends React.Component {
 
           <h5 title="31" className={this.dayAvailable(31)}>Tarde</h5>
 
-          {/* <p title="31" className={style.circle1}>•</p>
-              <p title="31" className={style.circle1}>•</p>
-              <p title="31" className={style.circle1}>•</p> */}
+              <p title="31" style={{color: this.state.day31[9], display: this.circleAvalaible(31)}} className={style.circle}>•</p>
+              <p title="31" style={{color: this.state.day31[10], display: this.circleAvalaible(31)}} className={style.circle}>•</p>
+              <p title="31" style={{color: this.state.day31[11], display: this.circleAvalaible(31)}} className={style.circle}>•</p>
 
           <p className={style.name} title="31">{this.state.day31[3]}</p>
           <p className={style.name} title="31">{this.state.day31[4]}</p>

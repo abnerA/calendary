@@ -16,12 +16,6 @@
 }
 
 h2 {
-    /* background-color: rgb(219, 220, 230);
-    text-align: center;
-    list-style: none;
-    margin: 1px;
-    border: solid 1px;
-    border-radius: 3px; */
     text-align: center;
     font-size: 12px;
     margin: 0px;
@@ -35,24 +29,21 @@ h2 {
     display: block;
 }
 
-p {
-    display: none;
+.containerDays div .circle {
+    font-weight: bold;
+    font-size: 20px;
+    /* padding: 20px 0px; */
+    height: 22px;
+    width: 0px;
 }
 
-
 @media only screen and (max-width: 700px) {
-    .containerDays div .circle {
-        display: block;
-        color: rgb(35, 182, 35);
-        font-size: 20px;
-        font-weight: bold;
+    .containerDays div .name, .containerDays div h5 {
+        display: none;
     }
-    
-    .containerDays div .circle1 {
-        display: block;
-        color: rgb(103, 103, 209);
-        font-size: 20px;
-        font-weight: bold;
+
+    .containerDays div hr {
+        margin-top: 5px;
     }
 }
 
@@ -70,7 +61,7 @@ h5 {
 }
 
 hr {
-    color: red;
+    margin: 0px;
     width: 100%;
 }
 
@@ -78,11 +69,5 @@ hr {
 .containerDays div p {
     margin: 0px;
     margin-left: 1%;
-    font-size: 14px;
+    /* font-size: 14px; */
 }
-
-
-/* .containerDays div:hover {
-    background-color: white;
-    cursor: pointer;
-}  */

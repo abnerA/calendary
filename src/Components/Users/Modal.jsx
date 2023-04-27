@@ -27,12 +27,15 @@ function Modal() {
     let nombres = name.name;
     if (nombres[0] === "" && nombres[1] !==start.name && nombres[2] !==start.name) {
       nombres[0] = start.name;
+      nombres[6] = 'rgb(103, 103, 209)'; // Blue
       return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[1] === "" && nombres[0] !==start.name && nombres[2] !==start.name) {
       nombres[1] = start.name;
+      nombres[7] = 'rgb(103, 103, 209)'; // Blue
       return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[2] === "" && nombres[0] !==start.name && nombres[1] !==start.name) {
       nombres[2] = start.name;
+      nombres[8] = 'rgb(103, 103, 209)'; // Blue
       return addName(diaSelect, nombres, start.month + "/");
     }
   }
@@ -41,12 +44,15 @@ function Modal() {
     let nombres = name.name;
     if (nombres[0] === start.name) {
       nombres[0] = "";
+      nombres[6] = 'rgb(35, 182, 35)'; //Green
       return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[1] === start.name) {
       nombres[1] = "";
+      nombres[7] = 'rgb(35, 182, 35)'; //Green
       return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[2] === start.name) {
       nombres[2] = "";
+      nombres[8] = 'rgb(35, 182, 35)'; //Green
       return addName(diaSelect, nombres, start.month + "/");
     }
   }
@@ -56,12 +62,15 @@ function Modal() {
     let nombres = name.name;
     if (nombres[3] === "" && nombres[4] !==start.name && nombres[5] !==start.name) {
       nombres[3] = start.name;
+      nombres[9] = 'rgb(235, 221, 37)'; // Yellow
       return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[4] === "" && nombres[3] !==start.name && nombres[5] !==start.name) {
       nombres[4] = start.name;
+      nombres[10] = 'rgb(235, 221, 37)'; // Yellow
       return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[5] === "" && nombres[3] !==start.name && nombres[4] !==start.name) {
       nombres[5] = start.name;
+      nombres[11] = 'rgb(235, 221, 37)'; // Yellow
       return addName(diaSelect, nombres, start.month + "/");
     }
   }
@@ -70,12 +79,15 @@ function Modal() {
     let nombres = name.name;
     if (nombres[3] === start.name) {
       nombres[3] = "";
+      nombres[9] = 'rgb(35, 182, 35)'; // green
       return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[4] === start.name) {
       nombres[4] = "";
+      nombres[10] = 'rgb(35, 182, 35)'; // green
       return addName(diaSelect, nombres, start.month + "/");
     } else if (nombres[5] === start.name) {
       nombres[5] = "";
+      nombres[11] = 'rgb(35, 182, 35)'; // green
       return addName(diaSelect, nombres, start.month + "/");
     }
   }

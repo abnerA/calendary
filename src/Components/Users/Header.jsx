@@ -14,7 +14,7 @@ export function Header() {
                 <nav className={style.nav}>
                     <button onClick={() => dispatch(startSection())} style={{display: start.display2}}>Iniciar sesión</button>
                     <button onClick={() => dispatch(closeSection())} style={{display: start.display3}} >Cerrar sesión</button>
-                    <h4>{`Welcome ${start.name}`}</h4>
+                    {/* <h4>{`Welcome ${start.name}`}</h4> */}
                 </nav>
                 <div className={style.modal} style={{display: start.display1}}>
                     {name.map(value => {

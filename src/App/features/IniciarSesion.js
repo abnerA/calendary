@@ -29,7 +29,7 @@ const initialState = {
     estado: false,
     ventanaModal: 'none',
     diaClick: 0,
-    diaSelect: 1,
+    diaSelect: 4,
     month: meses
 };
 
