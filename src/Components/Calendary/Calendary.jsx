@@ -77,15 +77,11 @@ class Calendary extends React.Component {
     return (
       <div className={style.container}>
         <div className={style.navigation}>
-          <button onClick={this.lastMonth} className={style.btnLast}>
-            &#9664;
-          </button>
+          <button onClick={this.lastMonth} className={style.btnLast}>&#9664;</button>
           <h4>
             {this.state.month} {this.state.año}
           </h4>
-          <button onClick={this.nextMonth} className={style.btnNext}>
-            &#9654;
-          </button>
+          <button onClick={this.nextMonth} className={style.btnNext}>&#9654;</button>
         </div>
         <Months
           name={this.state.mes}

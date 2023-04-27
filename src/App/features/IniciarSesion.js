@@ -38,13 +38,13 @@ export const iniciarSesion = createSlice({
     initialState,
     reducers: {
         startSection: (state) => {
-            state.display1 = 'block';
+            state.display1 = 'flex';
             state.display2 = 'none';
-            state.display3 = 'block';
+            state.display3 = 'flex';
         },
         closeSection: (state) => {
             state.display3 = 'none';
-            state.display2 = 'block';
+            state.display2 = 'flex';
             state.name = '';
             state.estado = false;
         },

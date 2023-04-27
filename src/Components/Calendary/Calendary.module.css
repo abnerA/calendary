@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    width: 99%;
+    width: 100%;
     height: auto;
     background-color: rgb(130, 164, 201);
     justify-content: space-between;
@@ -14,9 +14,11 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 10px;
 }
 
-.btnLast, .btnNext {
+
+/* .btnLast, .btnNext {
     height: 20px;
     background-color: rgb(86, 120, 223);
     border: solid 1px white;
@@ -25,4 +27,4 @@
 .btnLast:hover, .btnNext:hover {
     background-color: white;
     transition: 800ms;
-}
+} */
