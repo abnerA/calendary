@@ -14,6 +14,8 @@ class Participantes extends React.Component {
 
   }
 
+
+
   // componentDidMount()  {
   // //   // const p = await getPersons();
   // //   // console.log(p.docs[0].data().name);
@@ -58,6 +60,7 @@ class Participantes extends React.Component {
   render() {
     return (
       <div>
+
         <h3>Participantes:</h3>
         {/* <button key='1' onClick={this.sendPerson} value='Abner'>Abner</button>
         <button key='2' onClick={this.sendPerson} value='Juan'>Juan</button>

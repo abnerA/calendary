@@ -74,8 +74,8 @@ class Day extends React.Component {
   
   componentDidMount() {
     const tasksRef = ref(dataB, this.props.monthCurrent);
-    onValue(tasksRef, (snapshot) => {
-      const data = snapshot.val();
+    onValue(tasksRef, async (snapshot) => {
+      const data = await snapshot.val();
       this.setState({
         day1: data.day1.name, 
         day2: data.day2.name,
@@ -146,8 +146,6 @@ class Day extends React.Component {
       }
     }
   }
-
-
 
   componentDidUpdate(prevProps) {
     if(this.props.monthCurrent !== prevProps.monthCurrent && this.props.year === 2023) {

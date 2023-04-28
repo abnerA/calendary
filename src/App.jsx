@@ -2,7 +2,7 @@ import Calendary from "./Components/Calendary/Calendary";
 import Header from "./Components/Users/Header";
 import style from "./App.module.css";
 import Modal from "./Components/Users/Modal";
-// import Participantes from "./Components/Users/Participantes";
+import Footer from "./Components/Users/Footer";
 
 function App () {
     return (
@@ -11,7 +11,7 @@ function App () {
                 <Modal />
                 <Header />
                 <Calendary/>
-                {/* <Participantes /> */}
+                <Footer />
             </div>
         </div>
 

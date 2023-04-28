@@ -36,7 +36,36 @@ h3, h4 {
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: 5%;
+}
+
+.modalContainer {
+    display: flex;
+    gap: 1px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 90%;
+    border-radius: 5px;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.titleModal {
+    width: 100%;
+    margin: 5px;
+}
+
+.nameButton {
+
+    width: 32%;
+    color: black;
+    background-color: rgb(212, 184, 223);
+    border: none;
+    border-radius: 5px;
+    margin: 1px;
+    font-size: 13px;
+    padding: 5px;
 }
 
 button {
