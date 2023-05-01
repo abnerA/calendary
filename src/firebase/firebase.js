@@ -43,12 +43,36 @@ export function addparticipation(userId, name, month) {
   });
 }
 
-// addparticipation("Abner Estévez", ["lunes 2 de Abril"], "Abril/")
-// addparticipation("Blanco", [""], "Abril/")
+// addparticipation("Abner Estévez", ["Martes 2 en la mañana", "Martes 16 en la mañana", "", "", ""], "Mayo/")
+// addparticipation("Alba Estévez", ["Martes 2 en la mañana", "Martes 16 en la mañana", "Martes 30 en la mañana", "", ""], "Mayo/")
+// addparticipation("Manuel Santana", ["Lunes 1 en la tarde", "Jueves 4 en la tarde", "Jueves 18 en la tarde", "", ""], "Mayo/")
+// addparticipation("Massiel Santana", ["Lunes 1 en la tarde", "Jueves 4 en la tarde", "Jueves 18 en la tarde", "", ""], "Mayo/")
+// addparticipation("Luis Capellán", ["Lunes 1 en la tarde", "", "", "", ""], "Mayo/")
+// addparticipation("Susana Capellán", ["Martes 9 en la mañana", "Lunes 22 en la tarde", "", "", ""], "Mayo/")
+// addparticipation("Rosa Domínguez", ["Lunes 22 en la mañana", "Martes 30 en la mañana", "", "", ""], "Mayo/")
+// addparticipation("Emely García", ["Martes 9 en la tarde", "Martes 16 en la tarde", "Lunes 22 en la tarde", "", ""], "Mayo/")
+// addparticipation("Deyanira Gil", ["Lunes 22 en la mañana", "Jueves 25 en la mañana", "Lunes 29 en la mañana", "", ""], "Mayo/")
+// addparticipation("Ana De Los S", ["Martes 16 en la tarde", "Martes 30 en la tarde", "", "", ""], "Mayo/")
+// addparticipation("Magalys Pérez", ["Jueves 11 en la mañana", "Martes 16 en la mañana", "Jueves 18 en la mañana", "Martes 23 en la mañana", "Jueves 25 en la mañana"], "Mayo/")
+// addparticipation("Violeta García", ["Lunes 8 en la mañana", "Jueves 11 en la mañana", "Lunes 15 en la mañana", "", ""], "Mayo/")
+// addparticipation("Andrés García", ["Lunes 8 en la mañana", "Lunes 15 en la mañana", "", "", ""], "Mayo/")
+// addparticipation("Bartola Calcaño", ["Lunes 1 en la tarde", "Jueves 4 en la mañana", "Martes 9 en la mañana", "Jueves 18 en la mañana", ""], "Mayo/")
+// addparticipation("Rosa Gutiérrez", ["Lunes 8", "Jueves 11", "", "", ""], "Mayo/")
+// addparticipation("Mabel Pérez", ["", "", "", "", ""], "Mayo/")
+// addparticipation("Marina Ozuna", ["Lunes 1 en la tarde", "Jueves 4 en la mañana", "Martes 9 en la mañana", "Jueves 18 en la mañana", ""], "Mayo/")
+// addparticipation("Kenia Torres", ["Lunes 15 en la mañana", "Martes 30 en la mañana", "Martes 30 en la tarde", "", ""], "Mayo/")
+// addparticipation("Nahúm Lithgow", ["Martes 2 en la tarde", "Lunes 8 en la tarde", "Lunes 29 en la tarde", "", ""], "Mayo/")
+// addparticipation("Davel Lithgow", ["Martes 2 en la tarde", "Lunes 8 en la tarde", "Lunes 29 en la tarde", "", ""], "Mayo/")
+// addparticipation("Ashanty Santana", ["Martes 2 en la tarde", "Lunes 8 en la tarde", "Lunes 29 en la tarde", "", ""], "Mayo/")
+// addparticipation("Guillermina Mesa", ["Martes 2 en la mañana", "Jueves 4 en la mañana", "Martes 23 en la mañana", "Jueves 25 en la mañana", "Lunes 29 en la mañana"], "Mayo/")
+// addparticipation("Yirelis Mesa", ["Jueves 4 en la tarde", "Martes 9 en la tarde", "Martes 16 en la tarde", "Lunes 22 en la tarde", "Martes 30 en la tarde"], "Mayo/")
+// addparticipation("Ruth Pérez", ["Lunes 22 en la mañana", "Lunes 29 en la mañana", "", "", ""], "Mayo/")
+
+
 
 // export function addName(userId, name, month) {
 //   const db = getDatabase();
-//   const reference = ref(db, "Mayo/" + userId);
+//   const reference = ref(db, "Abril/" + userId);
 
 //   set(reference, {
 //     name: name,
@@ -59,7 +83,7 @@ export function addparticipation(userId, name, month) {
 // addName("day25", ["", "", "", "Visita del Sup.", "Visita del Sup.", "Visita del Sup.", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
 
 
-// addName("day1", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
+// addName("day1", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)",]);
 // addName("day2", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day3", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day4", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);

@@ -56,7 +56,7 @@ function Days(props) {
       });
     }
     dispatch(cambioMonth(props.month));
-  }, [props.dias, props.month]);
+  }, [dispatch, props.dias, props.month]);
 
   const handleClick = (e) => {
     // Obtengo el día que ha sido clickeado exactamente
@@ -68,8 +68,8 @@ function Days(props) {
     let daySelectDate = new Date(`${obtenerMonth} ${getDia} 2023`);
 
     // Me devuelve el día de la semana
-    // dispatch(diaWeek(dayWeek));
     let dayWeek = daySelectDate.getDay();
+    dispatch(diaWeek(dayWeek));
 
     // eslint-disable-next-line no-mixed-operators
     // En este primer if comprobamos si el usuario ya inicio sesión
@@ -85,7 +85,7 @@ function Days(props) {
         dispatch(openModal([getDia, props.month]));
       } else if (props.numMes - 1 === props.nextMes) {
         console.log("Ya este mes ha pasado");
-        // dispatch(openModal([getDia, props.month])); // Eliminar esta línea
+        dispatch(openModal([getDia, props.month])); // Eliminar esta línea
       } else {
         console.log("no es día de predicación pública");
       }

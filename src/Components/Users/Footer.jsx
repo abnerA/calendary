@@ -4,8 +4,12 @@ import { dataB } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
 import { useSelector } from "react-redux";
 
+
+// let send = note.slice(12);
+
 function Footer() {
   const start = useSelector((state) => state.inicio);
+  // const diaSelect = "day" + start.diaSelect.toString();
   const [name, setName] = useState();
 
   useEffect(() => {
@@ -17,14 +21,19 @@ function Footer() {
       })
     });
   }, [start.name, start.monthCambiante]);
-
+  
   return (
     <div className={style.container}>
       <div className={style.info}>
         <h3 className={style.title}>Mis Participaciones:</h3>
-          {!name ? <h3>'Loading...'</h3> : name.name.map((value) => {
-            return <p key={value}>{value}</p>
+          {!name ? <h3>'Loading...'</h3> : name.name.map((value, index) => {
+            return <p key={index}>{value}</p>
           })}
+
+          {/* {send.map((value, index) => {
+            return <p key={index}>{value}</p>
+          })} */}
+
       </div>
       <div className={style.info}>
         <h3 className={style.title}>Leyenda</h3>
