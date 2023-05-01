@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Footer.module.css";
+import { dataB } from "../../firebase/firebase";
+import { ref, onValue } from "firebase/database";
+import { useSelector } from "react-redux";
 
 function Footer() {
+  const start = useSelector((state) => state.inicio);
+  const [name, setName] = useState();
+
+  useEffect(() => {
+    const tasksRef = ref(dataB, start.monthCambiante);
+    onValue(tasksRef, (snapshot)  => {
+      const data = snapshot.val()[start.name].name;
+      setName({
+        name: data
+      })
+    });
+  }, [start.name, start.monthCambiante]);
+
   return (
     <div className={style.container}>
       <div className={style.info}>
         <h3 className={style.title}>Mis Participaciones:</h3>
+          {!name ? <h3>'Loading...'</h3> : name.name.map((value) => {
+            return <p key={value}>{value}</p>
+          })}
       </div>
       <div className={style.info}>
         <h3 className={style.title}>Leyenda</h3>

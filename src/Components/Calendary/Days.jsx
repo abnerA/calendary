@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Day from "./Day";
-import { openModal } from "../../App/features/IniciarSesion";
+import { diaWeek, openModal, cambioMonth } from "../../App/features/IniciarSesion";
+import { month } from "./Day";
 
 // let months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
@@ -9,7 +10,6 @@ function Days(props) {
   const [dia29, setDia29] = useState("block");
   const [dia30, setDia30] = useState("block");
   const [dia31, setDia31] = useState("block");
-  // console.log(months[props.numMes + 1]);
 
   const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
@@ -55,7 +55,8 @@ function Days(props) {
         dia31: "block",
       });
     }
-  }, [props.dias]);
+    dispatch(cambioMonth(props.month));
+  }, [props.dias, props.month]);
 
   const handleClick = (e) => {
     // Obtengo el día que ha sido clickeado exactamente
@@ -63,13 +64,16 @@ function Days(props) {
 
     // En este constructor de Class verifico el día de la semana
     // Osea, si es martes o jueves.
-    let daySelectDate = new Date(`Apr ${getDia} 2023`);
+    let obtenerMonth = month(props.month);
+    let daySelectDate = new Date(`${obtenerMonth} ${getDia} 2023`);
 
     // Me devuelve el día de la semana
+    // dispatch(diaWeek(dayWeek));
     let dayWeek = daySelectDate.getDay();
 
     // eslint-disable-next-line no-mixed-operators
     // En este primer if comprobamos si el usuario ya inicio sesión
+
     if (start.estado) {
       if ((props.mesActual === props.month && dayWeek === 2) || dayWeek === 4 || dayWeek === 1) {
         // console.log("Este es el día " + getDia);
@@ -77,9 +81,11 @@ function Days(props) {
 
       } else if (props.numMes + 1 === props.nextMes && props.today > 20) {
         console.log("Ya te puedes anotar :)");
+
         dispatch(openModal([getDia, props.month]));
       } else if (props.numMes - 1 === props.nextMes) {
         console.log("Ya este mes ha pasado");
+        // dispatch(openModal([getDia, props.month])); // Eliminar esta línea
       } else {
         console.log("no es día de predicación pública");
       }

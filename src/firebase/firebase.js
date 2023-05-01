@@ -24,18 +24,6 @@ export const dataB = getDatabase(app);
 
 // Add Data the Realtime Database
 // Con esta function puedo agregar datos a la DB Realtime
-export function writeUserData(userId, name, email, imageUrl) {
-  const db = getDatabase();
-  const reference = ref(db, "users/" + userId);
-
-  set(reference, {
-    username: name,
-    email: email,
-    profile_picture: imageUrl,
-  });
-}
-
-
 export function addName(userId, name, month) {
   const db = getDatabase();
   const reference = ref(db, month + userId);
@@ -45,14 +33,31 @@ export function addName(userId, name, month) {
   });
 }
 
+// Con está function guardamos las fechas en que vamos a participar
+export function addparticipation(userId, name, month) {
+  const db = getDatabase();
+  const reference = ref(db, month + userId);
+
+  set(reference, {
+    name: name,
+  });
+}
+
+// addparticipation("Abner Estévez", ["lunes 2 de Abril"], "Abril/")
+// addparticipation("Blanco", [""], "Abril/")
+
 // export function addName(userId, name, month) {
 //   const db = getDatabase();
-//   const reference = ref(db, "Marzo/" + userId);
+//   const reference = ref(db, "Mayo/" + userId);
 
 //   set(reference, {
 //     name: name,
 //   });
 // }
+
+// addName("day23", ["", "", "", "Visita del Sup.", "Visita del Sup.", "Visita del Sup.", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
+// addName("day25", ["", "", "", "Visita del Sup.", "Visita del Sup.", "Visita del Sup.", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
+
 
 // addName("day1", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day2", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);

@@ -22,15 +22,17 @@ let meses = monthNames[monthNumber];
 
 const initialState = {
     title: 'Iniciar sesión',
-    name: '',
+    name: 'Blanco', //Cambiar esta linea a ''
     display1: 'none',
     display2: 'block',
     display3: 'none',
     estado: false,
     ventanaModal: 'none',
     diaClick: 0,
-    diaSelect: 4,
-    month: meses
+    diaSelect: 1,
+    month: meses,
+    diaModal: 0,
+    monthCambiante: 'Abril'
 };
 
 export const iniciarSesion = createSlice({
@@ -45,7 +47,7 @@ export const iniciarSesion = createSlice({
         closeSection: (state) => {
             state.display3 = 'none';
             state.display2 = 'flex';
-            state.name = '';
+            state.name = 'Blanco';
             state.estado = false;
         },
         handleClick: (state, action) => {
@@ -63,9 +65,15 @@ export const iniciarSesion = createSlice({
             state.ventanaModal = 'flex';
             state.diaClick = action.payload[0];
             state.month = action.payload[1]
-        }
+        },
+        diaWeek: (state, action) => {
+            state.diaModal = action.payload;
+        },
+        cambioMonth: (state, action) => {
+            state.monthCambiante = action.payload;
+        } 
     }
 });
 
-export const { startSection, closeSection, handleClick, modal, openModal } = iniciarSesion.actions;
+export const { startSection, closeSection, handleClick, modal, openModal, diaWeek, cambioMonth } = iniciarSesion.actions;
 export default iniciarSesion.reducer;

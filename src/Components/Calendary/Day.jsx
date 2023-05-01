@@ -4,7 +4,7 @@ import { dataB } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
 
 
-function month(value) {
+export function month(value) {
   if (value === "Enero") {
     return "jan";
   } else if (value === "Febrero") {

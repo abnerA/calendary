@@ -41,7 +41,7 @@ export function Header() {
     <header className={style.header}>
       <h3>Arreglo de Predicación pública</h3>
       <nav className={style.nav}>
-        <h4>{`${start.name}`}</h4>
+        <h4>{start.name === 'Blanco' ? '' : start.name}</h4>
         <button
           onClick={() => dispatch(startSection())}
           style={{ display: start.display2 }}
