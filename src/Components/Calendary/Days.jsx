@@ -10,7 +10,6 @@ function Days(props) {
   const [dia29, setDia29] = useState("block");
   const [dia30, setDia30] = useState("block");
   const [dia31, setDia31] = useState("block");
-
   const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
   // Para saber la cantidad total de días que tienes el mes, en el primer Render,
@@ -75,17 +74,20 @@ function Days(props) {
     // En este primer if comprobamos si el usuario ya inicio sesión
 
     if (start.estado) {
-      if ((props.mesActual === props.month && dayWeek === 2) || dayWeek === 4 || dayWeek === 1) {
+      if ((props.mesActual === props.month) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         // console.log("Este es el día " + getDia);
         dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today > 20) {
+      } else if (props.numMes + 1 === props.nextMes && props.today > 28) {
         console.log("Ya te puedes anotar :)");
-
         dispatch(openModal([getDia, props.month]));
+
+      } else if (props.numMes + 1 === props.nextMes && props.today < 27) {
+        console.log('Todavía no te puedes anotar en este mes');
+
       } else if (props.numMes - 1 === props.nextMes) {
         console.log("Ya este mes ha pasado");
-        dispatch(openModal([getDia, props.month])); // Eliminar esta línea
+        // dispatch(openModal([getDia, props.month])); // Eliminar esta línea
       } else {
         console.log("no es día de predicación pública");
       }
