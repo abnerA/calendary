@@ -20,7 +20,6 @@ function Modal() {
     onValue(tasksRef, (snapshot) => {
       const data = snapshot.val()[diaSelect].name;
       const note = snapshot.val()[start.name].name;
-
       setName({
         name: data,
       });
@@ -30,7 +29,8 @@ function Modal() {
     });
   }, [diaSelect, start.monthCambiante, start.name]);
 
-  //Mañana
+  
+  //Added Mañana
   function addName1() {
     let nombres = name.name;
     if (
@@ -41,6 +41,7 @@ function Modal() {
       nombres[0] = start.name;
       nombres[6] = "rgb(103, 103, 209)"; // Blue
       addName(diaSelect, nombres, start.monthCambiante + "/"); // Guardar nombre en DB RealTime
+      send();
     } else if (
       nombres[1] === "" &&
       nombres[0] !== start.name &&
@@ -49,6 +50,7 @@ function Modal() {
       nombres[1] = start.name;
       nombres[7] = "rgb(103, 103, 209)"; // Blue
       addName(diaSelect, nombres, start.monthCambiante + "/"); // Guardar nombre en DB RealTime
+      send();
     } else if (
       nombres[2] === "" &&
       nombres[0] !== start.name &&
@@ -57,59 +59,68 @@ function Modal() {
       nombres[2] = start.name;
       nombres[8] = "rgb(103, 103, 209)"; // Blue
       addName(diaSelect, nombres, start.monthCambiante + "/"); // Guardar nombre en DB RealTime
+      send();
     } else {
       console.log('Ya es suficiente -mañana-');
     }
 
     // Guardamos las fechas en que se anotan
-    let nombreSave = nameSend.nameSend;
-    if(nombreSave[0] === "") {
-      nombreSave[0] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else if (nombreSave[1] === "") {
-      nombreSave[1] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else if (nombreSave[2] === "") {
-      nombreSave[2] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else if (nombreSave[3] === "") {
-      nombreSave[3] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else if (nombreSave[4] === "") {
-      nombreSave[4] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else {
-      console.log('Son demasiados turnos para usted -mañana-');
+    function send() {
+      let nombreSave = nameSend.nameSend;
+      if(nombreSave[0] === "") {
+        nombreSave[0] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else if (nombreSave[1] === "") {
+        nombreSave[1] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else if (nombreSave[2] === "") {
+        nombreSave[2] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else if (nombreSave[3] === "") {
+        nombreSave[3] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else if (nombreSave[4] === "") {
+        nombreSave[4] = `${dias[start.diaModal]} ${start.diaClick} en la mañana`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else {
+        console.log('Son demasiados turnos para usted -mañana-');
+      }
+      console.log("Estoy anotado");
     }
-    console.log("Estoy anotado");
+
   }
 
+  // Delete Mañana
   function deleteName() {
     let nombres = name.name;
     if (nombres[0] === start.name) {
       nombres[0] = "";
       nombres[6] = "rgb(35, 182, 35)"; //Green
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      deleteSend();
     } else if (nombres[1] === start.name) {
       nombres[1] = "";
       nombres[7] = "rgb(35, 182, 35)"; //Green
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      deleteSend();
     } else if (nombres[2] === start.name) {
       nombres[2] = "";
       nombres[8] = "rgb(35, 182, 35)"; //Green
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      deleteSend();
     }
 
-    
     // Aquí eliminamos las fechas en que se anotan
-    let nombreSave = nameSend.nameSend;
-    let i = nombreSave.indexOf(`${dias[start.diaModal]} ${start.diaClick} en la mañana`);
-    nombreSave[i] = "";
-    addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+    function deleteSend() {
+      let nombreSave = nameSend.nameSend;
+      let i = nombreSave.indexOf(`${dias[start.diaModal]} ${start.diaClick} en la mañana`);
+      nombreSave[i] = "";
+      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+    }
 
   }
 
-  //Terde
+  // Added Tarde
   function addNameTarde() {
     let nombres = name.name;
     if (
@@ -120,6 +131,7 @@ function Modal() {
       nombres[3] = start.name;
       nombres[9] = "rgb(235, 221, 37)"; // Yellow
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      savedTarde();
     } else if (
       nombres[4] === "" &&
       nombres[3] !== start.name &&
@@ -128,6 +140,7 @@ function Modal() {
       nombres[4] = start.name;
       nombres[10] = "rgb(235, 221, 37)"; // Yellow
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      savedTarde();
     } else if (
       nombres[5] === "" &&
       nombres[3] !== start.name &&
@@ -136,54 +149,63 @@ function Modal() {
       nombres[5] = start.name;
       nombres[11] = "rgb(235, 221, 37)"; // Yellow
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      savedTarde();
     } else {
       console.log('Demasiados turnos -Tarde-');
     }
 
     // Guardamos las fechas en que se anotan
-    let nombreSave = nameSend.nameSend;
-    if(nombreSave[0] === "") {
-      nombreSave[0] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else if (nombreSave[1] === "") {
-      nombreSave[1] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else if (nombreSave[2] === "") {
-      nombreSave[2] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else if (nombreSave[3] === "") {
-      nombreSave[3] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else if (nombreSave[4] === "") {
-      nombreSave[4] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
-      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-    } else {
-      console.log('Son demasiados turnos para usted -mañana-');
+    function savedTarde() {
+      let nombreSave = nameSend.nameSend;
+      if(nombreSave[0] === "") {
+        nombreSave[0] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else if (nombreSave[1] === "") {
+        nombreSave[1] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else if (nombreSave[2] === "") {
+        nombreSave[2] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else if (nombreSave[3] === "") {
+        nombreSave[3] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else if (nombreSave[4] === "") {
+        nombreSave[4] = `${dias[start.diaModal]} ${start.diaClick} en la tarde`;
+        addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
+      } else {
+        console.log('Son demasiados turnos para usted -mañana-');
+      }
     }
+
   }
 
+  // Delete Tarde
   function deleteNameTarde() {
     let nombres = name.name;
     if (nombres[3] === start.name) {
       nombres[3] = "";
       nombres[9] = "rgb(35, 182, 35)"; // green
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      deleteTarde();
     } else if (nombres[4] === start.name) {
       nombres[4] = "";
       nombres[10] = "rgb(35, 182, 35)"; // green
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      deleteTarde();
     } else if (nombres[5] === start.name) {
       nombres[5] = "";
       nombres[11] = "rgb(35, 182, 35)"; // green
       addName(diaSelect, nombres, start.monthCambiante + "/");
+      deleteTarde();
     }
 
     // Aquí eliminamos las fechas en que se anotan
-    let nombreSave = nameSend.nameSend;
-    let i = nombreSave.indexOf(`${dias[start.diaModal]} ${start.diaClick} en la tarde`);
-    nombreSave[i] = "";
-    addparticipation(start.name, nombreSave, `${start.monthCambiante}/`)
-
+    function deleteTarde() {
+      let nombreSave = nameSend.nameSend;
+      let i = nombreSave.indexOf(`${dias[start.diaModal]} ${start.diaClick} en la tarde`);
+      nombreSave[i] = "";
+      addparticipation(start.name, nombreSave, `${start.monthCambiante}/`);
+    }
   }
 
   return (
