@@ -45,7 +45,7 @@ export function addparticipation(userId, name, month) {
 
 // addparticipation("Blanco", [""], "Marzo/")
 
-// addparticipation("Abner Estévez", ["", "", "", "", ""], "Marzo/")
+// addparticipation("Abner Estévez", ["", "", "", "", ""], "Junio/")
 // addparticipation("Alba Estévez", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Manuel Santana", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Massiel Santana", ["", "", "", "", ""], "Marzo/")
@@ -74,7 +74,7 @@ export function addparticipation(userId, name, month) {
 
 // export function addName(userId, name, month) {
 //   const db = getDatabase();
-//   const reference = ref(db, "Abril/" + userId);
+//   const reference = ref(db, "Mayo/" + userId);
 
 //   set(reference, {
 //     name: name,
@@ -85,7 +85,7 @@ export function addparticipation(userId, name, month) {
 // addName("day25", ["", "", "", "Visita del Sup.", "Visita del Sup.", "Visita del Sup.", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
 
 
-// addName("day1", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)",]);
+// addName("day1", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day2", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day3", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day4", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);

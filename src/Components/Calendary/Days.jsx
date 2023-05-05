@@ -4,14 +4,14 @@ import Day from "./Day";
 import { diaWeek, openModal, cambioMonth } from "../../App/features/IniciarSesion";
 import { month } from "./Day";
 
-// let months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-
 function Days(props) {
   const [dia29, setDia29] = useState("block");
   const [dia30, setDia30] = useState("block");
   const [dia31, setDia31] = useState("block");
   const start = useSelector((state) => state.inicio);
+
   const dispatch = useDispatch();
+
   // Para saber la cantidad total de días que tienes el mes, en el primer Render,
   // y cada vez que cambia las propiedades de la props
   useEffect(() => {
@@ -57,6 +57,8 @@ function Days(props) {
     dispatch(cambioMonth(props.month));
   }, [dispatch, props.dias, props.month]);
 
+
+  // Function para abrir la ventana Modal con los datos aquí pasados
   const handleClick = (e) => {
     // Obtengo el día que ha sido clickeado exactamente
     let getDia = parseInt(e.target.title);
@@ -64,36 +66,33 @@ function Days(props) {
     // En este constructor de Class verifico el día de la semana
     // Osea, si es martes o jueves.
     let obtenerMonth = month(props.month);
-    let daySelectDate = new Date(`${obtenerMonth} ${getDia} 2023`);
+    let daySelectDate = new Date(`${obtenerMonth} ${getDia} 2023`); // OJO Poner el año de forma dinamica
 
     // Me devuelve el día de la semana
     let dayWeek = daySelectDate.getDay();
     dispatch(diaWeek(dayWeek));
 
-    // eslint-disable-next-line no-mixed-operators
     // En este primer if comprobamos si el usuario ya inicio sesión
-
     if (start.estado) {
       if ((props.mesActual === props.month) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
-        // console.log("Este es el día " + getDia);
         dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today > 28) {
+      } else if (props.numMes + 1 === props.nextMes && props.today > 28 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         console.log("Ya te puedes anotar :)");
         dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today < 27) {
+      } else if (props.numMes + 1 === props.nextMes && props.today < 27 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         console.log('Todavía no te puedes anotar en este mes');
 
       } else if (props.numMes - 1 === props.nextMes) {
-        console.log("Ya este mes ha pasado");
-        // dispatch(openModal([getDia, props.month])); // Eliminar esta línea
+        console.log("Ya este mes paso");
       } else {
         console.log("no es día de predicación pública");
       }
     } else {
       console.log("Eliga su nombre, por favor");
     }
+    
   };
   return (
     <Day
@@ -105,122 +104,19 @@ function Days(props) {
       handle={handleClick}
       monthCurrent={props.month}
       year={props.year}
+      key={props.month} // Ver el comentario más abajo
     />
   );
 }
 
 export default Days;
 
-// Haciendo lo mismo pero con un componente de class
-
-// import React from "react";
-// // import style from "./Days.module.css";
-// import Day from './Day';
-
-// class Days extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       dia29: "block",
-//       dia30: "block",
-//       dia31: "block",
-//     };
-//     this.handleClick = this.handleClick.bind(this);
-//   }
-
-//   // Para saber la cantidad total de días que tienes el mes, en el primer Render.
-//   componentDidMount() {
-//     const days = this.props.dias;
-//     if (days === 28) {
-//       this.setState({
-//         dia29: "none",
-//         dia30: "none",
-//         dia31: "none",
-//       });
-//     } else if (days === 29) {
-//       this.setState({
-//         dia29: "block",
-//         dia30: "none",
-//         dia31: "none",
-//       });
-//     } else if (days === 30) {
-//       this.setState({
-//         dia29: "block",
-//         dia31: "none",
-//       });
-//     } else if (days === 31) {
-//       this.setState({
-//         dia29: "block",
-//         dia30: "block",
-//         dia31: "block",
-//       });
-//     }
-//   }
-
-//   // Para actualizar el Render una vez cambie el valor que tiene la Props
-//   componentDidUpdate(prevProps) {
-//     if (this.props.dias !== prevProps.dias) {
-//       const days = this.props.dias;
-//       if (days === 28) {
-//         this.setState({
-//           dia29: "none",
-//           dia30: "none",
-//           dia31: "none",
-//         });
-//       } else if (days === 29) {
-//         this.setState({
-//           dia29: "block",
-//           dia30: "none",
-//           dia31: "none",
-//         });
-//       } else if (days === 30) {
-//         this.setState({
-//           dia29: "block",
-//           dia31: "none",
-//         });
-//       } else if (days === 31) {
-//         this.setState({
-//           dia29: "block",
-//           dia30: "block",
-//           dia31: "block",
-//         });
-//       }
-//     }
-//   }
-
-//   handleClick(e) {
-//     // Obtengo el día que ha sido clickeado exactamente
-//     let getDia = parseInt(e.target.title);
-
-//     // En este constructor de Class verifico el día de la semana
-//     // Osea, si es martes o jueves.
-//     let daySelectDate = new Date(`Apr ${getDia} 2023`);
-
-//     // Me devuelve el día de la semana
-//     let dayWeek = daySelectDate.getDay();
-
-//     // eslint-disable-next-line no-mixed-operators
-//     if(this.props.mesActual === this.props.month && dayWeek === 2 || dayWeek === 4) {
-//       console.log('Este es el día ' + getDia);
-//     } else if (this.props.numMes + 1 === this.props.nextMes && this.props.today > 25) {
-//       console.log('Ya te puedes anotar :)');
-//     } else if (this.props.numMes - 1 === this.props.nextMes) {
-//       console.log('Ya este mes ha pasado');
-//     } else {
-//       console.log('no es día de predicación pública');
-//     }
-//   }
-
-//   render() {
-//     return (
-//       <Day firstDay={this.props.firstDay}
-//       today={this.props.today}
-//       days29={this.state.dia29}
-//       days30={this.state.dia30}
-//       days31={this.state.dia31}
-//       handle={this.handleClick} />
-//     );
-//   }
-// }
-
-// export default Days;
+// Al poner una key aquí, no tengo que utilizar componentDidUpdate en componente Day
+// Pues cada vez que el valor de la Key cambia (este caso cuando cambio de mes)
+// Automaticamente este componente hijo vuelve a rendirizarse con nuevos valores.
+// Para explación sobre este tema consultar el siguiente link:
+// https://es.legacy.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key
+// Esto me ayudo a resolver un gran problema que tenía cada vez que cambiaba de mes, por ej.:
+// Si el mes en curso es Mayo, y luego cambiaba a Junio todo iba bien hasta ahí, pero
+// Si otro usuario en el mes en curso, en este caso el mes de Mayo, hacia un cambio en dicho
+// mes, me renderizaba todo el mes Junio, esto afectaba en gran manera la experiencia de usuario.

@@ -5,7 +5,7 @@ import { modal } from "../../App/features/IniciarSesion";
 import { addName, dataB, addparticipation } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
 
-const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves"];
+const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 
 function Modal() {
   const start = useSelector((state) => state.inicio);
@@ -29,7 +29,6 @@ function Modal() {
     });
   }, [diaSelect, start.monthCambiante, start.name]);
 
-  
   //Added Mañana
   function addName1() {
     let nombres = name.name;
@@ -216,10 +215,7 @@ function Modal() {
       <div className={style.containerModal}>
         <div className={style.mañana}>
           <h3>Mañana</h3>
-          <h6>
-            {" "}
-            {start.diaClick} {start.month}
-          </h6>
+          <h5>{`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
           <div>
             <p className={style.nombres}>{!name ? "..." : name.name[0]}</p>
             <p className={style.nombres}>{!name ? "..." : name.name[1]}</p>
@@ -232,6 +228,7 @@ function Modal() {
         </div>
         <div className={style.tarde}>
           <h3>Tarde</h3>
+          <h5>{`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
           <div>
             <p className={style.nombres}>{!name ? "..." : name.name[3]}</p>
             <p className={style.nombres}>{!name ? "..." : name.name[4]}</p>

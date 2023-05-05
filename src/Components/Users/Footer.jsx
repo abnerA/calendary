@@ -29,7 +29,7 @@ function Footer() {
 
         <div className={style.noteContainer}>
           {!name ? (
-            <h3>'Loading...'</h3>
+            <h3>Loading...</h3>
           ) : (
             name.name.map((value, index) => {
               return (

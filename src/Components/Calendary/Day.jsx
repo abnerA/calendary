@@ -74,8 +74,8 @@ class Day extends React.Component {
   
   componentDidMount() {
     const tasksRef = ref(dataB, this.props.monthCurrent);
-    onValue(tasksRef, async (snapshot) => {
-      const data = await snapshot.val();
+    onValue(tasksRef, (snapshot) => {
+      const data = snapshot.val();
       this.setState({
         day1: data.day1.name, 
         day2: data.day2.name,
@@ -110,10 +110,8 @@ class Day extends React.Component {
         day31: data.day31.name
       });
     });
-
     const handler = (e) => this.setState({ matches: e.matches });
     window.matchMedia("(max-width: 700px)").addEventListener("change", handler);
-
   }
 
   dayAvailable(value) {
@@ -146,48 +144,51 @@ class Day extends React.Component {
       }
     }
   }
+    // this.props.year === 2023
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   console.log('segundo render');
 
-  componentDidUpdate(prevProps) {
-    if(this.props.monthCurrent !== prevProps.monthCurrent && this.props.year === 2023) {
-      const tasksRef = ref(dataB, this.props.monthCurrent);
-      onValue(tasksRef, (snapshot) => {
-        const data = snapshot.val();
-        this.setState({
-          day1: data.day1.name,
-          day2: data.day2.name,
-          day3: data.day3.name,
-          day4: data.day4.name,
-          day5: data.day5.name,
-          day6: data.day6.name,
-          day7: data.day7.name,
-          day8: data.day8.name,
-          day9: data.day9.name,
-          day10: data.day10.name,
-          day11: data.day11.name,
-          day12: data.day12.name,
-          day13: data.day13.name,
-          day14: data.day14.name,
-          day15: data.day15.name,
-          day16: data.day16.name,
-          day17: data.day17.name,
-          day18: data.day18.name,
-          day19: data.day19.name,
-          day20: data.day20.name,
-          day21: data.day21.name,
-          day22: data.day22.name,
-          day23: data.day23.name,
-          day24: data.day24.name,
-          day25: data.day25.name,
-          day26: data.day26.name,
-          day27: data.day27.name,
-          day28: data.day28.name,
-          day29: data.day29.name,
-          day30: data.day30.name,
-          day31: data.day31.name,
-        });
-      });
-    }
-  }
+  //   if(this.props.monthCurrent !== prevProps.monthCurrent)  {
+  //     const tasksRef = ref(dataB, this.props.monthCurrent);
+  //     onValue(tasksRef, (snapshot) => {
+  //       const data = snapshot.val();
+  //       console.log('hola1');
+  //       this.setState({
+  //         day1: data.day1.name,
+  //         day2: data.day2.name,
+  //         day3: data.day3.name,
+  //         day4: data.day4.name,
+  //         day5: data.day5.name,
+  //         day6: data.day6.name,
+  //         day7: data.day7.name,
+  //         day8: data.day8.name,
+  //         day9: data.day9.name,
+  //         day10: data.day10.name,
+  //         day11: data.day11.name,
+  //         day12: data.day12.name,
+  //         day13: data.day13.name,
+  //         day14: data.day14.name,
+  //         day15: data.day15.name,
+  //         day16: data.day16.name,
+  //         day17: data.day17.name,
+  //         day18: data.day18.name,
+  //         day19: data.day19.name,
+  //         day20: data.day20.name,
+  //         day21: data.day21.name,
+  //         day22: data.day22.name,
+  //         day23: data.day23.name,
+  //         day24: data.day24.name,
+  //         day25: data.day25.name,
+  //         day26: data.day26.name,
+  //         day27: data.day27.name,
+  //         day28: data.day28.name,
+  //         day29: data.day29.name,
+  //         day30: data.day30.name,
+  //         day31: data.day31.name,
+  //       });
+  //     });
+  //   }
+  // }
 
   render() {
     return (
