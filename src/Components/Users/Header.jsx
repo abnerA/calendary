@@ -31,7 +31,9 @@ const name = [
   "Ashanty Santana",
   "Guillermina Mesa",
   "Yirelis Mesa",
-  "Ruth Pérez"
+  "Ruth Pérez",
+  "Belkys Mateo",
+  "María Gil"
 ];
 
 export function Header() {
