@@ -64,7 +64,7 @@ function Days(props) {
     let getDia = parseInt(e.target.title);
 
     // En este constructor de Class verifico el día de la semana
-    // Osea, si es martes o jueves.
+    // Osea, si es lunes, martes o jueves.
     let obtenerMonth = month(props.month);
     let daySelectDate = new Date(`${obtenerMonth} ${getDia} 2023`); // OJO Poner el año de forma dinamica
 
@@ -103,6 +103,7 @@ function Days(props) {
       days31={dia31}
       handle={handleClick}
       monthCurrent={props.month}
+      mesActual={props.mesActual}
       year={props.year}
       key={props.month} // Ver el comentario más abajo
     />

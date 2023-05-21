@@ -1,24 +1,53 @@
-.containerDays {
+.container {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
 
-.containerDays div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.container .day {
     height: auto;
-    background-color: white;
-    margin: 1px;
-    border: solid 1px;
+    background-color: var(--bg-day);
+    margin: 2px;
+    border: solid 1px var(--color-border);
     border-radius: 3px;
-    padding: 4px;
+    padding: 2px;
 }
 
 h2 {
-    text-align: center;
-    font-size: 12px;
+    text-align: end;
+    font-size: 14px;
     margin: 0px;
+}
+
+.today {
+    background-color: #91BED4;
+    color: #304269;
+
+}
+
+.container .day .mañana, 
+.container .day .tarde {
+    height: 65px;
+}
+
+.container .day .mañana {
+    margin-bottom: 2px;
+}
+
+.container .day .tarde {
+    margin-top: 1px;
+}
+
+h5 {
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 1px;
+}
+
+.container .day .mañana .circle, 
+.container .day .tarde .circle {
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
 }
 
 .dayNone {
@@ -29,45 +58,40 @@ h2 {
     display: block;
 }
 
-.containerDays div .circle {
-    font-weight: bold;
-    font-size: 20px;
-    /* padding: 20px 0px; */
-    height: 22px;
-    width: 0px;
+@media only screen and (max-width: 709px) {
+
+    .container .day {
+        margin: 1px;
+    }
+
+    .container .day .mañana, 
+    .container .day .tarde {
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 2px;
 }
 
-@media only screen and (max-width: 700px) {
-    .containerDays div .name, .containerDays div h5 {
+    .container .day .name, 
+    .container .day h5 {
         display: none;
     }
-
-    .containerDays div hr {
-        margin-top: 5px;
-    }
 }
 
-@media only screen and (min-width: 701px) {
-    .containerDays div .name {
+@media only screen and (min-width: 710px) {
+    .container .day .name {
         display: block;
     }
 }
 
-
-h5 {
-    text-align: center;
+.container .day p {
     margin: 0px;
-    margin-top: 10px;
+    font-size: 12px;
+    color: black;
 }
 
-hr {
-    margin: 0px;
-    width: 100%;
-}
-
-
-.containerDays div p {
-    margin: 0px;
-    margin-left: 1%;
-    /* font-size: 14px; */
+.container .day .sepador {
+    margin: 1px 0px;
+    border: solid 1px black;
 }

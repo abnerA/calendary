@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100%;
     padding: 2px;
+
 }
 
 .week {
@@ -10,24 +11,24 @@
     grid-template-columns: repeat(7, 1fr);
     width: 100%;
     text-align: center;
-    margin-bottom: 3px;
-    font-size: 12px;
+    margin-bottom: 2px;
 }
 
 .week div {
-    margin: 1px;
-    border: solid 1px;
+    margin: 2px;
+    border: solid 1px var(--border-color);
     border-radius: 3px;
     font-weight: bold;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-days);
+
 }
 
-/* li {
-    text-align: center;
-    list-style: none;
-    /* color: green; */
-
-.num1 {
-    color: red;
+.week div p {
+    margin: 0px;
+    color: var(--text-color);
+    font-size: 14px;
 }
-
-/* grid-column-start: 4; */ 

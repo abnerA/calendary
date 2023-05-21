@@ -22,7 +22,7 @@ let meses = monthNames[monthNumber];
 
 const initialState = {
     title: 'Iniciar sesión',
-    name: 'Blanco', //Cambiar esta linea a ''
+    name: 'Blanco', // Cambiar esta linea a ''
     display1: 'none',
     display2: 'block',
     display3: 'none',
@@ -60,7 +60,6 @@ export const iniciarSesion = createSlice({
             state.ventanaModal = 'none'
         },
         openModal: (state, action) => {
-            // console.log(action.payload);
             state.diaSelect = action.payload[0];
             state.ventanaModal = 'flex';
             state.diaClick = action.payload[0];

@@ -77,11 +77,17 @@ class Calendary extends React.Component {
     return (
       <div className={style.container}>
         <div className={style.navigation}>
-          <button onClick={this.lastMonth} className={style.btnLast}>&#9664;</button>
-          <h4>
+          <button onClick={this.lastMonth} className={style.btnLast}>
+            <img src="img/left.svg" alt="left" className={style.btnIcon} />
+          </button>
+
+
+          <h4 className={style.titleMonth}>
             {this.state.month} {this.state.año}
           </h4>
-          <button onClick={this.nextMonth} className={style.btnNext}>&#9654;</button>
+          <button onClick={this.nextMonth} className={style.btnNext}>
+            <img src="img/right.svg" alt="left" className={style.btnIcon} />
+          </button>
         </div>
         <Months
           name={this.state.mes}

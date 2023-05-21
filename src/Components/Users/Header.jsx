@@ -41,16 +41,16 @@ export function Header() {
   const dispatch = useDispatch();
   return (
     <header className={style.header}>
-      <h3>Arreglo de Predicación pública</h3>
+      <h3 className={style.title}>Arreglo de Predicación Pública</h3>
       <nav className={style.nav}>
-        <h4>{start.name === 'Blanco' ? '' : start.name}</h4>
-        <button
+        <h4 style={{display: start.name === 'Blanco' ? 'none' : 'flex' }} >{start.name === 'Blanco' ? '' : start.name}</h4>
+        <button className={style.iniciarSesion}
           onClick={() => dispatch(startSection())}
           style={{ display: start.display2 }}
         >
           Seleccione su nombre
         </button>
-        <button
+        <button className={style.exit}
           onClick={() => dispatch(closeSection())}
           style={{ display: start.display3 }}
         >
@@ -73,14 +73,6 @@ export function Header() {
           })}
         </div>
       </div>
-      {/* <div className={style.modal} style={{display: start.display2}}>
-                    <select name="nombre">
-                     <option value="">Selecciona tu nombre</option>   
-                    {name.map(value => {
-                       return <option onClick={handleClick} value={value} key={value}>{value}</option>
-                    })}
-                    </select>
-                </div>  */}
     </header>
   );
 }

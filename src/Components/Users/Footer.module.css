@@ -1,5 +1,5 @@
 .container {
-    background-color: rgb(130, 164, 201);
+    background-color: var(--bg-color);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@
 }
 
 .info {
-    background-color: white;
+    background-color: var(--bg-footer);
     display: flex;
     flex-direction: column;
     width: 45%;

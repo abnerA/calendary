@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     height: auto;
-    background-color: rgb(130, 164, 201);
+    background-color: var(--bg-color);
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
@@ -11,20 +11,38 @@
 .navigation {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 10px;
+    height: 50px;
 }
 
+.titleMonth {
+    width: 120px;
+    margin: 0px 5px;
+    font-size: 16px;
+    color: var(--title-color);
+}
 
-/* .btnLast, .btnNext {
-    height: 20px;
-    background-color: rgb(86, 120, 223);
-    border: solid 1px white;
+.btnLast, .btnNext {
+    /* background-color: #FF9933; */
+    background-color: var(--bg-button);
+    border: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .btnLast:hover, .btnNext:hover {
     background-color: white;
     transition: 800ms;
-} */
+}
+
+.btnIcon {
+    width: 12px;
+}
