@@ -20,8 +20,6 @@ h2 {
 
 .today {
     background-color: #91BED4;
-    color: #304269;
-
 }
 
 .container .day .mañana, 
@@ -89,6 +87,7 @@ h5 {
     margin: 0px;
     font-size: 12px;
     color: black;
+    font-weight: 600;
 }
 
 .container .day .sepador {

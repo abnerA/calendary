@@ -92,6 +92,7 @@ class Calendary extends React.Component {
         <Months
           name={this.state.mes}
           year={this.state.año}
+          yearCurrent={year}
           firstDay={this.startDay()}
           today={today}
           mesActual={mes}

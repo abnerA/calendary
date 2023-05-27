@@ -31,4 +31,11 @@
     margin: 0px;
     color: var(--text-color);
     font-size: 14px;
+    font-weight: 800;
+}
+
+@media only screen and (max-width: 709px) {
+    .week div {
+        margin: 1px;
+    } 
 }

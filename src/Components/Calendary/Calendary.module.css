@@ -22,6 +22,8 @@
     margin: 0px 5px;
     font-size: 16px;
     color: var(--title-color);
+    font-style: italic;
+    font-weight: 800;
 }
 
 .btnLast, .btnNext {

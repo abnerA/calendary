@@ -15,6 +15,8 @@
     text-decoration: underline;    
     margin: 0px;
     color: var(--title-color);
+    font-style: italic;
+    font-weight: 800;
 }
 
 .nav {
@@ -32,6 +34,7 @@ h4 {
     margin: 0px;
 }
 
+/* Ventana Modal */
 .modal {
     display: flex;
     position: fixed;
@@ -39,23 +42,27 @@ h4 {
     align-items: center;
     flex-wrap: wrap;
     background: rgba(0, 0, 0, 0.6);
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     width: 100vw;
     height: 100vh;
+    transition: all .5s;
+    transform: translate(-50%, -50%);
+    overflow: auto;
 }
 
 .modalContainer {
-    display: flex;
+
     gap: 1px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--bg-color);
     width: 90%;
     border-radius: 5px;
     padding: 10px;
     padding-bottom: 20px;
+    margin: 5px;
 }
 
 .titleModal {
@@ -66,11 +73,12 @@ h4 {
 .nameButton {
     width: 32%;
     color: black;
-    background-color: rgb(212, 184, 223);
+    background-color: var(--bg-day);
     border: none;
     border-radius: 5px;
     margin: 1px;
     font-size: 13px;
+    font-weight: 600;
     padding: 5px;
 }
 
@@ -85,6 +93,7 @@ h4 {
     background-color: var(--bg-button);
     color: var(--color-button);
     font-size: 14px;
-    font-weight: bold;
+    font-style: italic;
+    font-weight: 700;
     padding: 2px;
 }

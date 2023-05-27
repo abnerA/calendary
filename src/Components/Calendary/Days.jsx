@@ -105,7 +105,8 @@ function Days(props) {
       monthCurrent={props.month}
       mesActual={props.mesActual}
       year={props.year}
-      key={props.month} // Ver el comentario más abajo
+      yearCurrent={props.yearCurrent}
+      key={props.month}// Ver el comentario más abajo
     />
   );
 }

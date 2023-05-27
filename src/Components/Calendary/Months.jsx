@@ -68,6 +68,7 @@ class Months extends React.Component {
         month={this.props.month} 
         numMes={this.props.numMes}
         year={this.props.year}
+        yearCurrent={this.props.yearCurrent}
         nextMes={this.props.nextMes} />
       </div>
     );

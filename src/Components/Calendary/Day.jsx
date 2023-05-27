@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import style from "./Day.module.css";
 import { dataB } from "../../firebase/firebase";
@@ -149,7 +150,7 @@ class Day extends React.Component {
     return (
       <div className={style.container}>
         <div title="1" onClick={this.props.handle} className={style.day} style={{gridColumnStart: this.props.firstDay === 0 ? 7 : this.props.firstDay}}>
-          <h2 title="1" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 1 ? style.today : 'none'}>1</h2>
+          <h2 title="1" className={this.props.monthCurrent === this.props.mesActual &&  this.props.today === 1 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>1</h2>
 
           <div title="1" className={style.mañana}>
             <h5 title="1" className={this.dayAvailable(1)}>Mañana</h5>
@@ -180,7 +181,7 @@ class Day extends React.Component {
 
         </div>
         <div title="2" onClick={this.props.handle} className={style.day}>
-          <h2 title="2" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 2 ? style.today : 'none'}>2</h2>
+          <h2 title="2" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 2 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>2</h2>
 
           <div title="2" className={style.mañana}>
             <h5 title="2" className={this.dayAvailable(2)}>Mañana</h5>
@@ -210,7 +211,7 @@ class Day extends React.Component {
 
         </div>
         <div title="3" onClick={this.props.handle} className={style.day}>
-          <h2 title="3" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 3 ? style.today : 'none'}>3</h2>
+          <h2 title="3" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 3 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>3</h2>
 
           <div title="3" className={style.mañana}>
             <h5 title="3" className={this.dayAvailable(3)}>Mañana</h5>
@@ -240,7 +241,7 @@ class Day extends React.Component {
 
         </div>
         <div title="4" onClick={this.props.handle} className={style.day}>
-          <h2 title="4" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 4 ? style.today : 'none'}>4</h2>
+          <h2 title="4" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 4 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>4</h2>
 
           <div title="4" className={style.mañana}>
             <h5 title="4" className={this.dayAvailable(4)}>Mañana</h5>
@@ -270,7 +271,7 @@ class Day extends React.Component {
 
         </div>
         <div title="5" onClick={this.props.handle} className={style.day}>
-          <h2 title="5" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 5 ? style.today : 'none'}>5</h2>
+          <h2 title="5" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 5 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>5</h2>
 
           <div title="5" className={style.mañana}>
             <h5 title="5" className={this.dayAvailable(5)}>Mañana</h5>
@@ -300,7 +301,7 @@ class Day extends React.Component {
 
         </div>
         <div title="6" onClick={this.props.handle} className={style.day}>
-          <h2 title="6" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 6 ? style.today : 'none'}>6</h2>
+          <h2 title="6" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 6 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>6</h2>
 
           <div title="6" className={style.mañana}>
             <h5 title="6" className={this.dayAvailable(6)} >Mañana</h5>
@@ -330,7 +331,7 @@ class Day extends React.Component {
 
         </div>
         <div title="7" onClick={this.props.handle} className={style.day}>
-          <h2 title="7" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 7 ? style.today : 'none'}>7</h2>
+          <h2 title="7" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 7 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>7</h2>
 
           <div title="7" className={style.mañana}>
             <h5 title="7" className={this.dayAvailable(7)} >Mañana</h5>
@@ -360,7 +361,7 @@ class Day extends React.Component {
 
         </div>
         <div title="8" onClick={this.props.handle} className={style.day}>
-          <h2 title="8" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 8 ? style.today : 'none'}>8</h2>
+          <h2 title="8" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 8 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>8</h2>
 
           <div title="8" className={style.mañana}>
             <h5 title="8" className={this.dayAvailable(8)}>Mañana</h5>
@@ -390,7 +391,7 @@ class Day extends React.Component {
 
         </div>
         <div title="9" onClick={this.props.handle} className={style.day}>
-          <h2 title="9" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 9 ? style.today : 'none'}>9</h2>
+          <h2 title="9" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 9 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>9</h2>
 
           <div title="9" className={style.mañana}>
             <h5 title="9" className={this.dayAvailable(9)} >Mañana</h5>
@@ -420,7 +421,7 @@ class Day extends React.Component {
 
         </div>
         <div title="10" onClick={this.props.handle} className={style.day}>
-          <h2 title="10" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 10 ? style.today : 'none'}>10</h2>
+          <h2 title="10" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 10 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>10</h2>
 
           <div title="10" className={style.mañana}>
             <h5 title="10" className={this.dayAvailable(10)} >Mañana</h5>
@@ -450,7 +451,7 @@ class Day extends React.Component {
 
         </div>
         <div title="11" onClick={this.props.handle} className={style.day}>
-          <h2 title="11" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 11 ? style.today : 'none'}>11</h2>
+          <h2 title="11" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 11 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>11</h2>
 
           <div title="11" className={style.mañana}>
             <h5 title="11" className={this.dayAvailable(11)}>Mañana</h5>
@@ -480,7 +481,7 @@ class Day extends React.Component {
 
         </div>
         <div title="12" onClick={this.props.handle} className={style.day}>
-          <h2 title="12" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 12 ? style.today : 'none'}>12</h2>
+          <h2 title="12" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 12 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>12</h2>
 
           <div title="12" className={style.mañana}>
             <h5 title="12" className={this.dayAvailable(12)}>Mañana</h5>
@@ -510,7 +511,7 @@ class Day extends React.Component {
 
         </div>
         <div title="13" onClick={this.props.handle} className={style.day}>
-          <h2 title="13" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 13 ? style.today : 'none'}>13</h2>
+          <h2 title="13" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 13 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>13</h2>
 
           <div title="13" className={style.mañana}>
             <h5 title="13" className={this.dayAvailable(13)}>Mañana</h5>
@@ -540,7 +541,7 @@ class Day extends React.Component {
 
         </div>
         <div title="14" onClick={this.props.handle} className={style.day}>
-          <h2 title="14" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 14 ? style.today : 'none'}>14</h2>
+          <h2 title="14" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 14 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>14</h2>
 
           <div title="14" className={style.mañana}>
             <h5 title="14" className={this.dayAvailable(14)}>Mañana</h5>
@@ -570,7 +571,7 @@ class Day extends React.Component {
 
         </div>
         <div title="15" onClick={this.props.handle} className={style.day}>
-          <h2 title="15" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 15 ? style.today : 'none'}>15</h2>
+          <h2 title="15" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 15 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>15</h2>
 
           <div title="15" className={style.mañana}>
             <h5 title="15" className={this.dayAvailable(15)}>Mañana</h5>
@@ -600,7 +601,7 @@ class Day extends React.Component {
 
         </div>
         <div title="16" onClick={this.props.handle} className={style.day}>
-          <h2 title="16" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 16 ? style.today : 'none'}>16</h2>
+          <h2 title="16" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 16 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>16</h2>
 
           <div title="16" className={style.mañana}>
             <h5 title="16" className={this.dayAvailable(16)}>Mañana</h5>
@@ -630,7 +631,7 @@ class Day extends React.Component {
 
         </div>
         <div title="17" onClick={this.props.handle} className={style.day}>
-          <h2 title="17" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 17 ? style.today : 'none'}>17</h2>
+          <h2 title="17" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 17 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>17</h2>
 
           <div title="17" className={style.mañana}>
             <h5 title="17" className={this.dayAvailable(17)}>Mañana</h5>
@@ -662,7 +663,7 @@ class Day extends React.Component {
 
         </div>
         <div title="18" onClick={this.props.handle} className={style.day}>
-          <h2 title="18" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 18 ? style.today : 'none'}>18</h2>
+          <h2 title="18" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 18 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>18</h2>
 
           <div title="18" className={style.mañana}>
             <h5 title="18" className={this.dayAvailable(18)}>Mañana</h5>
@@ -693,7 +694,7 @@ class Day extends React.Component {
 
         </div>
         <div title="19" onClick={this.props.handle} className={style.day}>
-          <h2 title="19" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 19 ? style.today : 'none'}>19</h2>
+          <h2 title="19" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 19 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>19</h2>
 
           <div title="19" className={style.mañana}>
             <h5 title="19" className={this.dayAvailable(19)}>Mañana</h5>
@@ -723,7 +724,7 @@ class Day extends React.Component {
 
         </div>
         <div title="20" onClick={this.props.handle} className={style.day}>
-          <h2 title="20" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 20 ? style.today : 'none'}>20</h2>
+          <h2 title="20" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 20 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>20</h2>
 
           <div title="20" className={style.mañana}>
             <h5 title="20" className={this.dayAvailable(20)}>Mañana</h5>
@@ -753,7 +754,7 @@ class Day extends React.Component {
 
         </div>
         <div title="21" onClick={this.props.handle} className={style.day}>
-          <h2 title="21" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 21 ? style.today : 'none'}>21</h2>
+          <h2 title="21" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 21 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>21</h2>
 
           <div title="21" className={style.mañana}>
             <h5 title="21" className={this.dayAvailable(21)}>Mañana</h5>
@@ -783,7 +784,7 @@ class Day extends React.Component {
 
         </div>
         <div title="22" onClick={this.props.handle} className={style.day}>
-          <h2 title="22" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 22 ? style.today : 'none'}>22</h2>
+          <h2 title="22" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 22 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>22</h2>
 
           <div title="22" className={style.mañana}>
             <h5 title="22" className={this.dayAvailable(22)}>Mañana</h5>
@@ -813,7 +814,7 @@ class Day extends React.Component {
 
         </div>
         <div title="23" onClick={this.props.handle} className={style.day}>
-          <h2 title="23" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 23 ? style.today : 'none'}>23</h2>
+          <h2 title="23" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 23 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>23</h2>
 
           <div title="23" className={style.mañana}>
             <h5 title="23" className={this.dayAvailable(23)}>Mañana</h5>
@@ -843,7 +844,7 @@ class Day extends React.Component {
 
         </div>
         <div title="24" onClick={this.props.handle} className={style.day}>
-          <h2 title="24" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 24 ? style.today : 'none'}>24</h2>
+          <h2 title="24" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 24 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>24</h2>
 
           <div title="24" className={style.mañana}>
             <h5 title="24" className={this.dayAvailable(24)}>Mañana</h5>
@@ -873,7 +874,7 @@ class Day extends React.Component {
 
         </div>
         <div title="25" onClick={this.props.handle} className={style.day}>
-          <h2 title="25" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 25 ? style.today : 'none'}>25</h2>
+          <h2 title="25" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 25 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>25</h2>
 
           <div title="25" className={style.mañana}>
             <h5 title="25" className={this.dayAvailable(25)}>Mañana</h5>
@@ -902,7 +903,7 @@ class Day extends React.Component {
           </div>
         </div>
         <div title="26" onClick={this.props.handle} className={style.day}>
-          <h2 title="26" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 26 ? style.today : 'none'}>26</h2>
+          <h2 title="26" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 26 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>26</h2>
 
           <div title="26" className={style.mañana}>
             <h5 title="26" className={this.dayAvailable(26)}>Mañana</h5>
@@ -932,7 +933,7 @@ class Day extends React.Component {
 
         </div>
         <div title="27" onClick={this.props.handle} className={style.day}>
-          <h2 title="27" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 27 ? style.today : 'none'}>27</h2>
+          <h2 title="27" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 27 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>27</h2>
 
           <div title="27" className={style.mañana}>
             <h5 title="27" className={this.dayAvailable(27)}>Mañana</h5>
@@ -962,7 +963,7 @@ class Day extends React.Component {
 
         </div>
         <div title="28" onClick={this.props.handle} className={style.day}>
-          <h2 title="28" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 28 ? style.today : 'none'}>28</h2>
+          <h2 title="28" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 28 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>28</h2>
 
           <div title="28" className={style.mañana}>
             <h5 title="28" className={this.dayAvailable(28)}>Mañana</h5>
@@ -992,7 +993,7 @@ class Day extends React.Component {
 
         </div>
         <div title="29" onClick={this.props.handle} className={style.day} style={{ display: this.props.days29.dia29 }}>
-          <h2 title="29" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 29 ? style.today : 'none'}>29</h2>
+          <h2 title="29" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 29 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>29</h2>
 
           <div title="29" className={style.mañana}>
             <h5 title="29" className={this.dayAvailable(29)}>Mañana</h5>
@@ -1022,7 +1023,7 @@ class Day extends React.Component {
 
         </div>
         <div title="30" onClick={this.props.handle} className={style.day} style={{ display: this.props.days30.dia30 }}>
-          <h2 title="30" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 30 ? style.today : 'none'}>30</h2>
+          <h2 title="30" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 30 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>30</h2>
 
           <div title="30" className={style.mañana}>
             <h5 title="30" className={this.dayAvailable(30)}>Mañana</h5>
@@ -1052,7 +1053,7 @@ class Day extends React.Component {
 
         </div>
         <div title="31" onClick={this.props.handle} className={style.day} style={{ display: this.props.days31.dia31 }}>
-          <h2 title="31" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 31 ? style.today : 'none'}>31</h2>
+          <h2 title="31" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 31 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>31</h2>
 
           <div title="31" className={style.mañana}>
             <h5 title="31" className={this.dayAvailable(31)}>Mañana</h5>
