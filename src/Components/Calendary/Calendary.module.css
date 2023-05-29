@@ -27,7 +27,6 @@
 }
 
 .btnLast, .btnNext {
-    /* background-color: #FF9933; */
     background-color: var(--bg-button);
     border: 0px;
     padding: 0px;
@@ -38,13 +37,34 @@
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
+    opacity: 1;
 }
 
 .btnLast:hover, .btnNext:hover {
-    background-color: white;
-    transition: 800ms;
+    opacity: .8;
+    transition: 200ms;
 }
 
 .btnIcon {
     width: 12px;
+}
+
+@media only screen and (max-width: 710px) {
+    .btnLast, .btnNext {
+        width: 20px;
+        height: 20px;
+    }
+
+    .btnNext img, .btnLast img {
+        height: 15px;
+    }
+
+    .titleMonth {
+        width: 120px;
+        margin: 0px 5px;
+        font-size: 14px;
+        color: var(--title-color);
+        font-style: italic;
+        font-weight: 800;
+    }
 }

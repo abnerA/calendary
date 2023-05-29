@@ -34,61 +34,12 @@ h4 {
     margin: 0px;
 }
 
-/* Ventana Modal */
-.modal {
-    display: flex;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    background: rgba(0, 0, 0, 0.6);
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    transition: all .5s;
-    transform: translate(-50%, -50%);
-    overflow: auto;
-}
-
-.modalContainer {
-
-    gap: 1px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-color);
-    width: 90%;
-    border-radius: 5px;
-    padding: 10px;
-    padding-bottom: 20px;
-    margin: 5px;
-}
-
-.titleModal {
-    width: 100%;
-    margin: 5px;
-}
-
-.nameButton {
-    width: 32%;
-    color: black;
-    background-color: var(--bg-day);
-    border: none;
-    border-radius: 5px;
-    margin: 1px;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 5px;
-}
-
 .iniciarSesion, .exit {
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     width: 100%;
-    height: 40px;
     border-radius: 8px;
     background-color: var(--bg-button);
     color: var(--color-button);
@@ -96,4 +47,32 @@ h4 {
     font-style: italic;
     font-weight: 700;
     padding: 2px;
+    cursor: pointer;
+}
+
+.iniciarSesion {
+    width: 100%;
+    height: 40px;
+}
+
+.iniciarSesion:hover, .exit:hover {
+    opacity: .9;
+    transition: all 200ms;
+}
+
+.exit {
+    width: 90%;
+    height: 30px;
+}
+
+@media only screen and (max-width: 710px) {
+    .title {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .iniciarSesion {
+        width: 90%;
+        font-size: 12px;
+    }
 }

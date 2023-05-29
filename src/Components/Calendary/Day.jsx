@@ -37,7 +37,7 @@ class Day extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      matches: window.matchMedia("(max-width: 709px)").matches,
+      matches: window.matchMedia("(max-width: 625px)").matches,
       day1: [""],
       day2: [""],
       day3: [""],
@@ -112,7 +112,7 @@ class Day extends React.Component {
       });
     });
     const handler = (e) => this.setState({ matches: e.matches });
-    window.matchMedia("(max-width: 709px)").addEventListener("change", handler);
+    window.matchMedia("(max-width: 625px)").addEventListener("change", handler);
   }
 
   dayAvailable(value) {

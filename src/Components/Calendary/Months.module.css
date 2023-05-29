@@ -38,4 +38,8 @@
     .week div {
         margin: 1px;
     } 
+
+    .week div p {
+        font-size: 12px;
+    }
 }

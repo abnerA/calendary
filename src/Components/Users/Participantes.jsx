@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "./Partcipantes.module.css"
 
 const normal = {
@@ -42,7 +42,6 @@ function Participantes() {
 
     return (
         <div className={style.container}>
-            <button onClick={handleClick}>Abrir</button>
             <div onClick={handleClick} style={buttonStyle ? transformed : normal}>
                 <div className={style.modalContainer}>
                     <div className={style.modalContent}>
@@ -50,10 +49,8 @@ function Participantes() {
                         <span className={style.close} aria-label="close Modal">x</span>
                     </div>
                     <p>Lorem ipsum dolor sit amet.</p>
-                    <button>Abner</button>
-                    <button>Juan</button>
-                    <button>Carlos</button>
                 </div>
+                <button onClick={handleClick}>Cerrar</button>
             </div>
         </div>
     );
