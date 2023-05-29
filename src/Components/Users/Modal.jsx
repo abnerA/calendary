@@ -209,34 +209,32 @@ function Modal() {
 
   return (
     <div className={style.container} style={{ display: start.ventanaModal }}>
-      <button onClick={() => dispatch(modal())} className={style.button}>
+      <span onClick={() => dispatch(modal())} className={style.close}>
         x
-      </button>
+      </span>
       <div className={style.containerModal}>
         <div className={style.mañana}>
-          <h3>Mañana</h3>
-          <h5>{`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
-          <div>
+          <h5 className={style.title}>Mañana | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
+          <div className={style.containerName}>
             <p className={style.nombres}>{!name ? "..." : name.name[0]}</p>
             <p className={style.nombres}>{!name ? "..." : name.name[1]}</p>
             <p className={style.nombres}>{!name ? "..." : name.name[2]}</p>
           </div>
           <div className={style.btnModal}>
-            <button onClick={deleteName}>Quitarme</button>
-            <button onClick={addName1}>Anotarme</button>
+            <button className={style.btnDelete} onClick={deleteName}>Quitarme</button>
+            <button className={style.btnAdd} onClick={addName1}>Anotarme</button>
           </div>
         </div>
         <div className={style.tarde}>
-          <h3>Tarde</h3>
-          <h5>{`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
-          <div>
+          <h5 className={style.title}>Tarde | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
+          <div className={style.containerName}>
             <p className={style.nombres}>{!name ? "..." : name.name[3]}</p>
             <p className={style.nombres}>{!name ? "..." : name.name[4]}</p>
             <p className={style.nombres}>{!name ? "..." : name.name[5]}</p>
           </div>
           <div className={style.btnModal}>
-            <button onClick={deleteNameTarde}>Quitarme</button>
-            <button onClick={addNameTarde}>Anotarme</button>
+            <button className={style.btnDelete} onClick={deleteNameTarde}>Quitarme</button>
+            <button className={style.btnAdd} onClick={addNameTarde}>Anotarme</button>
           </div>
         </div>
       </div>

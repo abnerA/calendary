@@ -8,6 +8,7 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
 .containerModal {
@@ -15,8 +16,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    width: 400px;
+    background-color: var(--bg-day);
+    width: 90%;
+    max-width: 400px;
     height: auto;
     border-radius: 5px;
     padding: 10px 0px;
@@ -27,16 +29,30 @@
 }
 
 .mañana, .tarde {
-    background-color: grey;
+    background-color: var(--bg-body);
     width: 90%;
+    height: auto;
+    border-radius: 8px;
+    padding: 10px;
+    /* overflow: auto; */
+}
+
+.title {
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.containerName {
+    margin: 20px 0px;
+    height: 50px;
 }
 
 .nombres {
-    margin-left: 10px;
-}
-
-h3 {
-    text-align: center;
+    margin: 0px;
+    font-size: 14px;
+    font-style: bold;
+    font-weight: 700;
 }
 
 .btnModal {
@@ -45,20 +61,73 @@ h3 {
     justify-content: flex-end;
 }
 
-.btnModal button {
-    margin: 0px 5px;
-    margin-bottom: 5px;
-}
-
-.button {
-    position: absolute;
-    font-size: 20px;
+.btnAdd {
+    background-color: var(--bg-footer);
+    font-size: 12px;
+    color: black;
+    width: 70px;
+    height: 25px;
+    border: none;
     font-weight: bold;
-    right: 2%;
-    top: 2%;
-    border: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 2px;
 }
 
-p {
-    display: block;
+.btnAdd:hover {
+    background-color: var(--bg-days);
+    border: solid 2px white;
+    color: white;
+    transition: all 900ms ease;
+
+}
+
+.btnAdd:focus {
+    background-color: white;
+}
+
+.btnDelete {
+    background-color: #f44336;
+    width: 70px;
+    font-size: 12px;
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.btnDelete:hover {
+    background-color: white;
+    border: solid 2px #f44336;
+    transition: all 500ms ease;
+}
+
+.btnDelete:focus {
+    background-color: #f44336;
+}
+
+.close {
+    position: fixed;
+    top: .4rem;
+    right: .4rem;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    background: #f44336;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all .5s;
+}
+
+.close:hover {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }

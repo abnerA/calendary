@@ -1,78 +1,59 @@
-import React from "react";
-// import { savedPersonName, getPersons } from "../../firebase/app";
-import { writeUserData, dataB } from "../../firebase/firebase";
-import { ref, onValue } from "firebase/database";
+import React, { useState } from "react";
+import style from "./Partcipantes.module.css"
 
-const tasksRef = ref(dataB, "users");
+const normal = {
+    display: 'flex',
+    visibility: 'hidden',
+    opacity: 0,
+    position: 'fixed',
+    justifyContent: 'center',
+    alignItems: 'center',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: '100%',
+    background: 'rgba(0, 0, 0, 0.6)',
+    transition: 'all .6s',
+  };
 
-class Participantes extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: '', anotados: ''};
-    this.sendPerson = this.sendPerson.bind(this);
-    this.getPersonsData = this.getPersonsData.bind(this);
+  const transformed = {
+    display: 'flex',
+    visibility: 'visible',
+    opacity: 9,
+    position: 'fixed',
+    justifyContent: 'center',
+    alignItems: 'center',
+    left: 0,
+    top: 0,
+    height: '100vh',
+    width: '100vw',
+    overflow: 'auto',
+    background: 'rgba(0, 0, 0, 0.6)',
+    transition: 'all .6s',
+  };
 
-  }
 
+function Participantes() {
+    const [buttonStyle, setButtonStyle] = useState(false);
 
+    function handleClick() {
+        setButtonStyle(!buttonStyle)
+    };
 
-  // componentDidMount()  {
-  // //   // const p = await getPersons();
-  // //   // console.log(p.docs[0].data().name);
-  // //   // this.setState({
-  // //   //     anotados: p.docs[0].data().name
-  // //   // });
-  //   onValue(tasksRef, (snapshot) => {
-  //     const data = snapshot.val().day1.name;
-  //     console.log(data);
-  //     this.setState({
-  //       anotados: data
-  //     });
-  //   });
-  // }
-
-  // Add name
-  sendPerson(e) {
-    let nombre1 = e.target.value;
-    
-    // savedPersonName(e.target.value);
-    console.log(nombre1);
-    // writeUserData("andreawu", `${nombre1}`, "nerpa.c@hotmail.com", "myImageUrl");
-
-    onValue(tasksRef, (snapshot) => {
-      const data = snapshot.val().day1.name;
-      this.setState({
-        anotados: data
-      });
-    });
-    
-  }
-
-  // Get name
-  getPersonsData = async () => {
-    // const p = await getPersons();
-    // console.log(p.docs[0].data().name);
-    // this.setState({
-    //     anotados: this.state.anotados
-    // });
-  }
-
-  render() {
     return (
-      <div>
-
-        <h3>Participantes:</h3>
-        {/* <button key='1' onClick={this.sendPerson} value='Abner'>Abner</button>
-        <button key='2' onClick={this.sendPerson} value='Juan'>Juan</button>
-        <button key='3' onClick={this.sendPerson} value='Manuel'>Manuel</button>
-        <button key='4' onClick={this.getPersonsData}>Get</button>
-        <h3>{this.state.name}</h3>
-        <h2>Anotados:</h2>
-        <h3>{this.state.anotados}</h3> */}
-      </div>
+        <div className={style.container}>
+            <div onClick={handleClick} style={buttonStyle ? transformed : normal}>
+                <div className={style.modalContainer}>
+                    <div className={style.modalContent}>
+                        <h2>Modal</h2>
+                        <span className={style.close} aria-label="close Modal">x</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <button onClick={handleClick}>Cerrar</button>
+            </div>
+        </div>
     );
-  }
 }
-
 
 export default Participantes;

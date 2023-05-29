@@ -25,7 +25,7 @@ function Footer() {
   return (
     <div className={style.container}>
       <div className={style.info}>
-        <h3 className={style.title}>Mis Participaciones:</h3>
+        <h4 className={style.title}>Mis Participaciones:</h4>
 
         <div className={style.noteContainer}>
           {!name ? (
@@ -43,7 +43,7 @@ function Footer() {
 
       </div>
       <div className={style.info}>
-        <h3 className={style.title}>Leyenda</h3>
+        <h4 className={style.title}>Leyenda</h4>
         <div className={style.green}>
           <div className={style.colorGreen}></div>
           <p>Turno libre</p>

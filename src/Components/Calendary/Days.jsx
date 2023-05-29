@@ -8,6 +8,7 @@ function Days(props) {
   const [dia29, setDia29] = useState("block");
   const [dia30, setDia30] = useState("block");
   const [dia31, setDia31] = useState("block");
+
   const start = useSelector((state) => state.inicio);
 
   const dispatch = useDispatch();
@@ -64,7 +65,7 @@ function Days(props) {
     let getDia = parseInt(e.target.title);
 
     // En este constructor de Class verifico el día de la semana
-    // Osea, si es martes o jueves.
+    // Osea, si es lunes, martes o jueves.
     let obtenerMonth = month(props.month);
     let daySelectDate = new Date(`${obtenerMonth} ${getDia} 2023`); // OJO Poner el año de forma dinamica
 
@@ -77,12 +78,15 @@ function Days(props) {
       if ((props.mesActual === props.month) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today > 29 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+      } else if (props.numMes + 1 === props.nextMes && props.today > 31 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         console.log("Ya te puedes anotar :)");
         dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today < 28 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+      } else if ((props.numMes + 1 === props.nextMes) && (props.today > 25) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         console.log('Todavía no te puedes anotar en este mes');
+
+      } else if (props.nextMes > props.numMes + 1) {
+        console.log('Todavía falta mucho para ese mes');
 
       } else if (props.numMes - 1 === props.nextMes) {
         console.log("Ya este mes paso");
@@ -95,17 +99,19 @@ function Days(props) {
     
   };
   return (
-    <Day
-      firstDay={props.firstDay}
-      today={props.today}
-      days29={dia29}
-      days30={dia30}
-      days31={dia31}
-      handle={handleClick}
-      monthCurrent={props.month}
-      year={props.year}
-      key={props.month} // Ver el comentario más abajo
-    />
+      <Day
+        firstDay={props.firstDay}
+        today={props.today}
+        days29={dia29}
+        days30={dia30}
+        days31={dia31}
+        handle={handleClick}
+        monthCurrent={props.month}
+        mesActual={props.mesActual}
+        year={props.year}
+        yearCurrent={props.yearCurrent}
+        key={props.month}// Ver el comentario más abajo
+      />
   );
 }
 

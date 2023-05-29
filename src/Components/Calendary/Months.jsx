@@ -53,13 +53,13 @@ class Months extends React.Component {
     return (
       <div className={style.container}>
         <div className={style.week}>
-          <div>L</div>
-          <div>M</div>
-          <div>M</div>
-          <div>J</div>
-          <div>V</div>
-          <div>S</div>
-          <div>D</div>
+          <div><p>Lun</p></div>
+          <div><p>Mar</p></div>
+          <div><p>Mie</p></div>
+          <div><p>Jue</p></div>
+          <div><p>Vie</p></div>
+          <div><p>Sab</p></div>
+          <div><p>Dom</p></div>
         </div>
         <Days dias={result.length} 
         firstDay={this.props.firstDay} 
@@ -68,6 +68,7 @@ class Months extends React.Component {
         month={this.props.month} 
         numMes={this.props.numMes}
         year={this.props.year}
+        yearCurrent={this.props.yearCurrent}
         nextMes={this.props.nextMes} />
       </div>
     );
