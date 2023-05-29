@@ -78,11 +78,11 @@ function Days(props) {
       if ((props.mesActual === props.month) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today > 31 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+      } else if (props.numMes + 1 === props.nextMes && props.today > 25 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         console.log("Ya te puedes anotar :)");
         dispatch(openModal([getDia, props.month]));
 
-      } else if ((props.numMes + 1 === props.nextMes) && (props.today > 25) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+      } else if ((props.numMes + 1 === props.nextMes) && (props.today > 24) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         console.log('Todavía no te puedes anotar en este mes');
 
       } else if (props.nextMes > props.numMes + 1) {
