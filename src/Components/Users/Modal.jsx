@@ -32,19 +32,22 @@ function Modal() {
   //Added Mañana
   function addName1() {
     let nombres = name.name;
+    let countParticipation = nameSend.nameSend.includes(""); // Esta variable verifica la cantidad de veces que estamos anotadados
+      // Devuelve true si todavía no estamos 5 veces, de lo contrario devuelve false
     if (
       nombres[0] === "" &&
       nombres[1] !== start.name &&
-      nombres[2] !== start.name && nameSend.nameSend[4] === ""
+      nombres[2] !== start.name && countParticipation
     ) {
       nombres[0] = start.name;
       nombres[6] = "rgb(103, 103, 209)"; // Blue
       addName(diaSelect, nombres, start.monthCambiante + "/"); // Guardar nombre en DB RealTime
       send();
+
     } else if (
       nombres[1] === "" &&
       nombres[0] !== start.name &&
-      nombres[2] !== start.name && nameSend.nameSend[4] === ""
+      nombres[2] !== start.name && countParticipation
     ) {
       nombres[1] = start.name;
       nombres[7] = "rgb(103, 103, 209)"; // Blue
@@ -53,7 +56,7 @@ function Modal() {
     } else if (
       nombres[2] === "" &&
       nombres[0] !== start.name &&
-      nombres[1] !== start.name && nameSend.nameSend[4] === ""
+      nombres[1] !== start.name && countParticipation
     ) {
       nombres[2] = start.name;
       nombres[8] = "rgb(103, 103, 209)"; // Blue
@@ -122,10 +125,11 @@ function Modal() {
   // Added Tarde
   function addNameTarde() {
     let nombres = name.name;
+    let countParticipationT = nameSend.nameSend.includes("");
     if (
       nombres[3] === "" &&
       nombres[4] !== start.name &&
-      nombres[5] !== start.name && nameSend.nameSend[4] === ""
+      nombres[5] !== start.name && countParticipationT
     ) {
       nombres[3] = start.name;
       nombres[9] = "rgb(235, 221, 37)"; // Yellow
@@ -134,7 +138,7 @@ function Modal() {
     } else if (
       nombres[4] === "" &&
       nombres[3] !== start.name &&
-      nombres[5] !== start.name && nameSend.nameSend[4] === ""
+      nombres[5] !== start.name && countParticipationT
     ) {
       nombres[4] = start.name;
       nombres[10] = "rgb(235, 221, 37)"; // Yellow
@@ -143,7 +147,7 @@ function Modal() {
     } else if (
       nombres[5] === "" &&
       nombres[3] !== start.name &&
-      nombres[4] !== start.name && nameSend.nameSend[4] === ""
+      nombres[4] !== start.name && countParticipationT
     ) {
       nombres[5] = start.name;
       nombres[11] = "rgb(235, 221, 37)"; // Yellow

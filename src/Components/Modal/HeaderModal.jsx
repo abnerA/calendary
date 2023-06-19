@@ -43,7 +43,7 @@ const normal = {
   width: "100%",
   height: "100%",
   background: "rgba(0, 0, 0, 0.6)",
-  transition: "all 800ms",
+  transition: "all 400ms",
 };
 
 const transformed = {
