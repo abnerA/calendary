@@ -740,7 +740,7 @@ class Day extends React.Component {
 
           <hr title="20" className={this.dayAvailable(20) + " " + style.sepador} />
 
-          <div title="19" className={style.tarde}>
+          <div title="20" className={style.tarde}>
             <h5 title="20" className={this.dayAvailable(20)} >Tarde</h5>
 
             <div title="20" style={{backgroundColor: this.state.day20[9], display: this.circleAvalaible(20)}} className={style.circle}></div>

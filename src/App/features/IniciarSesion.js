@@ -70,7 +70,7 @@ export const iniciarSesion = createSlice({
         },
         cambioMonth: (state, action) => {
             state.monthCambiante = action.payload;
-        } 
+        }
     }
 });
 
