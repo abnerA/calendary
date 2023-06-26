@@ -560,9 +560,9 @@ class Day extends React.Component {
           <div title="14" className={style.tarde}>
             <h5 title="14" className={this.dayAvailable(14)}>Tarde</h5>
 
-            <p title="14" style={{backgroundColor: this.state.day14[9], display: this.circleAvalaible(14)}} className={style.circle}></p>
-            <p title="14" style={{backgroundColor: this.state.day14[10], display: this.circleAvalaible(14)}} className={style.circle}></p>
-            <p title="14" style={{backgroundColor: this.state.day14[11], display: this.circleAvalaible(14)}} className={style.circle}></p>
+            <div title="14" style={{backgroundColor: this.state.day14[9], display: this.circleAvalaible(14)}} className={style.circle}></div>
+            <div title="14" style={{backgroundColor: this.state.day14[10], display: this.circleAvalaible(14)}} className={style.circle}></div>
+            <div title="14" style={{backgroundColor: this.state.day14[11], display: this.circleAvalaible(14)}} className={style.circle}></div>
 
             <p className={style.name} title="14">{this.state.day14[3]}</p>
             <p className={style.name} title="14">{this.state.day14[4]}</p>
