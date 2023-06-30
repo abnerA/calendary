@@ -24,6 +24,7 @@
     padding: 10px 0px;
 }
 
+
 .tarde {
     margin-top: 10px;
 }
@@ -37,6 +38,21 @@
     /* overflow: auto; */
 }
 
+@media only screen and (max-height: 370px) {
+    .containerModal {
+        flex-direction: row;
+        max-width: 80%;
+    }
+
+    .mañana, .tarde {
+        width: 40%;
+    }
+
+    .tarde {
+        margin-top: 0px;
+        margin-left: 30px;
+    }
+}
 .title {
     background-color: white;
     border-radius: 8px;

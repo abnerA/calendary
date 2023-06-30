@@ -2,6 +2,8 @@ import style from "./HeaderModal.module.css";
 import { useDispatch } from "react-redux";
 import { handleClick } from "../../App/features/IniciarSesion";
 
+// NOTA: Se debe agregar el nombre el archivo de firebase.js de la carpeta firebase
+
 const name = [
   "Abner Estévez",
   "Alba Estévez",
