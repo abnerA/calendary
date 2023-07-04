@@ -83,46 +83,37 @@
     color: black;
     width: 70px;
     height: 25px;
-    border: none;
+    border: solid 2px white;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
     padding: 2px;
+    transition: all 700ms ease;
 }
 
 .btnAdd:hover {
     background-color: var(--bg-days);
     border: solid 2px white;
     color: white;
-    transition: all 900ms ease;
-
-}
-
-.btnAdd:focus {
-    background-color: white;
 }
 
 .btnDelete {
     background-color: #f44336;
     width: 70px;
     font-size: 12px;
-    border: none;
+    border: solid 2px #f44336;
     color: black;
     font-weight: bold;
     border-radius: 8px;
     margin-right: 10px;
     cursor: pointer;
     padding: 2px;
+    transition: all 700ms ease;
 }
 
 .btnDelete:hover {
     background-color: white;
     border: solid 2px #f44336;
-    transition: all 500ms ease;
-}
-
-.btnDelete:focus {
-    background-color: #f44336;
 }
 
 .close {
