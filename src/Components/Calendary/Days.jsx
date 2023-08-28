@@ -72,10 +72,9 @@ function Days(props) {
     // Me devuelve el día de la semana
     let dayWeek = daySelectDate.getDay();
     dispatch(diaWeek(dayWeek));
-
     // En este primer if comprobamos si el usuario ya inicio sesión
     if (start.estado) {
-      if ((props.mesActual === props.month) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+      if ((props.mesActual === props.month) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1) && (getDia >= props.today)) {
         dispatch(openModal([getDia, props.month]));
 
       } else if (props.numMes + 1 === props.nextMes && props.today >= 25 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
@@ -90,6 +89,8 @@ function Days(props) {
 
       } else if (props.numMes - 1 === props.nextMes) {
         console.log("Ya este mes paso");
+      } else if ((getDia < props.today) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+        console.log("Ya este día paso");
       } else {
         console.log("no es día de predicación pública");
       }
