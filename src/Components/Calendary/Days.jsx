@@ -89,8 +89,10 @@ function Days(props) {
 
       } else if (props.numMes - 1 === props.nextMes) {
         console.log("Ya este mes paso");
+
       } else if ((getDia < props.today) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
         console.log("Ya este día paso");
+        
       } else {
         console.log("no es día de predicación pública");
       }
