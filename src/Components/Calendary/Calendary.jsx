@@ -81,7 +81,6 @@ class Calendary extends React.Component {
             <img src="img/left.svg" alt="left" className={style.btnIcon} />
           </button>
 
-
           <h4 className={style.titleMonth}>
             {this.state.month} {this.state.año}
           </h4>

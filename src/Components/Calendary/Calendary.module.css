@@ -18,9 +18,9 @@
 }
 
 .titleMonth {
-    width: 120px;
+    width: 150px;
     margin: 0px 5px;
-    font-size: 16px;
+    font-size: 18px;
     color: var(--title-color);
     font-style: italic;
     font-weight: 800;
