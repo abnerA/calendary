@@ -14,7 +14,6 @@ const name = [
   "Deyanira Gil",
   "Ana De Los S",
   "Magalys Pérez",
-  "Violeta García",
   "Andrés García",
   "Bartola Calcaño",
   "Rosa Gutiérrez",

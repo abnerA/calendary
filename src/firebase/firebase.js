@@ -74,7 +74,7 @@ export function addparticipation(userId, name, month) {
 
 // export function addName(userId, name, month) {
 //   const db = getDatabase();
-//   const reference = ref(db, "Julio/" + userId);
+//   const reference = ref(db, "Septiembre/" + userId);
 
 //   set(reference, {
 //     name: name,
@@ -82,9 +82,7 @@ export function addparticipation(userId, name, month) {
 // }
 
 // Cancelación de turnos
-// addName("day25", ["Magalys Pérez", "Violeta García", "Alba Estévez", "Turno cancelado", "Turno cancelado", "Turno cancelado", "rgb(103, 103, 209)", "rgb(103, 103, 209)", "rgb(103, 103, 209)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
-// addName("day31", ["", "", "", "Visita del Sup.", "Visita del Sup.", "Visita del Sup.", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
-
+// addName("day4", ["Turno cancelado", "Turno cancelado", "Turno cancelado", "Turno cancelado", "Turno cancelado", "Turno cancelado", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
 
 // addName("day1", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day2", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
