@@ -43,8 +43,10 @@ export function addparticipation(userId, name, month) {
   });
 }
 
-// addparticipation("Blanco", [""], "Marzo/")
+// addparticipation("Blanco", [""], "Octubre/")
 
+
+// addparticipation("Juan Carlos M", ["", "", "", "", ""], "Febrero/")
 // addparticipation("Abner Estévez", ["", "", "", "", ""], "Junio/")
 // addparticipation("Alba Estévez", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Luis Capellán", ["", "", "", "", ""], "Marzo/")
@@ -54,7 +56,6 @@ export function addparticipation(userId, name, month) {
 // addparticipation("Deyanira Gil", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Ana De Los S", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Magalys Pérez", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Violeta García", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Andrés García", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Bartola Calcaño", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Rosa Gutiérrez", ["", "", "", "", ""], "Marzo/")
@@ -71,10 +72,9 @@ export function addparticipation(userId, name, month) {
 // addparticipation("María Gil", ["", "", "", "", ""], "Diciembre/")
 
 
-
 // export function addName(userId, name, month) {
 //   const db = getDatabase();
-//   const reference = ref(db, "Septiembre/" + userId);
+//   const reference = ref(db, "Noviembre/" + userId);
 
 //   set(reference, {
 //     name: name,
@@ -82,7 +82,7 @@ export function addparticipation(userId, name, month) {
 // }
 
 // Cancelación de turnos
-// addName("day4", ["Turno cancelado", "Turno cancelado", "Turno cancelado", "Turno cancelado", "Turno cancelado", "Turno cancelado", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
+// addName("day2", ["", "", "", "Visita del Sup.", "Visita del Sup.", "Visita del Sup.", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
 
 // addName("day1", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day2", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);

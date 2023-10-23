@@ -7,6 +7,7 @@ import {
 } from "../../App/features/IniciarSesion";
 import HeaderModal from "../Modal/HeaderModal";
 
+
 export function Header() {
   const [buttonStyle, setButtonStyle] = useState(false);
   const start = useSelector((state) => state.inicio);

@@ -28,6 +28,7 @@ const name = [
   "Ruth Pérez",
   "Belkys Mateo",
   "María Gil",
+  "Juan Carlos M"
 ];
 
 const normal = {
