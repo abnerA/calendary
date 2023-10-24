@@ -47,6 +47,12 @@ h5 {
   margin-bottom: 1px;
 }
 
+h6 {
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 1px;
+}
+
 .container .day .mañana .circle,
 .container .day .tarde .circle {
   border-radius: 50%;
@@ -78,6 +84,10 @@ h5 {
 
   .container .day .name,
   .container .day h5 {
+    display: none;
+  }
+  .container .day .name, /*Eleminar este bloque de codigo*/
+  .container .day h6 {
     display: none;
   }
 }

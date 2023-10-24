@@ -183,8 +183,20 @@ class Day extends React.Component {
         <div title="2" onClick={this.props.handle} className={style.day}>
           <h2 title="2" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 2 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>2</h2>
 
-          <div title="2" className={style.mañana}>
+          <div title="2" className={this.props.monthCurrent === 'Noviembre' ? style.dayNone : style.mañana}>
             <h5 title="2" className={this.dayAvailable(2)}>Mañana</h5>
+
+            <div title="2" style={{backgroundColor: this.state.day2[6], display: this.circleAvalaible(2)}} className={style.circle}></div>
+            <div title="2" style={{backgroundColor: this.state.day2[7], display: this.circleAvalaible(2)}} className={style.circle}></div>
+            <div title="2" style={{backgroundColor: this.state.day2[8], display: this.circleAvalaible(2)}} className={style.circle}></div>
+
+            <p className={style.name} title="2">{this.state.day2[0]}</p>
+            <p className={style.name} title="2">{this.state.day2[1]}</p>
+            <p className={style.name} title="2">{this.state.day2[2]}</p>
+          </div>
+
+          <div title="2" className={this.props.monthCurrent === 'Noviembre' ? style.mañana : style.dayNone}>
+            <h5 title="2" className={this.dayAvailable(2)}>7:00 a 9:00 AM</h5>
 
             <div title="2" style={{backgroundColor: this.state.day2[6], display: this.circleAvalaible(2)}} className={style.circle}></div>
             <div title="2" style={{backgroundColor: this.state.day2[7], display: this.circleAvalaible(2)}} className={style.circle}></div>
@@ -197,8 +209,20 @@ class Day extends React.Component {
 
           <hr title="2" className={this.dayAvailable(2) + " " + style.sepador} />
 
-          <div title="2" className={style.tarde}>
+          <div title="2" className={this.props.monthCurrent === 'Noviembre' ? style.dayNone : style.tarde}>
             <h5 title="2" className={this.dayAvailable(2)}>Tarde</h5>
+
+            <div title="2" style={{backgroundColor: this.state.day2[9], display: this.circleAvalaible(2)}} className={style.circle}></div>
+            <div title="2" style={{backgroundColor: this.state.day2[10], display: this.circleAvalaible(2)}} className={style.circle}></div>
+            <div title="2" style={{backgroundColor: this.state.day2[11], display: this.circleAvalaible(2)}} className={style.circle}></div>
+
+            <p className={style.name} title="2">{this.state.day2[3]}</p>
+            <p className={style.name} title="2">{this.state.day2[4]}</p>
+            <p className={style.name} title="2">{this.state.day2[5]}</p>
+          </div>
+
+          <div title="2" className={this.props.monthCurrent === 'Noviembre' ? style.tarde : style.dayNone}>
+            <h5 title="2" className={this.dayAvailable(2)}>9:00 a 11:00 AM</h5>
 
             <div title="2" style={{backgroundColor: this.state.day2[9], display: this.circleAvalaible(2)}} className={style.circle}></div>
             <div title="2" style={{backgroundColor: this.state.day2[10], display: this.circleAvalaible(2)}} className={style.circle}></div>

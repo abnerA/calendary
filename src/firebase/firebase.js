@@ -47,7 +47,7 @@ export function addparticipation(userId, name, month) {
 
 
 // addparticipation("Juan Carlos M", ["", "", "", "", ""], "Febrero/")
-// addparticipation("Abner Estévez", ["", "", "", "", ""], "Junio/")
+// addparticipation("Abner Estévez", ["", "", "", "", ""], "Noviembre/")
 // addparticipation("Alba Estévez", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Luis Capellán", ["", "", "", "", ""], "Marzo/")
 // addparticipation("Susana Capellán", ["", "", "", "", ""], "Marzo/")
@@ -82,7 +82,7 @@ export function addparticipation(userId, name, month) {
 // }
 
 // Cancelación de turnos
-// addName("day2", ["", "", "", "Visita del Sup.", "Visita del Sup.", "Visita del Sup.", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(221, 50, 50)", "rgb(221, 50, 50)", "rgb(221, 50, 50)"]);
+// addName("day2", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 
 // addName("day1", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
 // addName("day2", ["", "", "", "", "", "", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)", "rgb(35, 182, 35)"]);
