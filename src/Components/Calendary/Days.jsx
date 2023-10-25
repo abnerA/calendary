@@ -74,7 +74,7 @@ function Days(props) {
     dispatch(diaWeek(dayWeek));
     // En este primer if comprobamos si el usuario ya inicio sesión
     if (start.estado) {
-      if ((props.mesActual === props.month) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1) && (getDia >= props.today)) {
+      if (true) {
         dispatch(openModal([getDia, props.month]));
 
       } else if (props.numMes + 1 === props.nextMes && props.today >= 25 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
