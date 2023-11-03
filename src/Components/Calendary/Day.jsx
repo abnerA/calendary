@@ -119,7 +119,7 @@ class Day extends React.Component {
     let mes = month(this.props.monthCurrent);
     let daySelectDate = new Date(`${mes} ${value} ${this.props.year}`);
     let dayWeek = daySelectDate.getDay();
-    if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 ) {
+    if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6) {
       return style.dayActive;
     } else {
       return style.dayNone;
@@ -132,13 +132,13 @@ class Day extends React.Component {
     let daySelectDate = new Date(`${mes} ${value} ${this.props.year}`);
     let dayWeek = daySelectDate.getDay();
     if (mq === false) {
-      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4) {
+      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6) {
         return 'none';
       } else {
         return 'none';
       }
     } else if (mq === true) {
-      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4) {
+      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6) {
         return 'block';
       } else {
         return 'none';
