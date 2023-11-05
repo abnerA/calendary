@@ -32,7 +32,8 @@ const initialState = {
     diaSelect: 1,
     month: meses,
     diaModal: 0,
-    monthCambiante: 'Abril'
+    monthCambiante: 'Abril',
+    sabado: null
 };
 
 export const iniciarSesion = createSlice({
@@ -70,9 +71,12 @@ export const iniciarSesion = createSlice({
         },
         cambioMonth: (state, action) => {
             state.monthCambiante = action.payload;
+        },
+        finDeSamana: (state, action) => {
+            state.sabado = action.payload;
         }
     }
 });
 
-export const { startSection, closeSection, handleClick, modal, openModal, diaWeek, cambioMonth } = iniciarSesion.actions;
+export const { startSection, closeSection, handleClick, modal, openModal, diaWeek, cambioMonth, finDeSamana } = iniciarSesion.actions;
 export default iniciarSesion.reducer;

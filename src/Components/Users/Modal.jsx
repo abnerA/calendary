@@ -218,8 +218,11 @@ function Modal() {
       </span>
       <div className={style.containerModal}>
         <div className={style.mañana}>
-          <h5 className={style.title} style={{display: start.monthCambiante === 'Noviembre' && start.diaSelect === 2 ? 'none' : 'block'}}>Mañana | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
+          <h5 className={style.title} style={{display: start.monthCambiante === 'Noviembre' && (start.diaSelect === 2 || start.sabado === 'sab') ? 'none' : 'block'}}>Mañana | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
           <h5 className={style.title} style={{display: start.monthCambiante === 'Noviembre' && start.diaSelect === 2 ? 'block' : 'none'}}>¡Turno especial! | 7:00 a 9:00 AM</h5>
+          <h5 className={style.title} style={{display: start.sabado === 'sab' ? 'block' : 'none'}}>9:00 a 11:00 AM en la Cordillera | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
+
+          
           <div className={style.containerName}>
             <p className={style.nombres}>{!name ? "..." : name.name[0]}</p>
             <p className={style.nombres}>{!name ? "..." : name.name[1]}</p>
@@ -230,7 +233,7 @@ function Modal() {
             <button className={style.btnAdd} onClick={addName1}>Anotarme</button>
           </div>
         </div>
-        <div className={style.tarde}>
+        <div className={style.tarde} style={{display: start.sabado === 'sab' ? 'none' : 'block'}}>
           <h5 className={style.title} style={{display: start.monthCambiante === 'Noviembre' && start.diaSelect === 2 ? 'none' : 'block'}}>Tarde | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
           <h5 className={style.title} style={{display: start.monthCambiante === 'Noviembre' && start.diaSelect === 2 ? 'block' : 'none'}}>¡Turno especial! | 9:00 a 11:00 AM</h5>
 

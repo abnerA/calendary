@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Day from "./Day";
-import { diaWeek, openModal, cambioMonth } from "../../App/features/IniciarSesion";
+import { diaWeek, openModal, cambioMonth, finDeSamana } from "../../App/features/IniciarSesion";
 import { month } from "./Day";
 
 function Days(props) {
@@ -71,17 +71,22 @@ function Days(props) {
 
     // Me devuelve el día de la semana
     let dayWeek = daySelectDate.getDay();
+    if (dayWeek === 6) {
+      dispatch(finDeSamana('sab'))
+    } else {
+      dispatch(finDeSamana(null))
+    }
     dispatch(diaWeek(dayWeek));
     // En este primer if comprobamos si el usuario ya inicio sesión
     if (start.estado) {
-      if ((props.mesActual === props.month) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1) && (getDia >= props.today)) {
+      if ((props.mesActual === props.month) && (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6) && (getDia >= props.today)) {
         dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today >= 25 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+      } else if (props.numMes + 1 === props.nextMes && props.today >= 25 && (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6)) {
         console.log("Ya te puedes anotar :)");
         dispatch(openModal([getDia, props.month]));
 
-      } else if (props.numMes + 1 === props.nextMes && props.today <= 24 && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+      } else if (props.numMes + 1 === props.nextMes && props.today <= 24 && (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6)) {
         console.log('Todavía no te puedes anotar en este mes');
 
       } else if (props.nextMes > props.numMes + 1) {
@@ -90,7 +95,7 @@ function Days(props) {
       } else if (props.numMes - 1 === props.nextMes) {
         console.log("Ya este mes paso");
 
-      } else if ((getDia < props.today) && (dayWeek === 2 || dayWeek === 4 || dayWeek === 1)) {
+      } else if ((getDia < props.today) && (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6)) {
         console.log("Ya este día paso");
         
       } else {

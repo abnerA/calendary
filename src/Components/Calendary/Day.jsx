@@ -121,6 +121,10 @@ class Day extends React.Component {
     let dayWeek = daySelectDate.getDay();
     if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4) {
       return style.dayActive;
+    } else if (dayWeek === 6) {
+      return {
+        sab: false,
+      }
     } else {
       return style.dayNone;
     }
@@ -132,13 +136,13 @@ class Day extends React.Component {
     let daySelectDate = new Date(`${mes} ${value} ${this.props.year}`);
     let dayWeek = daySelectDate.getDay();
     if (mq === false) {
-      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4) {
+      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6) {
         return 'none';
       } else {
         return 'none';
       }
     } else if (mq === true) {
-      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4) {
+      if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6) {
         return 'block';
       } else {
         return 'none';
@@ -165,9 +169,10 @@ class Day extends React.Component {
             <p className={style.name} title="1">{this.state.day1[2]}</p>
           </div>
 
-          <hr title="1" className={this.dayAvailable(1) + " " + style.sepador} />
+          <hr title="1" className={this.dayAvailable(1) + " " + style.sepador}
+          style={{display: this.dayAvailable(1).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="1" className={style.tarde}>
+          <div title="1" className={style.tarde} style={{display: this.dayAvailable(1).sab === false ? 'none' : style.dayNone}}>
             <h5 title="1" className={this.dayAvailable(1)} >Tarde</h5>
 
             <div title="1" style={{backgroundColor: this.state.day1[9], display: this.circleAvalaible(1)}} className={style.circle}></div>
@@ -207,9 +212,11 @@ class Day extends React.Component {
             <p className={style.name} title="2">{this.state.day2[2]}</p>
           </div>
 
-          <hr title="2" className={this.dayAvailable(2) + " " + style.sepador} />
+          <hr title="2" className={this.dayAvailable(2) + " " + style.sepador}
+          style={{display: this.dayAvailable(2).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="2" className={this.props.monthCurrent === 'Noviembre' ? style.dayNone : style.tarde}>
+          <div title="2" className={this.props.monthCurrent === 'Noviembre' ? style.dayNone : style.tarde}
+          style={{display: this.dayAvailable(2).sab === false ? 'none' : style.dayNone}}>
             <h5 title="2" className={this.dayAvailable(2)}>Tarde</h5>
 
             <div title="2" style={{backgroundColor: this.state.day2[9], display: this.circleAvalaible(2)}} className={style.circle}></div>
@@ -249,9 +256,10 @@ class Day extends React.Component {
             <p className={style.name} title="3">{this.state.day3[2]}</p>
           </div>
 
-          <hr title="3" className={this.dayAvailable(3) + " " + style.sepador} />
+          <hr title="3" className={this.dayAvailable(3) + " " + style.sepador}
+          style={{display: this.dayAvailable(3).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="3" className={style.tarde}>
+          <div title="3" className={style.tarde} style={{display: this.dayAvailable(3).sab === false ? 'none' : style.dayNone}}>
             <h5 title="3" className={this.dayAvailable(3)}>Tarde</h5>
 
             <div title="3" style={{backgroundColor: this.state.day3[9], display: this.circleAvalaible(3)}} className={style.circle}></div>
@@ -279,9 +287,10 @@ class Day extends React.Component {
             <p className={style.name} title="4">{this.state.day4[2]}</p>
           </div>
 
-          <hr title="4" className={this.dayAvailable(4) + " " + style.sepador} />
+          <hr title="4" className={this.dayAvailable(4) + " " + style.sepador}
+          style={{display: this.dayAvailable(4).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="4" className={style.tarde}>
+          <div title="4" className={style.tarde} style={{display: this.dayAvailable(4).sab === false ? 'none' : style.dayNone}}>
             <h5 title="4" className={this.dayAvailable(4)}>Tarde</h5>
 
             <div title="4" style={{backgroundColor: this.state.day4[9], display: this.circleAvalaible(4)}} className={style.circle}></div>
@@ -309,9 +318,10 @@ class Day extends React.Component {
             <p className={style.name} title="5">{this.state.day5[2]}</p>
           </div>
 
-          <hr title="5" className={this.dayAvailable(5) + " " + style.sepador} />
+          <hr title="5" className={this.dayAvailable(5) + " " + style.sepador}
+          style={{display: this.dayAvailable(5).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="5" className={style.tarde}>
+          <div title="5" className={style.tarde} style={{display: this.dayAvailable(5).sab === false ? 'none' : style.dayNone}}>
             <h5 title="5" className={this.dayAvailable(5)}>Tarde</h5>
 
             <div title="5" style={{backgroundColor: this.state.day5[9], display: this.circleAvalaible(5)}} className={style.circle}></div>
@@ -339,9 +349,10 @@ class Day extends React.Component {
             <p className={style.name} title="6">{this.state.day6[2]}</p>
           </div>
 
-          <hr title="6" className={this.dayAvailable(6) + " " + style.sepador} />
+          <hr title="6" className={this.dayAvailable(6) + " " + style.sepador}
+          style={{display: this.dayAvailable(6).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="6" className={style.tarde}>
+          <div title="6" className={style.tarde} style={{display: this.dayAvailable(6).sab === false ? 'none' : style.dayNone}}>
             <h5 title="6" className={this.dayAvailable(6)}>Tarde</h5>
 
             <div title="6" style={{backgroundColor: this.state.day6[9], display: this.circleAvalaible(6)}} className={style.circle}></div>
@@ -369,9 +380,10 @@ class Day extends React.Component {
             <p className={style.name} title="7">{this.state.day7[2]}</p>
           </div>
 
-          <hr title="7" className={this.dayAvailable(7) + " " + style.sepador} />
+          <hr title="7" className={this.dayAvailable(7) + " " + style.sepador}
+          style={{display: this.dayAvailable(7).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="7" className={style.tarde}>
+          <div title="7" className={style.tarde} style={{display: this.dayAvailable(7).sab === false ? 'none' : style.dayNone}}>
             <h5 title="7" className={this.dayAvailable(7)}>Tarde</h5>
 
             <div title="7" style={{backgroundColor: this.state.day7[9], display: this.circleAvalaible(7)}} className={style.circle}></div>
@@ -399,9 +411,10 @@ class Day extends React.Component {
             <p className={style.name} title="8">{this.state.day8[2]}</p>
           </div>
 
-          <hr title="8" className={this.dayAvailable(8) + " " + style.sepador} />
+          <hr title="8" className={this.dayAvailable(8) + " " + style.sepador}
+          style={{display: this.dayAvailable(8).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="8" className={style.tarde}>
+          <div title="8" className={style.tarde} style={{display: this.dayAvailable(8).sab === false ? 'none' : style.dayNone}}>
             <h5 title="8" className={this.dayAvailable(8)}>Tarde</h5>
 
             <div title="8" style={{backgroundColor: this.state.day8[9], display: this.circleAvalaible(8)}} className={style.circle}></div>
@@ -429,9 +442,10 @@ class Day extends React.Component {
             <p className={style.name} title="9">{this.state.day9[2]}</p>
           </div>
 
-          <hr title="9" className={this.dayAvailable(9) + " " + style.sepador} />
+          <hr title="9" className={this.dayAvailable(9) + " " + style.sepador}
+          style={{display: this.dayAvailable(9).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="9" className={style.tarde}>
+          <div title="9" className={style.tarde} style={{display: this.dayAvailable(9).sab === false ? 'none' : style.dayNone}}>
             <h5 title="9" className={this.dayAvailable(9)} >Tarde</h5>
 
             <div title="9" style={{backgroundColor: this.state.day9[9], display: this.circleAvalaible(9)}} className={style.circle}></div>
@@ -459,9 +473,10 @@ class Day extends React.Component {
             <p className={style.name} title="10">{this.state.day10[2]}</p>
           </div>
 
-          <hr title="10" className={this.dayAvailable(10) + " " + style.sepador} />
+          <hr title="10" className={this.dayAvailable(10) + " " + style.sepador}
+          style={{display: this.dayAvailable(10).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="10" className={style.tarde}>
+          <div title="10" className={style.tarde} style={{display: this.dayAvailable(10).sab === false ? 'none' : style.dayNone}}>
             <h5 title="10" className={this.dayAvailable(10)} >Tarde</h5>
 
             <div title="10" style={{backgroundColor: this.state.day10[9], display: this.circleAvalaible(10)}} className={style.circle}></div>
@@ -489,9 +504,10 @@ class Day extends React.Component {
             <p className={style.name} title="11">{this.state.day11[2]}</p>
           </div>
 
-          <hr title="11" className={this.dayAvailable(11) + " " + style.sepador} />
+          <hr title="11" className={this.dayAvailable(11) + " " + style.sepador} 
+          style={{display: this.dayAvailable(11).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="11" className={style.tarde}>
+          <div title="11" className={style.tarde} style={{display: this.dayAvailable(11).sab === false ? 'none' : style.dayNone}}>
             <h5 title="11" className={this.dayAvailable(11)}>Tarde</h5>
 
             <div title="11" style={{backgroundColor: this.state.day11[9], display: this.circleAvalaible(11)}} className={style.circle}></div>
@@ -519,9 +535,10 @@ class Day extends React.Component {
             <p className={style.name} title="12">{this.state.day12[2]}</p>
           </div>
 
-          <hr title="12" className={this.dayAvailable(12) + " " + style.sepador} />
+          <hr title="12" className={this.dayAvailable(12) + " " + style.sepador}
+          style={{display: this.dayAvailable(12).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="12" className={style.tarde}>
+          <div title="12" className={style.tarde} style={{display: this.dayAvailable(12).sab === false ? 'none' : style.dayNone}}>
             <h5 title="12" className={this.dayAvailable(12)}>Tarde</h5>
 
             <div title="12" style={{backgroundColor: this.state.day12[9], display: this.circleAvalaible(12)}} className={style.circle}></div>
@@ -549,9 +566,10 @@ class Day extends React.Component {
             <p className={style.name} title="13">{this.state.day13[2]}</p>
           </div>
 
-          <hr title="13" className={this.dayAvailable(13)  + " " + style.sepador} />
+          <hr title="13" className={this.dayAvailable(13)  + " " + style.sepador}
+          style={{display: this.dayAvailable(13).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="13" className={style.tarde}>
+          <div title="13" className={style.tarde} style={{display: this.dayAvailable(13).sab === false ? 'none' : style.dayNone}}>
             <h5 title="13" className={this.dayAvailable(13)}>Tarde</h5>
 
             <div title="13" style={{backgroundColor: this.state.day13[9], display: this.circleAvalaible(13)}} className={style.circle}></div>
@@ -579,9 +597,10 @@ class Day extends React.Component {
             <p className={style.name} title="14">{this.state.day14[2]}</p>
           </div>
 
-          <hr title="14" className={this.dayAvailable(14) + " " + style.sepador} />
+          <hr title="14" className={this.dayAvailable(14) + " " + style.sepador}
+          style={{display: this.dayAvailable(14).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="14" className={style.tarde}>
+          <div title="14" className={style.tarde} style={{display: this.dayAvailable(14).sab === false ? 'none' : style.dayNone}}>
             <h5 title="14" className={this.dayAvailable(14)}>Tarde</h5>
 
             <div title="14" style={{backgroundColor: this.state.day14[9], display: this.circleAvalaible(14)}} className={style.circle}></div>
@@ -609,9 +628,10 @@ class Day extends React.Component {
             <p className={style.name} title="15">{this.state.day15[2]}</p>
           </div>
 
-          <hr title="15" className={this.dayAvailable(15) + " " + style.sepador} />
+          <hr title="15" className={this.dayAvailable(15) + " " + style.sepador}
+          style={{display: this.dayAvailable(15).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="15" className={style.tarde}>
+          <div title="15" className={style.tarde} style={{display: this.dayAvailable(15).sab === false ? 'none' : style.dayNone}}>
             <h5 title="15" className={this.dayAvailable(15)}>Tarde</h5>
 
             <div title="15" style={{backgroundColor: this.state.day15[9], display: this.circleAvalaible(15)}} className={style.circle}></div>
@@ -639,9 +659,10 @@ class Day extends React.Component {
             <p className={style.name} title="16">{this.state.day16[2]}</p>
           </div>
 
-          <hr title="16" className={this.dayAvailable(16) + " " + style.sepador} />
+          <hr title="16" className={this.dayAvailable(16) + " " + style.sepador}
+          style={{display: this.dayAvailable(16).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="16" className={style.tarde}>
+          <div title="16" className={style.tarde} style={{display: this.dayAvailable(16).sab === false ? 'none' : style.dayNone}}>
             <h5 title="16" className={this.dayAvailable(16)}>Tarde</h5>
 
             <div title="16" style={{backgroundColor: this.state.day16[9], display: this.circleAvalaible(16)}} className={style.circle}></div>
@@ -670,9 +691,10 @@ class Day extends React.Component {
 
           </div>
 
-          <hr title="17" className={this.dayAvailable(17) + " " + style.sepador} />
+          <hr title="17" className={this.dayAvailable(17) + " " + style.sepador}
+          style={{display: this.dayAvailable(17).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="17" className={style.tarde}>
+          <div title="17" className={style.tarde} style={{display: this.dayAvailable(17).sab === false ? 'none' : style.dayNone}}>
             <h5 title="17" className={this.dayAvailable(17)} >Tarde</h5>
 
             <div title="17" style={{backgroundColor: this.state.day17[9], display: this.circleAvalaible(17)}} className={style.circle}></div>
@@ -701,10 +723,11 @@ class Day extends React.Component {
             <p className={style.name} title="18">{this.state.day18[2]}</p>
           </div>
 
-          <hr title="18" className={this.dayAvailable(18) + " " + style.sepador} />
+          <hr title="18" className={this.dayAvailable(18) + " " + style.sepador}
+          style={{display: this.dayAvailable(18).sab === false ? 'none' : style.dayNone}} />
 
 
-          <div title="18" className={style.tarde}>
+          <div title="18" className={style.tarde} style={{display: this.dayAvailable(18).sab === false ? 'none' : style.dayNone}}>
             <h5 title="18" className={this.dayAvailable(18)}>Tarde</h5>
 
             <div title="18" style={{backgroundColor: this.state.day18[9], display: this.circleAvalaible(18)}} className={style.circle}></div>
@@ -732,9 +755,10 @@ class Day extends React.Component {
             <p className={style.name} title="19">{this.state.day19[2]}</p>
           </div>
 
-          <hr title="19" className={this.dayAvailable(19) + " " + style.sepador} />
+          <hr title="19" className={this.dayAvailable(19) + " " + style.sepador}
+          style={{display: this.dayAvailable(19).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="19" className={style.tarde}>
+          <div title="19" className={style.tarde} style={{display: this.dayAvailable(19).sab === false ? 'none' : style.dayNone}}>
             <h5 title="19" className={this.dayAvailable(19)}>Tarde</h5>
 
             <div title="19" style={{backgroundColor: this.state.day19[9], display: this.circleAvalaible(19)}} className={style.circle}></div>
@@ -762,9 +786,10 @@ class Day extends React.Component {
             <p className={style.name} title="20">{this.state.day20[2]}</p>
           </div>
 
-          <hr title="20" className={this.dayAvailable(20) + " " + style.sepador} />
+          <hr title="20" className={this.dayAvailable(20) + " " + style.sepador}
+          style={{display: this.dayAvailable(20).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="20" className={style.tarde}>
+          <div title="20" className={style.tarde} style={{display: this.dayAvailable(20).sab === false ? 'none' : style.dayNone}}>
             <h5 title="20" className={this.dayAvailable(20)} >Tarde</h5>
 
             <div title="20" style={{backgroundColor: this.state.day20[9], display: this.circleAvalaible(20)}} className={style.circle}></div>
@@ -792,9 +817,10 @@ class Day extends React.Component {
             <p className={style.name} title="21">{this.state.day21[2]}</p>
           </div>
 
-          <hr title="21" className={this.dayAvailable(21) + " " + style.sepador} />
+          <hr title="21" className={this.dayAvailable(21) + " " + style.sepador}
+          style={{display: this.dayAvailable(21).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="21" className={style.tarde}>
+          <div title="21" className={style.tarde} style={{display: this.dayAvailable(21).sab === false ? 'none' : style.dayNone}}>
             <h5 title="21" className={this.dayAvailable(21)}>Tarde</h5>
 
             <div title="21" style={{backgroundColor: this.state.day21[9], display: this.circleAvalaible(21)}} className={style.circle}></div>
@@ -822,9 +848,10 @@ class Day extends React.Component {
             <p className={style.name} title="22">{this.state.day22[2]}</p>
           </div>
 
-          <hr title="22" className={this.dayAvailable(22) + " " + style.sepador} />
+          <hr title="22" className={this.dayAvailable(22) + " " + style.sepador}
+          style={{display: this.dayAvailable(22).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="22" className={style.tarde}>
+          <div title="22" className={style.tarde} style={{display: this.dayAvailable(22).sab === false ? 'none' : style.dayNone}}>
             <h5 title="22" className={this.dayAvailable(22)}>Tarde</h5>
 
             <div title="22" style={{backgroundColor: this.state.day22[9], display: this.circleAvalaible(22)}} className={style.circle}></div>
@@ -852,9 +879,10 @@ class Day extends React.Component {
             <p className={style.name} title="23">{this.state.day23[2]}</p>
           </div>
 
-          <hr title="23" className={this.dayAvailable(23) + " " + style.sepador} />
+          <hr title="23" className={this.dayAvailable(23) + " " + style.sepador}
+          style={{display: this.dayAvailable(23).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="23" className={style.tarde}>
+          <div title="23" className={style.tarde} style={{display: this.dayAvailable(23).sab === false ? 'none' : style.dayNone}}>
             <h5 title="23" className={this.dayAvailable(23)}>Tarde</h5>
 
             <div title="23" style={{backgroundColor: this.state.day23[9], display: this.circleAvalaible(23)}} className={style.circle}></div>
@@ -882,9 +910,10 @@ class Day extends React.Component {
             <p className={style.name} title="24">{this.state.day24[2]}</p>
           </div>
 
-          <hr title="24" className={this.dayAvailable(24) + " " + style.sepador} />
+          <hr title="24" className={this.dayAvailable(24) + " " + style.sepador}
+          style={{display: this.dayAvailable(24).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="24" className={style.tarde}>
+          <div title="24" className={style.tarde} style={{display: this.dayAvailable(24).sab === false ? 'none' : style.dayNone}}>
             <h5 title="24" className={this.dayAvailable(24)}>Tarde</h5>
 
             <div title="24" style={{backgroundColor: this.state.day24[9], display: this.circleAvalaible(24)}} className={style.circle}></div>
@@ -912,9 +941,10 @@ class Day extends React.Component {
             <p className={style.name} title="25">{this.state.day25[2]}</p>
           </div>
 
-          <hr title="25" className={this.dayAvailable(25) + " " + style.sepador} />
+          <hr title="25" className={this.dayAvailable(25) + " " + style.sepador}
+          style={{display: this.dayAvailable(25).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="25" className={style.tarde}>
+          <div title="25" className={style.tarde} style={{display: this.dayAvailable(25).sab === false ? 'none' : style.dayNone}}>
             <h5 title="25" className={this.dayAvailable(25)}>Tarde</h5>
 
             <div title="25" style={{backgroundColor: this.state.day25[9], display: this.circleAvalaible(25)}} className={style.circle}></div>
@@ -941,9 +971,10 @@ class Day extends React.Component {
             <p className={style.name} title="26">{this.state.day26[2]}</p>
           </div>
 
-          <hr title="26" className={this.dayAvailable(26) + " " + style.sepador} />
+          <hr title="26" className={this.dayAvailable(26) + " " + style.sepador}
+          style={{display: this.dayAvailable(26).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="26" className={style.tarde}>
+          <div title="26" className={style.tarde} style={{display: this.dayAvailable(26).sab === false ? 'none' : style.dayNone}}>
             <h5 title="26" className={this.dayAvailable(26)}>Tarde</h5>
 
             <div title="26" style={{backgroundColor: this.state.day26[9], display: this.circleAvalaible(26)}} className={style.circle}></div>
@@ -971,9 +1002,10 @@ class Day extends React.Component {
             <p className={style.name} title="27">{this.state.day27[2]}</p>
           </div>
 
-          <hr title="27" className={this.dayAvailable(27) + " " + style.sepador} />
+          <hr title="27" className={this.dayAvailable(27) + " " + style.sepador}
+          style={{display: this.dayAvailable(27).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="27" className={style.tarde}>
+          <div title="27" className={style.tarde} style={{display: this.dayAvailable(27).sab === false ? 'none' : style.dayNone}}>
             <h5 title="27" className={this.dayAvailable(27)}>Tarde</h5>
 
             <div title="27" style={{backgroundColor: this.state.day27[9], display: this.circleAvalaible(27)}} className={style.circle}></div>
@@ -1001,9 +1033,10 @@ class Day extends React.Component {
             <p className={style.name} title="28">{this.state.day28[2]}</p>
           </div>
 
-          <hr title="28" className={this.dayAvailable(28) + " " + style.sepador} />
+          <hr title="28" className={this.dayAvailable(28) + " " + style.sepador}
+          style={{display: this.dayAvailable(28).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="28" className={style.tarde}>
+          <div title="28" className={style.tarde} style={{display: this.dayAvailable(28).sab === false ? 'none' : style.dayNone}}>
             <h5 title="28" className={this.dayAvailable(28)}>Tarde</h5>
 
             <div title="28" style={{backgroundColor: this.state.day28[9], display: this.circleAvalaible(28)}} className={style.circle}></div>
@@ -1031,9 +1064,10 @@ class Day extends React.Component {
             <p className={style.name} title="29">{this.state.day29[2]}</p>
           </div>
 
-          <hr title="29" className={this.dayAvailable(29) + " " + style.sepador} />
+          <hr title="29" className={this.dayAvailable(29) + " " + style.sepador}
+          style={{display: this.dayAvailable(29).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="29" className={style.tarde}>
+          <div title="29" className={style.tarde} style={{display: this.dayAvailable(29).sab === false ? 'none' : style.dayNone}}>
             <h5 title="29" className={this.dayAvailable(29)}>Tarde</h5>
 
             <div title="29" style={{backgroundColor: this.state.day29[9], display: this.circleAvalaible(29)}} className={style.circle}></div>
@@ -1061,9 +1095,10 @@ class Day extends React.Component {
             <p className={style.name} title="30">{this.state.day30[2]}</p>
           </div>
 
-          <hr title="30" className={this.dayAvailable(30)  + " " + style.sepador} />
+          <hr title="30" className={this.dayAvailable(30)  + " " + style.sepador}
+          style={{display: this.dayAvailable(30).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="30" className={style.tarde}>
+          <div title="30" className={style.tarde} style={{display: this.dayAvailable(30).sab === false ? 'none' : style.dayNone}}>
             <h5 title="30" className={this.dayAvailable(30)}>Tarde</h5>
 
             <div title="30" style={{backgroundColor: this.state.day30[9], display: this.circleAvalaible(30)}} className={style.circle}></div>
@@ -1091,9 +1126,10 @@ class Day extends React.Component {
             <p className={style.name} title="31">{this.state.day31[2]}</p>
           </div>
 
-          <hr title="31" className={this.dayAvailable(31) + " " + style.sepador} />
+          <hr title="31" className={this.dayAvailable(31) + " " + style.sepador}
+          style={{display: this.dayAvailable(31).sab === false ? 'none' : style.dayNone}} />
 
-          <div title="31" className={style.tarde}>
+          <div title="31" className={style.tarde} style={{display: this.dayAvailable(31).sab === false ? 'none' : style.dayNone}}>
             <h5 title="31" className={this.dayAvailable(31)}>Tarde</h5>
 
             <div title="31" style={{backgroundColor: this.state.day31[9], display: this.circleAvalaible(31)}} className={style.circle}></div>

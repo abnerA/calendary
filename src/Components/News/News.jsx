@@ -5,8 +5,8 @@ function News() {
   return (
     <div className={style.container}>
       <h3 className={style.title}>
-        Turno especial |
-        <span className={style.text}> Jueves 2 de noviembre será en el cementerio</span>
+        ¡Nuevo lugar! |
+        <span className={style.text}> Ahora estaremos todos los sábados en la Cordillera</span>
       </h3>
     </div>
   );
