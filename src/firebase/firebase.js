@@ -43,41 +43,38 @@ export function addparticipation(userId, name, month) {
   });
 }
 
-// addparticipation("Blanco", [""], "Octubre/")
-
-
-// addparticipation("Juan Carlos M", ["", "", "", "", ""], "Febrero/")
-// addparticipation("Stephanie P", ["", "", "", "", ""], "Diciembre/")
-// addparticipation("Samuel Pérez", ["", "", "", "", ""], "Diciembre/")
-
-// addparticipation("Abner Estévez", ["", "", "", "", ""], "Noviembre/")
-// addparticipation("Alba Estévez", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Luis Capellán", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Susana Capellán", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Rosa Domínguez", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Emely García", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Deyanira Gil", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Ana De Los S", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Magalys Pérez", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Andrés García", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Bartola Calcaño", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Rosa Gutiérrez", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Mabel Pérez", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Marina Ozuna", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Kenia Torres", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Nahúm Lithgow", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Davel Lithgow", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Ashanty Santana", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Guillermina Mesa", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Yirelis Mesa", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Ruth Pérez", ["", "", "", "", ""], "Marzo/")
-// addparticipation("Belkys Mateo", ["", "", "", "", ""], "Noviembre/")
-// addparticipation("María Gil", ["", "", "", "", ""], "Diciembre/")
+// addparticipation("Blanco", [""], "Agosto/")
+// addparticipation("Juan Carlos M", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Stephanie P", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Samuel Pérez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Abner Estévez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Alba Estévez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Luis Capellán", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Susana Capellán", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Rosa Domínguez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Emely García", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Deyanira Gil", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Ana De Los S", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Magalys Pérez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Andrés García", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Bartola Calcaño", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Rosa Gutiérrez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Mabel Pérez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Marina Ozuna", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Kenia Torres", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Nahúm Lithgow", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Davel Lithgow", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Ashanty Santana", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Guillermina Mesa", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Yirelis Mesa", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Ruth Pérez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Belkys Mateo", ["", "", "", "", ""], "Agosto/")
+// addparticipation("María Gil", ["", "", "", "", ""], "Agosto/")
 
 
 // export function addName(userId, name, month) {
 //   const db = getDatabase();
-//   const reference = ref(db, "Noviembre/" + userId);
+//   const reference = ref(db, "Agosto/" + userId);
 
 //   set(reference, {
 //     name: name,

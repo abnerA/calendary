@@ -90,7 +90,7 @@ function Days(props) {
       } else if (((props.numMes + 1 === props.nextMes) || (props.numMes === 11 && props.nextMes === 0)) && (props.today >= 25) && 
         (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6)) {
         console.log("Ya te puedes anotar :)");
-        dispatch(openModal([getDia, props.month]));
+        // dispatch(openModal([getDia, props.month]));
 
       } else if (props.numMes + 1 === props.nextMes && props.today <= 24 && (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6)) {
         console.log('Todavía no te puedes anotar en este mes');
