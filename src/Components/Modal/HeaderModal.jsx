@@ -28,7 +28,6 @@ const name = [
   "Ruth Pérez",
   "Belkys Mateo",
   "María Gil",
-  "Juan Carlos M",
   "Stephanie P",
   "Samuel Pérez"
 ];
