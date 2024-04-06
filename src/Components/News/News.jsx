@@ -5,8 +5,8 @@ function News() {
   return (
     <div className={style.container}>
       <h3 className={style.title}>
-        ¡Nuevo lugar! |
-        <span className={style.text}> Ahora estaremos todos los sábados en la Cordillera</span>
+        ¡IMPORTANTE! |
+        <span className={style.text}>Ofrezca cursos bíblicos siempre que sea posible</span>
       </h3>
     </div>
   );
