@@ -17,7 +17,7 @@ const name = [
   "Andrés García",
   "Bartola Calcaño",
   "Rosa Gutiérrez",
-  "Mabel Pérez",
+  "Mabel Vargas",
   "Marina Ozuna",
   "Kenia Torres",
   "Nahúm Lithgow",

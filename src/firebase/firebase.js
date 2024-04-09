@@ -70,6 +70,23 @@ export function addparticipation(userId, name, month) {
 // addparticipation("Belkys Mateo", ["", "", "", "", ""], "Agosto/")
 // addparticipation("María Gil", ["", "", "", "", ""], "Agosto/")
 
+function anadir() {
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Enero/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Febrero/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Marzo/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Abril/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Mayo/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Junio/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Julio/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Agosto/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Septiembre/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Octubre/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Noviembre/")
+  addparticipation("Mabel Vargas", ["", "", "", "", ""], "Diciembre/")
+}
+
+// anadir()
+
 
 // export function addName(userId, name, month) {
 //   const db = getDatabase();
