@@ -217,7 +217,8 @@ class Day extends React.Component {
           </div>
 
           <hr title="2" className={this.dayAvailable(2) + " " + style.sepador}
-          style={{display: this.dayAvailable(2).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}} />
+          style={{display: this.dayAvailable(2).sab === false && this.props.monthCurrent === 'Mayo' ? 'none' : style.dayNone}} />
+
 
           <div title="2" className={this.props.monthCurrent === 'Noviembre' ? style.dayNone : style.tarde}
           style={{display: this.dayAvailable(2).sab === false ? 'none' : style.dayNone}}>
@@ -372,7 +373,7 @@ class Day extends React.Component {
         <div title="7" onClick={this.props.handle} className={style.day}>
           <h2 title="7" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 7 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>7</h2>
 
-          <div title="7" className={style.mañana} style={{visibility: this.dayAvailable(7).mar === false && this.props.monthCurrent === 'Diciembre' ? 'hidden' : style.dayNone}}>
+          <div title="7" className={style.mañana} style={{visibility: this.dayAvailable(7).mar === false && this.props.monthCurrent === 'Mayo' ? 'hidden' : style.dayNone}}>
             <h5 title="7" className={this.dayAvailable(7)} >Mañana</h5>
 
             <div title="7" style={{backgroundColor: this.state.day7[6], display: this.circleAvalaible(7)}} className={style.circle}></div>
@@ -449,7 +450,7 @@ class Day extends React.Component {
           <hr title="9" className={this.dayAvailable(9) + " " + style.sepador}
           style={{display: this.dayAvailable(9).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}} />
 
-          <div title="9" className={style.tarde} style={{display: this.dayAvailable(9).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}}>
+          <div title="9" className={style.tarde} style={{display: this.dayAvailable(9).sab === false && this.props.monthCurrent === 'Mayo' ? 'none' : style.dayNone}}>
             <h5 title="9" className={this.dayAvailable(9)} >Tarde</h5>
 
             <div title="9" style={{backgroundColor: this.state.day9[9], display: this.circleAvalaible(9)}} className={style.circle}></div>
@@ -589,7 +590,7 @@ class Day extends React.Component {
         <div title="14" onClick={this.props.handle} className={style.day}>
           <h2 title="14" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 14 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>14</h2>
 
-          <div title="14" className={style.mañana} style={{visibility: this.dayAvailable(14).mar === false && this.props.monthCurrent === 'Diciembre' ? 'hidden' : style.dayNone}}>
+          <div title="14" className={style.mañana} style={{visibility: this.dayAvailable(14).mar === false && this.props.monthCurrent === 'Mayo' ? 'hidden' : style.dayNone}}>
             <h5 title="14" className={this.dayAvailable(14)}>Mañana</h5>
 
             <div title="14" style={{backgroundColor: this.state.day14[6], display: this.circleAvalaible(14)}} className={style.circle}></div>
@@ -666,7 +667,7 @@ class Day extends React.Component {
           <hr title="16" className={this.dayAvailable(16) + " " + style.sepador}
           style={{display: this.dayAvailable(16).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}} />
 
-          <div title="16" className={style.tarde} style={{display: this.dayAvailable(16).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}}>
+          <div title="16" className={style.tarde} style={{display: this.dayAvailable(16).sab === false && this.props.monthCurrent === 'Mayo' ? 'none' : style.dayNone}}>
             <h5 title="16" className={this.dayAvailable(16)}>Tarde</h5>
 
             <div title="16" style={{backgroundColor: this.state.day16[9], display: this.circleAvalaible(16)}} className={style.circle}></div>
@@ -809,7 +810,7 @@ class Day extends React.Component {
         <div title="21" onClick={this.props.handle} className={style.day}>
           <h2 title="21" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 21 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>21</h2>
 
-          <div title="21" className={style.mañana} style={{visibility: this.dayAvailable(21).mar === false && this.props.monthCurrent === 'Diciembre' ? 'hidden' : style.dayNone}}>
+          <div title="21" className={style.mañana} style={{visibility: this.dayAvailable(21).mar === false && this.props.monthCurrent === 'Mayo' ? 'hidden' : style.dayNone}}>
             <h5 title="21" className={this.dayAvailable(21)}>Mañana</h5>
 
             <div title="21" style={{backgroundColor: this.state.day21[6], display: this.circleAvalaible(21)}} className={style.circle}></div>
@@ -886,7 +887,7 @@ class Day extends React.Component {
           <hr title="23" className={this.dayAvailable(23) + " " + style.sepador}
           style={{display: this.dayAvailable(23).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}} />
 
-          <div title="23" className={style.tarde} style={{display: this.dayAvailable(23).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}}>
+          <div title="23" className={style.tarde} style={{display: this.dayAvailable(23).sab === false && this.props.monthCurrent === 'Mayo' ? 'none' : style.dayNone}}>
             <h5 title="23" className={this.dayAvailable(23)}>Tarde</h5>
 
             <div title="23" style={{backgroundColor: this.state.day23[9], display: this.circleAvalaible(23)}} className={style.circle}></div>
@@ -1025,7 +1026,7 @@ class Day extends React.Component {
         <div title="28" onClick={this.props.handle} className={style.day}>
           <h2 title="28" className={this.props.monthCurrent === this.props.mesActual && this.props.today === 28 && this.props.year == this.props.yearCurrent ? style.today : 'none'}>28</h2>
 
-          <div title="28" className={style.mañana} style={{visibility: this.dayAvailable(28).mar === false && this.props.monthCurrent === 'Diciembre' ? 'hidden' : style.dayNone}}>
+          <div title="28" className={style.mañana} style={{visibility: this.dayAvailable(28).mar === false && this.props.monthCurrent === 'Mayo' ? 'hidden' : style.dayNone}}>
             <h5 title="28" className={this.dayAvailable(28)}>Mañana</h5>
 
             <div title="28" style={{backgroundColor: this.state.day28[6], display: this.circleAvalaible(28)}} className={style.circle}></div>
@@ -1102,7 +1103,7 @@ class Day extends React.Component {
           <hr title="30" className={this.dayAvailable(30)  + " " + style.sepador}
           style={{display: this.dayAvailable(30).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}} />
 
-          <div title="30" className={style.tarde} style={{display: this.dayAvailable(30).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}}>
+          <div title="30" className={style.tarde} style={{display: this.dayAvailable(30).sab === false && this.props.monthCurrent === 'Mayo' ? 'none' : style.dayNone}}>
             <h5 title="30" className={this.dayAvailable(30)}>Tarde</h5>
 
             <div title="30" style={{backgroundColor: this.state.day30[9], display: this.circleAvalaible(30)}} className={style.circle}></div>

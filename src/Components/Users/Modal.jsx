@@ -219,7 +219,7 @@ function Modal() {
         <div className={style.mañana} style={{display: start.sabado === 'mar' ? 'none' : 'block'}}>
           <h5 className={style.title} 
           style={{display: start.diaSelect === 2 || start.sabado === 'sab' ? 'none' : 'block'}}>Mañana | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
-          <h5 className={style.title} style={{display: start.monthCambiante === 'Noviembre' && start.diaSelect === 2 ? 'block' : 'none'}}>¡Turno especial! | 7:00 a 9:00 AM</h5>
+          <h5 className={style.title} style={{display: start.monthCambiante === 'Mayo' && start.diaSelect === 2 ? 'block' : 'none'}}>Mañana | 7:00 a 9:00 AM</h5>
           <h5 className={style.title} style={{display: start.sabado === 'sab' ? 'block' : 'none'}}>8:00 a 11:00 AM en la Cordillera | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
 
           
