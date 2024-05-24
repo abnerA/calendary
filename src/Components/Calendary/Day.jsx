@@ -119,9 +119,9 @@ class Day extends React.Component {
     let mes = month(this.props.monthCurrent);
     let daySelectDate = new Date(`${mes} ${value} ${this.props.year}`);
     let dayWeek = daySelectDate.getDay();
-    if (dayWeek === 1) {
+    if (dayWeek === 1 || dayWeek === 4) {
       return style.dayActive;
-    } else if (dayWeek === 4 || dayWeek === 6) {
+    } else if (dayWeek === 6) {
       return {
         sab: false,
       }
@@ -1103,7 +1103,7 @@ class Day extends React.Component {
           <hr title="30" className={this.dayAvailable(30)  + " " + style.sepador}
           style={{display: this.dayAvailable(30).sab === false && this.props.monthCurrent === 'Diciembre' ? 'none' : style.dayNone}} />
 
-          <div title="30" className={style.tarde} style={{display: this.dayAvailable(30).sab === false && this.props.monthCurrent === 'Mayo' ? 'none' : style.dayNone}}>
+          <div title="30" className={style.tarde} style={{display: this.dayAvailable(30).sab === false ? 'none' : style.dayNone}}>
             <h5 title="30" className={this.dayAvailable(30)}>Tarde</h5>
 
             <div title="30" style={{backgroundColor: this.state.day30[9], display: this.circleAvalaible(30)}} className={style.circle}></div>

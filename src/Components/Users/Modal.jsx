@@ -233,7 +233,7 @@ function Modal() {
             <button className={style.btnAdd} onClick={addName1}>Anotarme</button>
           </div>
         </div>
-        <div className={style.tarde} style={{display: (start.sabado === 'sab' || start.sabado === 'jue') ? 'none' : 'block'}}>
+        <div className={style.tarde} style={{display: start.sabado === 'sab' ? 'none' : 'block'}}>
           <h5 className={style.title} style={{display: start.monthCambiante === 'Noviembre' && start.diaSelect === 2 ? 'none' : 'block'}}>Tarde | {`${dias[start.diaModal]} ${start.diaClick} ${start.month}`}</h5>
           <h5 className={style.title} style={{display: start.monthCambiante === 'Noviembre' && start.diaSelect === 2 ? 'block' : 'none'}}>¡Turno especial! | 9:00 a 11:00 AM</h5>
 

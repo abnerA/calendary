@@ -70,20 +70,20 @@ export function addparticipation(userId, name, month) {
 // addparticipation("Belkys Mateo", ["", "", "", "", ""], "Agosto/")
 // addparticipation("María Gil", ["", "", "", "", ""], "Agosto/")
 
-function anadir(name) {
-  addparticipation(name, ["", "", "", "", ""], "Enero/")
-  addparticipation(name, ["", "", "", "", ""], "Febrero/")
-  addparticipation(name, ["", "", "", "", ""], "Marzo/")
-  addparticipation(name, ["", "", "", "", ""], "Abril/")
-  addparticipation(name, ["", "", "", "", ""], "Mayo/")
-  addparticipation(name, ["", "", "", "", ""], "Junio/")
-  addparticipation(name, ["", "", "", "", ""], "Julio/")
-  addparticipation(name, ["", "", "", "", ""], "Agosto/")
-  addparticipation(name, ["", "", "", "", ""], "Septiembre/")
-  addparticipation(name, ["", "", "", "", ""], "Octubre/")
-  addparticipation(name, ["", "", "", "", ""], "Noviembre/")
-  addparticipation(name, ["", "", "", "", ""], "Diciembre/")
-}
+// function anadir(name) {
+//   addparticipation(name, ["", "", "", "", ""], "Enero/")
+//   addparticipation(name, ["", "", "", "", ""], "Febrero/")
+//   addparticipation(name, ["", "", "", "", ""], "Marzo/")
+//   addparticipation(name, ["", "", "", "", ""], "Abril/")
+//   addparticipation(name, ["", "", "", "", ""], "Mayo/")
+//   addparticipation(name, ["", "", "", "", ""], "Junio/")
+//   addparticipation(name, ["", "", "", "", ""], "Julio/")
+//   addparticipation(name, ["", "", "", "", ""], "Agosto/")
+//   addparticipation(name, ["", "", "", "", ""], "Septiembre/")
+//   addparticipation(name, ["", "", "", "", ""], "Octubre/")
+//   addparticipation(name, ["", "", "", "", ""], "Noviembre/")
+//   addparticipation(name, ["", "", "", "", ""], "Diciembre/")
+// }
 
 // anadir("Andrés Campusano")
 

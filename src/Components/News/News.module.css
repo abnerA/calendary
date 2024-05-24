@@ -25,10 +25,11 @@
 
 .title {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .text {
     font-style: italic;
     font-weight: normal;
+    font-size: 14px;
 }

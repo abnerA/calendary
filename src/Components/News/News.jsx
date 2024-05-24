@@ -5,8 +5,8 @@ function News() {
   return (
     <div className={style.container}>
       <h3 className={style.title}>
-        ¡IMPORTANTE! |
-        <span className={style.text}>Ofrezca cursos bíblicos siempre que sea posible</span>
+        ¡ANUNCIO! |
+        <span className={style.text}> Ahora puedes participar los <strong>jueves</strong> en la tarde 👏</span>
       </h3>
     </div>
   );
