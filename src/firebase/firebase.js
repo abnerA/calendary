@@ -66,9 +66,6 @@ export function addparticipation(userId, name, month) {
 // addparticipation("Ruth Pérez", ["", "", "", "", ""], "Septiembre/")
 // addparticipation("Belkys Mateo", ["", "", "", "", ""], "Septiembre/")
 // addparticipation("María Gil", ["", "", "", "", ""], "Septiembre/")
-// addparticipation("Luis Capellán", ["", "", "", "", ""], "Septiembre/")
-// addparticipation("Susana Capellán", ["", "", "", "", ""], "Septiembre/")
-// addparticipation("Kenia Torres", ["", "", "", "", ""], "Septiembre/")
 // addparticipation("Andrés Campusano", ["", "", "", "", ""], "Septiembre/")
 // addparticipation("Gabriela Ramírez", ["", "", "", "", ""], "Septiembre/")
 
@@ -93,7 +90,7 @@ export function addparticipation(userId, name, month) {
 
 // export function addName(userId, name, month) {
 //   const db = getDatabase();
-//   const reference = ref(db, "Diciembre/" + userId);
+//   const reference = ref(db, "Noviembre/" + userId);
 
 //   set(reference, {
 //     name: name,
