@@ -7,7 +7,7 @@ import { handleClick } from "../../App/features/IniciarSesion";
 const name = [
   "Abner Estévez",
   "Alba Estévez",
-  "Rosa Domínguez",
+  "Rosa Martínez",
   "Emely García",
   "Deyanira Gil",
   "Ana De Los S",
